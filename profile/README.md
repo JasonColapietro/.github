@@ -6,7 +6,7 @@
 
 I've spent two decades chasing guitar tone and ended up building IP infrastructure for the AI era. The signal chain — pickups, cables, amp, speaker — is where I started. The royalty chain — creation proof, rights metadata, on-chain registration, royalty routing — is where that thinking led.
 
-I founded [Suede Labs AI](https://suedeai.ai) to give musicians and creators a technical ownership layer: cryptographic proof of authorship, programmable licensing, and payment rails built on Base and USDC. Along the way I wrote four books. The last one puts a full music IP rights chapter inside a guitar theory memoir, because those two subjects have always belonged together.
+I founded [Suede Labs AI](https://suedeai.ai) to give musicians and creators a technical ownership layer: cryptographic proof of authorship, programmable licensing, and payment rails built on Base and USDC. Along the way I wrote five books. The last one puts a full music IP rights chapter inside a guitar theory memoir, because those two subjects have always belonged together.
 
 ---
 
@@ -20,6 +20,9 @@ Memoir-driven instruction for the self-taught player: modes, voice leading, 13 a
 
 **[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
 The thesis document for programmable IP infrastructure in the AI media era.
+
+**[Proof as Infrastructure](https://www.amazon.com/dp/B0GMB2VLXQ)** — Kindle  
+How to build systems that hold up when nobody trusts anybody: proof baked in, not bolted on. The blueprint under the registry.
 
 **[Stake Your Claim](https://www.amazon.com/dp/B0GRG8LGQQ)** — Kindle  
 Hard truths about turning the AI era into a real asset for creators.
