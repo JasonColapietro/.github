@@ -2,13 +2,13 @@
 
 **Founder & CEO, Suede Labs AI · 5x published author · guitarist**
 
-[![Commits](https://img.shields.io/badge/commits-12%2C000%2B-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-29%20PRs%20%2F%2025%20projects-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
-[![Open-source skills](https://img.shields.io/badge/open--source%20skills-74-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
+[![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-45%20PRs%20%2F%2041%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Patent](https://img.shields.io/badge/USPTO-63%2F947%2C120%20pending-0A66C2?style=for-the-badge)](https://suedeai.ai)
 
 <p align="left">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=JasonColapietro&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=github_dark&custom_title=Jason%20Colapietro%20%E2%80%94%2012k%2B%20commits" alt="GitHub stats: 12,000+ commits" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=JasonColapietro&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=github_dark&custom_title=Jason%20Colapietro%20%E2%80%94%2012%2C280%20contributions" alt="GitHub stats" />
   <img height="165" src="https://streak-stats.demolab.com?user=JasonColapietro&hide_border=true&theme=github-dark" alt="Contribution streak" />
 </p>
 
@@ -60,21 +60,34 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 | [backcheck](https://github.com/VectorInstitute/backcheck/pull/12) | Vector Institute — validation fix |
 | [Ledger_c](https://github.com/Din-es/Ledger_c/pull/11) | C ledger work, 6 files |
 
-Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v7 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
+Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v6 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** ~29 merged contributions across 25 third-party projects, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream.
+**Totals:** 45 merged pull requests across 41 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream.
 
 ---
 
 ## Skill catalogs & awesome lists
 
-My open-source skills and agent tooling — 74 skills published — are listed in these community catalogs, each accepted by merged PR:
+[Suede Creator Skills](https://skills.suedeai.ai) — 76 open-source agent skills for Claude Code and Codex — has been reviewed and merged into fourteen independent catalogs I don't maintain. Every link is the merged pull request.
 
-| Catalog | What's listed | PR |
-|---|---|---|
-| [**awesome-claude-code**](https://github.com/ichangyou/awesome-claude-code) | Claude Code skills and workflows | [merged](https://github.com/ichangyou/awesome-claude-code) |
-| [**awesome-agent-skills**](https://github.com/VoltAgent/awesome-agent-skills) *(VoltAgent)* | Agent skill packs | [merged](https://github.com/VoltAgent/awesome-agent-skills) |
-| [**awesome-x402**](https://github.com/xpaysh/awesome-x402) | x402 micropayment tooling | [merged](https://github.com/xpaysh/awesome-x402) |
+| Catalog | Merged |
+|---|---|
+| [gmh5225/awesome-skills](https://github.com/gmh5225/awesome-skills) | [#49](https://github.com/gmh5225/awesome-skills/pull/49) |
+| [karanb192/awesome-claude-skills](https://github.com/karanb192/awesome-claude-skills) | [#180](https://github.com/karanb192/awesome-claude-skills/pull/180) |
+| [GetBindu/awesome-claude-code-and-skills](https://github.com/GetBindu/awesome-claude-code-and-skills) | [#138](https://github.com/GetBindu/awesome-claude-code-and-skills/pull/138) |
+| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | [#833](https://github.com/VoltAgent/awesome-agent-skills/pull/833) |
+| [github/awesome-copilot](https://github.com/github/awesome-copilot) *(GitHub's own list)* | [#2562](https://github.com/github/awesome-copilot/pull/2562) |
+| [junminhong/awesome-agent-skills](https://github.com/junminhong/awesome-agent-skills) | [#29](https://github.com/junminhong/awesome-agent-skills/pull/29) |
+| [ccplugins/awesome-claude-code-plugins](https://github.com/ccplugins/awesome-claude-code-plugins) | [#273](https://github.com/ccplugins/awesome-claude-code-plugins/pull/273) |
+| [zients/awesome-agent-harness](https://github.com/zients/awesome-agent-harness) | [#7](https://github.com/zients/awesome-agent-harness/pull/7) |
+| [0xNyk/awesome-agent-cortex](https://github.com/0xNyk/awesome-agent-cortex) | [#57](https://github.com/0xNyk/awesome-agent-cortex/pull/57) |
+| [JackyST0/awesome-agent-skills](https://github.com/JackyST0/awesome-agent-skills) | [#71](https://github.com/JackyST0/awesome-agent-skills/pull/71) |
+| [hashgraph-online/awesome-ai-plugins](https://github.com/hashgraph-online/awesome-ai-plugins) | [#148](https://github.com/hashgraph-online/awesome-ai-plugins/pull/148) |
+| [yzfly/awesome-skills-zh](https://github.com/yzfly/awesome-skills-zh) | [#14](https://github.com/yzfly/awesome-skills-zh/pull/14) |
+| [ichangyou/awesome-codex](https://github.com/ichangyou/awesome-codex) | [#2](https://github.com/ichangyou/awesome-codex/pull/2) |
+| [ichangyou/awesome-claude-code](https://github.com/ichangyou/awesome-claude-code) | [#9](https://github.com/ichangyou/awesome-claude-code/pull/9) |
+
+Suede Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com/xpaysh/awesome-x402/pull/518), and `@suedeai/plugin-suede` in the [elizaOS plugin registry](https://github.com/elizaOS/eliza/pull/19210).
 
 ---
 
