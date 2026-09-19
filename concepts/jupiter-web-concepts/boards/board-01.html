@@ -1,0 +1,213 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Board 01 · Food & Coffee</title>
+<meta name="viewport" content="width=1080">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Sora:wght@400..800&family=Nunito:wght@400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Barlow+Condensed:wght@500;600;700&family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Anton&family=Plus+Jakarta+Sans:wght@400..800&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Manrope:wght@400..800&family=Outfit:wght@400..800&display=swap">
+<style>body{margin:0;background:#E4E4E1;display:flex;justify-content:center;padding:24px 0}
+/* ---------- board shell ---------- */
+.board{position:relative;width:1080px;height:1350px;overflow:hidden;background:#F1F1EE;color:#121212;font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.board *{box-sizing:border-box}
+.board a{color:inherit;text-decoration:none}
+.board p{margin:0}
+.grid{position:absolute;left:0;top:0;width:1080px;height:1350px;background-image:linear-gradient(rgba(18,18,18,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(18,18,18,.045) 1px,transparent 1px);background-size:48px 48px;background-position:0 0}
+.hd{position:absolute;left:48px;right:48px;top:40px;display:flex;justify-content:space-between;align-items:baseline;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:#121212}
+.hd b{font-weight:700}
+.hd .n{color:#7A7A75}
+.rule{position:absolute;left:48px;right:48px;top:70px;height:1px;background:#CBCBC6}
+.cat{position:absolute;left:48px;right:48px;top:84px;display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#6B6B66;font-weight:600}
+.frames{position:absolute;left:48px;top:114px;display:flex;flex-direction:column;gap:18px}
+.frame{width:984px;height:368px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(18,18,18,.09),0 2px 4px rgba(18,18,18,.05),0 22px 44px -20px rgba(18,18,18,.28);display:flex;flex-direction:column;position:relative}
+.ft{position:absolute;left:48px;right:48px;top:1292px;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7A7A75;font-weight:500}
+.ft .mid{color:#5A5A56}
+
+/* ---------- browser chrome ---------- */
+.chrome{height:24px;flex:none;display:flex;align-items:center;padding:0 12px;gap:5px;font-size:9px;color:#8A8A85;background:#F7F7F4;border-bottom:1px solid rgba(18,18,18,.07);position:relative}
+.chrome.dark{background:#1B1B1D;border-bottom-color:rgba(255,255,255,.08);color:#8E8E93}
+.dot{width:7px;height:7px;border-radius:50%;background:#D8D8D3}
+.chrome.dark .dot{background:#3B3B40}
+.url{position:absolute;left:50%;top:4px;transform:translateX(-50%);height:16px;padding:0 10px;border-radius:5px;background:rgba(18,18,18,.05);display:flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.01em;min-width:210px;justify-content:center;color:#6B6B66}
+.chrome.dark .url{background:rgba(255,255,255,.08);color:#A3A3A8}
+.url svg{opacity:.7}
+.tag{margin-left:auto;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+
+/* ---------- site ---------- */
+.site{flex:1;position:relative;display:flex;flex-direction:column;min-height:0}
+.nav{height:46px;flex:none;display:flex;align-items:center;padding:0 32px;gap:26px;font-size:11.5px;font-weight:500;position:relative;z-index:2}
+.nav .links{display:flex;gap:22px;margin-left:auto}
+.nav .links a{opacity:.9}
+.navbtn{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 13px;border-radius:7px;font-size:11px;font-weight:600;white-space:nowrap}
+.hero{flex:1;position:relative;display:flex;min-height:0}
+.copy{position:relative;z-index:1;width:470px;padding:24px 0 0 32px;display:flex;flex-direction:column;flex:none}
+.eyebrow{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:8px}
+.eyebrow i{display:inline-block;width:18px;height:1.5px;background:currentColor;opacity:.7}
+.board h1{margin:9px 0 0;font-weight:500;line-height:.96;letter-spacing:-.02em}
+.sub{margin:13px 0 0;font-size:13px;line-height:1.5;max-width:330px}
+.cta{margin-top:17px;display:flex;align-items:center;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;height:33px;padding:0 15px;border-radius:7px;font-size:11.5px;font-weight:600;letter-spacing:.005em;white-space:nowrap}
+.link{font-size:11.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chips{margin-top:auto;padding-bottom:18px;display:flex;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:500;letter-spacing:.02em;height:22px;padding:0 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+.chip svg{flex:none}
+.photo{position:absolute;right:0;top:0;bottom:0;width:484px;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.fade{position:absolute;left:0;top:0;bottom:0;width:120px}
+.card{position:absolute;display:flex;align-items:center;gap:10px;border-radius:10px;padding:9px 12px 9px 9px;font-size:10px;line-height:1.3}
+.card b{display:block;font-size:11.5px;font-weight:700;letter-spacing:-.005em}
+.card .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{position:absolute;display:flex;align-items:center;gap:8px;border-radius:999px;padding:7px 12px 7px 9px;font-size:10.5px;font-weight:600;white-space:nowrap}
+.live{width:7px;height:7px;border-radius:50%;flex:none}
+
+
+/* 01 Guanabanas */
+.f-guan .site{background:#0D3A2C;color:#F4EFE4}
+.f-guan .logo{font-weight:700;letter-spacing:.22em;font-size:13px}
+.f-guan .links a{color:rgba(244,239,228,.82)}
+.f-guan .navbtn{border:1px solid rgba(244,239,228,.35);color:#F4EFE4;border-radius:999px}
+.f-guan .eyebrow{color:#F0A868}
+.f-guan h1{font-family:'Fraunces',serif;font-size:58px;font-weight:500;font-variation-settings:'opsz' 144;letter-spacing:-.015em;line-height:.98}
+.f-guan .sub{color:rgba(244,239,228,.72)}
+.f-guan .btn{background:#F4EFE4;color:#0D3A2C}
+.f-guan .link{color:#F0A868}
+.f-guan .chip{border-color:rgba(244,239,228,.22);color:rgba(244,239,228,.82)}
+.f-guan .fade{background:linear-gradient(90deg,#0D3A2C 0%,rgba(13,58,44,0) 100%)}
+.f-guan .pill{left:26px;bottom:20px;background:rgba(9,28,22,.72);border:1px solid rgba(255,255,255,.14);color:#F4EFE4}
+.f-guan .live{background:#F0A868;box-shadow:0 0 0 3px rgba(240,168,104,.28)}
+/* 02 Crux */
+.f-crux .site{background:#1A100B;color:#F3E9DE}
+.f-crux .logo{font-family:'Sora',sans-serif;font-weight:800;font-size:17px;letter-spacing:.16em;line-height:1}
+.f-crux .logo small{display:block;font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:7px;letter-spacing:.26em;margin-top:4px;color:rgba(243,233,222,.6)}
+.f-crux .links a{color:rgba(243,233,222,.82)}
+.f-crux .navbtn{background:rgba(243,233,222,.08);border:1px solid rgba(243,233,222,.22);color:#F3E9DE}
+.f-crux .eyebrow{color:#D9925A}
+.f-crux h1{font-family:'Sora',sans-serif;font-weight:700;font-size:48px;letter-spacing:-.035em;line-height:1.02}
+.f-crux .sub{color:rgba(243,233,222,.7)}
+.f-crux .btn{background:#D9925A;color:#1A100B}
+.f-crux .btn.ghost{background:transparent;color:#F3E9DE;box-shadow:inset 0 0 0 1px rgba(243,233,222,.3)}
+.f-crux .chip{border-color:rgba(243,233,222,.2);color:rgba(243,233,222,.8)}
+.f-crux .fade{background:linear-gradient(90deg,#1A100B 0%,rgba(26,16,11,0) 100%)}
+.f-crux .card{left:24px;bottom:20px;background:#F3E9DE;color:#1A100B;width:232px;box-shadow:0 12px 30px -10px rgba(0,0,0,.6)}
+.f-crux .card .ic{background:#1A100B;color:#D9925A}
+.f-crux .card small{display:block;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6A50;font-weight:600;margin-bottom:2px}
+.f-crux .card span{color:#6E5A4A}
+/* 03 Jupiter Donuts */
+.f-donut .site{background:#0A47BE;color:#fff}
+.f-donut .logo{font-family:'Nunito',sans-serif;font-weight:900;font-size:13.5px;line-height:.92;color:#F5D543;letter-spacing:.02em}
+.f-donut .links a{color:rgba(255,255,255,.9);font-weight:600}
+.f-donut .navbtn{background:#F5D543;color:#0A2C7A;border-radius:999px;font-weight:700}
+.f-donut .eyebrow{color:#F5D543}
+.f-donut h1{font-family:'Nunito',sans-serif;font-weight:900;font-size:50px;letter-spacing:-.02em;line-height:1}
+.f-donut .sub{color:rgba(255,255,255,.78)}
+.f-donut .btn{background:#F5D543;color:#0A2C7A;border-radius:999px;font-weight:700}
+.f-donut .btn.ghost{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.f-donut .chip{border-color:rgba(255,255,255,.28);color:rgba(255,255,255,.9)}
+.f-donut .disc{position:absolute;right:56px;top:9px;width:280px;height:280px;border-radius:50%;overflow:hidden;background:#F5D543}
+.f-donut .disc img{width:100%;height:100%;object-fit:cover;display:block}
+.f-donut .ring{position:absolute;right:38px;top:-9px;width:316px;height:316px;border-radius:50%;border:1.5px solid rgba(245,213,67,.45)}
+.f-donut .dotA{position:absolute;right:358px;bottom:34px;width:34px;height:34px;border-radius:50%;background:#F5D543}
+.f-donut .dotB{position:absolute;right:-26px;bottom:-40px;width:130px;height:130px;border-radius:50%;background:#63B6FF;opacity:.42}
+.f-donut .dotC{position:absolute;right:20px;top:-52px;width:88px;height:88px;border-radius:50%;background:#63B6FF;opacity:.4}
+.f-donut .pill{right:44px;bottom:18px;background:#fff;color:#0A2C7A}
+.f-donut .live{background:#2FBF71}
+</style></head><body>
+<div class="board">
+  <div class="grid"></div>
+  <div class="hd"><span><b>Jupiter</b> / Web Concepts</span><span><b>01</b> <span class="n">/ 04</span></span></div>
+  <div class="rule"></div>
+  <div class="cat"><span>Food &amp; Coffee</span><span>Concepts 01 – 03</span></div>
+
+  <div class="frames">
+
+    <!-- 01 GUANABANAS -->
+    <div class="frame f-guan">
+      <div class="chrome dark"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url"><svg width="8" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> guanabanas.com</div>
+        <span class="tag">01 · Waterfront restaurant</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">GUANABANAS</a>
+          <div class="links"><a href="#menu">Menu</a><a href="#music">Music</a><a href="#events">Events</a><a href="#visit">Visit</a></div>
+          <a class="navbtn" href="#reserve">Reserve a table</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Waterfront dining · Jupiter, FL</div>
+            <h1>Where Jupiter<br>unwinds.</h1>
+            <p class="sub">Island cocktails, fresh seafood and live music on the water, seven days a week.</p>
+            <div class="cta"><a class="btn" href="#menu">Explore the menu</a><a class="link" href="#music">Tonight’s music <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div>
+            <div class="chips"><span class="chip">Open daily</span><span class="chip">Live music</span><span class="chip">Tiki bar</span><span class="chip">Dock &amp; dine</span></div>
+          </div>
+          <div class="photo">
+            <img src="../assets/guanabanas.jpg" alt="Sunset over the waterfront deck">
+            <div class="fade"></div>
+            <div class="pill"><span class="live"></span>Live on the deck tonight</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 CRUX -->
+    <div class="frame f-crux">
+      <div class="chrome dark"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url"><svg width="8" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> cruxcoffee.com</div>
+        <span class="tag">02 · Specialty coffee</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">CRUX<small>COFFEE ROASTERS</small></a>
+          <div class="links"><a href="#coffee">Coffee</a><a href="#subscriptions">Subscriptions</a><a href="#story">Our Story</a><a href="#visit">Visit</a></div>
+          <a class="navbtn" href="#cart"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l1 13H5z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg> Bag · 0</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Roasted in Jupiter, FL</div>
+            <h1>Find your<br>daily ritual.</h1>
+            <p class="sub">Single-origin coffee, roasted in small batches every week and shipped the day it’s bagged.</p>
+            <div class="cta"><a class="btn" href="#coffee">Shop the coffee</a><a class="btn ghost" href="#subscriptions">Start a subscription</a></div>
+            <div class="chips"><span class="chip">Roasted weekly</span><span class="chip">Free local pickup</span><span class="chip">Wholesale</span></div>
+          </div>
+          <div class="photo">
+            <img src="../assets/crux.jpg" alt="Espresso pouring into a white cup">
+            <div class="fade"></div>
+            <div class="card"><div class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5c-4 4-3 11 1 14s10 1 12-4c-4 1-6-1-7-4s-3-6-6-6z"></path><path d="M9 8c2 3 4 6 4 10"></path></svg></div><div><small>This week’s roast</small><b>Ethiopia Guji</b><span>Washed · peach, bergamot, honey</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 JUPITER DONUTS -->
+    <div class="frame f-donut">
+      <div class="chrome dark"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url"><svg width="8" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> jupiterdonuts.com</div>
+        <span class="tag">03 · Donut shop</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">JUPITER<br>DONUTS</a>
+          <div class="links"><a href="#menu">Menu</a><a href="#locations">Locations</a><a href="#catering">Catering</a></div>
+          <a class="navbtn" href="#order">Order ahead</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Fresh before sunrise · Jupiter, FL</div>
+            <h1>Make mornings<br>sweeter.</h1>
+            <p class="sub">Hand-cut donuts, hot coffee and breakfast favorites, made fresh every morning.</p>
+            <div class="cta"><a class="btn" href="#order">Order ahead</a><a class="btn ghost" href="#menu">See the menu</a></div>
+            <div class="chips"><span class="chip">Pickup</span><span class="chip">Delivery</span><span class="chip">Catering</span><span class="chip">Two locations</span></div>
+          </div>
+          <div class="photo">
+            <div class="dotC"></div>
+            <div class="ring"></div>
+            <div class="disc"><img src="../assets/donuts.jpg" alt="Assorted glazed and sprinkled donuts"></div>
+            <div class="dotA"></div>
+            <div class="dotB"></div>
+            <div class="pill"><span class="live"></span>Open now · until 2 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ft"><span>Jupiter, FL</span><span class="mid">Unofficial redesign concepts · Not affiliated · Concept imagery</span><span>2026</span></div>
+</div>
+
+</body></html>

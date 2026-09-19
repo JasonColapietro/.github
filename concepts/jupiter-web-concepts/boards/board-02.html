@@ -1,0 +1,214 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Board 02 · Coastal Adventure & Auto</title>
+<meta name="viewport" content="width=1080">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Sora:wght@400..800&family=Nunito:wght@400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Barlow+Condensed:wght@500;600;700&family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Anton&family=Plus+Jakarta+Sans:wght@400..800&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Manrope:wght@400..800&family=Outfit:wght@400..800&display=swap">
+<style>body{margin:0;background:#E4E4E1;display:flex;justify-content:center;padding:24px 0}
+/* ---------- board shell ---------- */
+.board{position:relative;width:1080px;height:1350px;overflow:hidden;background:#F1F1EE;color:#121212;font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.board *{box-sizing:border-box}
+.board a{color:inherit;text-decoration:none}
+.board p{margin:0}
+.grid{position:absolute;left:0;top:0;width:1080px;height:1350px;background-image:linear-gradient(rgba(18,18,18,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(18,18,18,.045) 1px,transparent 1px);background-size:48px 48px;background-position:0 0}
+.hd{position:absolute;left:48px;right:48px;top:40px;display:flex;justify-content:space-between;align-items:baseline;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:#121212}
+.hd b{font-weight:700}
+.hd .n{color:#7A7A75}
+.rule{position:absolute;left:48px;right:48px;top:70px;height:1px;background:#CBCBC6}
+.cat{position:absolute;left:48px;right:48px;top:84px;display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#6B6B66;font-weight:600}
+.frames{position:absolute;left:48px;top:114px;display:flex;flex-direction:column;gap:18px}
+.frame{width:984px;height:368px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(18,18,18,.09),0 2px 4px rgba(18,18,18,.05),0 22px 44px -20px rgba(18,18,18,.28);display:flex;flex-direction:column;position:relative}
+.ft{position:absolute;left:48px;right:48px;top:1292px;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7A7A75;font-weight:500}
+.ft .mid{color:#5A5A56}
+
+/* ---------- browser chrome ---------- */
+.chrome{height:24px;flex:none;display:flex;align-items:center;padding:0 12px;gap:5px;font-size:9px;color:#8A8A85;background:#F7F7F4;border-bottom:1px solid rgba(18,18,18,.07);position:relative}
+.chrome.dark{background:#1B1B1D;border-bottom-color:rgba(255,255,255,.08);color:#8E8E93}
+.dot{width:7px;height:7px;border-radius:50%;background:#D8D8D3}
+.chrome.dark .dot{background:#3B3B40}
+.url{position:absolute;left:50%;top:4px;transform:translateX(-50%);height:16px;padding:0 10px;border-radius:5px;background:rgba(18,18,18,.05);display:flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.01em;min-width:210px;justify-content:center;color:#6B6B66}
+.chrome.dark .url{background:rgba(255,255,255,.08);color:#A3A3A8}
+.url svg{opacity:.7}
+.tag{margin-left:auto;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+
+/* ---------- site ---------- */
+.site{flex:1;position:relative;display:flex;flex-direction:column;min-height:0}
+.nav{height:46px;flex:none;display:flex;align-items:center;padding:0 32px;gap:26px;font-size:11.5px;font-weight:500;position:relative;z-index:2}
+.nav .links{display:flex;gap:22px;margin-left:auto}
+.nav .links a{opacity:.9}
+.navbtn{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 13px;border-radius:7px;font-size:11px;font-weight:600;white-space:nowrap}
+.hero{flex:1;position:relative;display:flex;min-height:0}
+.copy{position:relative;z-index:1;width:470px;padding:24px 0 0 32px;display:flex;flex-direction:column;flex:none}
+.eyebrow{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:8px}
+.eyebrow i{display:inline-block;width:18px;height:1.5px;background:currentColor;opacity:.7}
+.board h1{margin:9px 0 0;font-weight:500;line-height:.96;letter-spacing:-.02em}
+.sub{margin:13px 0 0;font-size:13px;line-height:1.5;max-width:330px}
+.cta{margin-top:17px;display:flex;align-items:center;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;height:33px;padding:0 15px;border-radius:7px;font-size:11.5px;font-weight:600;letter-spacing:.005em;white-space:nowrap}
+.link{font-size:11.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chips{margin-top:auto;padding-bottom:18px;display:flex;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:500;letter-spacing:.02em;height:22px;padding:0 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+.chip svg{flex:none}
+.photo{position:absolute;right:0;top:0;bottom:0;width:484px;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.fade{position:absolute;left:0;top:0;bottom:0;width:120px}
+.card{position:absolute;display:flex;align-items:center;gap:10px;border-radius:10px;padding:9px 12px 9px 9px;font-size:10px;line-height:1.3}
+.card b{display:block;font-size:11.5px;font-weight:700;letter-spacing:-.005em}
+.card .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
+.pill{position:absolute;display:flex;align-items:center;gap:8px;border-radius:999px;padding:7px 12px 7px 9px;font-size:10.5px;font-weight:600;white-space:nowrap}
+.live{width:7px;height:7px;border-radius:50%;flex:none}
+
+
+/* 04 Blueline */
+.f-blue .site{background:#fff;color:#0B0F14}
+.f-blue .nav{border-bottom:1px solid rgba(11,15,20,.07)}
+.f-blue .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;line-height:1;font-variation-settings:'opsz' 96}
+.f-blue .logo small{display:block;font-family:'Instrument Sans',sans-serif;font-size:6.5px;font-weight:700;letter-spacing:.24em;margin-top:2px;color:#4B5560}
+.f-blue .links a{color:#3D4650}
+.f-blue .navbtn{background:#2FC8C6;color:#062A2B;font-weight:700}
+.f-blue .eyebrow{color:#128F92}
+.f-blue h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:56px;letter-spacing:-.04em;line-height:.95;font-variation-settings:'opsz' 96}
+.f-blue .sub{color:#4B5560}
+.f-blue .btn{background:#0B0F14;color:#fff}
+.f-blue .link{color:#0B0F14}
+.f-blue .chip{border-color:rgba(11,15,20,.14);color:#3D4650}
+.f-blue .photo{border-radius:16px 0 0 0}
+.f-blue .card{left:22px;bottom:20px;background:#fff;color:#0B0F14;box-shadow:0 10px 28px -8px rgba(0,0,0,.4)}
+.f-blue .card .ic{background:#2FC8C6;color:#062A2B}
+.f-blue .card span{color:#4B5560}
+.f-blue .card em{font-style:normal;display:inline-flex;align-items:center;gap:5px;color:#128F92;font-weight:600;margin-top:2px}
+.f-blue .card em .live{background:#2FBF71}
+/* 05 Jupiter Dive Center */
+.f-dive .site{background:#07203A;color:#EAF4FA}
+.f-dive .nav{border-bottom:1px solid rgba(255,255,255,.08)}
+.f-dive .logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;letter-spacing:.05em;text-transform:uppercase}
+.f-dive .links a{color:rgba(234,244,250,.82)}
+.f-dive .navbtn{background:#33D6F5;color:#04202C;border-radius:4px;font-weight:700}
+.f-dive .eyebrow{color:#33D6F5}
+.f-dive h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:66px;letter-spacing:-.005em;line-height:.9}
+.f-dive .sub{color:rgba(234,244,250,.7)}
+.f-dive .btn{background:#33D6F5;color:#04202C;border-radius:4px}
+.f-dive .btn.ghost{background:transparent;color:#EAF4FA;box-shadow:inset 0 0 0 1px rgba(234,244,250,.3)}
+.f-dive .chip{border-color:rgba(234,244,250,.2);color:rgba(234,244,250,.82)}
+.f-dive .fade{background:linear-gradient(90deg,#07203A 0%,rgba(7,32,58,0) 100%)}
+.f-dive .cond{position:absolute;right:20px;bottom:18px;display:flex;gap:6px}
+.f-dive .cond div{background:rgba(4,20,36,.72);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:7px 10px;min-width:74px}
+.f-dive .cond small{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(234,244,250,.6);font-weight:600;margin-bottom:2px}
+.f-dive .cond b{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.01em}
+/* 06 Dany's Detailing */
+.f-dany .site{background:#0E0E0F;color:#F5F5F3}
+.f-dany .nav{border-bottom:1px solid rgba(255,90,31,.7)}
+.f-dany .logo{font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;letter-spacing:.12em;text-transform:uppercase;font-variation-settings:'wdth' 100}
+.f-dany .links a{color:rgba(245,245,243,.82)}
+.f-dany .navbtn{background:#FF5A1F;color:#140A05;border-radius:4px;font-weight:700}
+.f-dany .eyebrow{color:#FF5A1F}
+.f-dany h1{font-family:'Archivo',sans-serif;font-weight:900;font-style:italic;font-size:52px;letter-spacing:-.035em;line-height:.98;font-variation-settings:'wdth' 100}
+.f-dany .sub{color:rgba(245,245,243,.68)}
+.f-dany .btn{background:#FF5A1F;color:#140A05;border-radius:4px}
+.f-dany .btn.ghost{background:transparent;color:#F5F5F3;box-shadow:inset 0 0 0 1px rgba(245,245,243,.28)}
+.f-dany .chip{border-color:rgba(245,245,243,.2);color:rgba(245,245,243,.82)}
+.f-dany .fade{background:linear-gradient(90deg,#0E0E0F 0%,rgba(14,14,15,0) 100%)}
+.f-dany .toggle{position:absolute;right:20px;bottom:18px;display:flex;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px;font-size:10px;font-weight:600;gap:2px}
+.f-dany .toggle span{padding:5px 11px;border-radius:999px;color:rgba(245,245,243,.7)}
+.f-dany .toggle .on{background:#F5F5F3;color:#0E0E0F}
+.f-dany .stamp{position:absolute;left:24px;bottom:20px;display:flex;align-items:center;gap:8px;font-size:10px;font-weight:600;color:#F5F5F3;background:rgba(10,10,10,.6);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 12px 6px 8px}
+.f-dany .stamp i{display:block;width:16px;height:16px;border-radius:50%;background:#FF5A1F}
+</style></head><body>
+<div class="board">
+  <div class="grid"></div>
+  <div class="hd"><span><b>Jupiter</b> / Web Concepts</span><span><b>02</b> <span class="n">/ 04</span></span></div>
+  <div class="rule"></div>
+  <div class="cat"><span>Coastal Adventure &amp; Auto</span><span>Concepts 04 – 06</span></div>
+
+  <div class="frames">
+
+    <!-- 04 BLUELINE -->
+    <div class="frame f-blue">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url"><svg width="8" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> bluelinesurf.com</div>
+        <span class="tag">04 · Surf &amp; paddle</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">BLUELINE<small>SURF &amp; PADDLE CO.</small></a>
+          <div class="links"><a href="#shop">Shop</a><a href="#rentals">Rentals</a><a href="#lessons">Lessons</a><a href="#tours">Tours</a></div>
+          <a class="navbtn" href="#book">Book a rental</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Jupiter Inlet · Rentals &amp; lessons</div>
+            <h1>More time<br>on the water.</h1>
+            <p class="sub">Paddleboards, kayaks and surf gear, rented by the hour or the week, steps from the inlet.</p>
+            <div class="cta"><a class="btn" href="#rentals">Explore rentals</a><a class="link" href="#lessons">Book a lesson <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div>
+            <div class="chips"><span class="chip">Hourly</span><span class="chip">Daily</span><span class="chip">Weekly</span><span class="chip">Guided tours</span></div>
+          </div>
+          <div class="photo">
+            <img src="../assets/paddle.jpg" alt="Paddleboard on clear turquoise water">
+            <div class="card"><div class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c5 4 6 10 4 16-1 3-3 4-4 4s-3-1-4-4C6 12 7 6 12 2z"></path><path d="M12 8v8"></path></svg></div><div><b>Paddleboard rental</b><span>Hourly · Daily · Weekly</span><br><em><span class="live"></span>Available today</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 JUPITER DIVE CENTER -->
+    <div class="frame f-dive">
+      <div class="chrome dark"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url"><svg width="8" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> jupiterdivecenter.com</div>
+        <span class="tag">05 · Scuba diving</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">Jupiter Dive Center</a>
+          <div class="links"><a href="#charters">Charters</a><a href="#learn">Learn to Dive</a><a href="#gear">Gear</a><a href="#trips">Trips</a></div>
+          <a class="navbtn" href="#book">Book a charter</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Charters · Courses · Gear</div>
+            <h1>A deeper kind<br>of adventure.</h1>
+            <p class="sub">Drift dives on the Gulf Stream, turtle season on the ledge and courses from Open Water up.</p>
+            <div class="cta"><a class="btn" href="#charters">Explore dive charters</a><a class="btn ghost" href="#learn">Learn to dive</a></div>
+            <div class="chips"><span class="chip">2-tank charters</span><span class="chip">Night dives</span><span class="chip">Nitrox</span><span class="chip">Gear rental</span></div>
+          </div>
+          <div class="photo">
+            <img src="../assets/turtle.jpg" alt="Sea turtle swimming over a reef">
+            <div class="fade"></div>
+            <div class="cond"><div><small>Visibility</small><b>60 ft</b></div><div><small>Water</small><b>82°F</b></div><div><small>Current</small><b>Mild</b></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 DANY'S DETAILING -->
+    <div class="frame f-dany">
+      <div class="chrome dark"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url"><svg width="8" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> danysdetailing.com</div>
+        <span class="tag">06 · Mobile auto detailing</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">Dany’s Detailing</a>
+          <div class="links"><a href="#services">Services</a><a href="#work">Our Work</a><a href="#ceramic">Ceramic Coating</a><a href="#contact">Contact</a></div>
+          <a class="navbtn" href="#quote">Request a quote</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Mobile detailing · Jupiter, FL</div>
+            <h1>The detail is<br>everything.</h1>
+            <p class="sub">Hand wash, paint correction and ceramic coating, done at your driveway or your dock.</p>
+            <div class="cta"><a class="btn" href="#quote">Request a quote</a><a class="btn ghost" href="#work">See our work</a></div>
+            <div class="chips"><span class="chip">We come to you</span><span class="chip">Cars &amp; boats</span><span class="chip">Interior · Exterior</span></div>
+          </div>
+          <div class="photo">
+            <img src="../assets/car.jpg" alt="Headlight of a freshly detailed black sports car">
+            <div class="fade"></div>
+            <div class="stamp"><i></i>Ceramic coating · 5-year protection</div>
+            <div class="toggle"><span>Before</span><span class="on">After</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ft"><span>Jupiter, FL</span><span class="mid">Unofficial redesign concepts · Not affiliated · Concept imagery</span><span>2026</span></div>
+</div>
+
+</body></html>

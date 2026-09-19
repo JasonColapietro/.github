@@ -1,0 +1,155 @@
+<style>
+/* 04 Blueline */
+.f-blue .site{background:#fff;color:#0B0F14}
+.f-blue .nav{border-bottom:1px solid rgba(11,15,20,.07)}
+.f-blue .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;line-height:1;font-variation-settings:'opsz' 96}
+.f-blue .logo small{display:block;font-family:'Instrument Sans',sans-serif;font-size:6.5px;font-weight:700;letter-spacing:.24em;margin-top:2px;color:#4B5560}
+.f-blue .links a{color:#3D4650}
+.f-blue .navbtn{background:#2FC8C6;color:#062A2B;font-weight:700}
+.f-blue .eyebrow{color:#128F92}
+.f-blue h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:56px;letter-spacing:-.04em;line-height:.95;font-variation-settings:'opsz' 96}
+.f-blue .sub{color:#4B5560}
+.f-blue .btn{background:#0B0F14;color:#fff}
+.f-blue .link{color:#0B0F14}
+.f-blue .chip{border-color:rgba(11,15,20,.14);color:#3D4650}
+.f-blue .photo{border-radius:16px 0 0 0}
+.f-blue .card{left:22px;bottom:20px;background:#fff;color:#0B0F14;box-shadow:0 10px 28px -8px rgba(0,0,0,.4)}
+.f-blue .card .ic{background:#2FC8C6;color:#062A2B}
+.f-blue .card span{color:#4B5560}
+.f-blue .card em{font-style:normal;display:inline-flex;align-items:center;gap:5px;color:#128F92;font-weight:600;margin-top:2px}
+.f-blue .card em .live{background:#2FBF71}
+/* 05 Jupiter Dive Center */
+.f-dive .site{background:#07203A;color:#EAF4FA}
+.f-dive .nav{border-bottom:1px solid rgba(255,255,255,.08)}
+.f-dive .logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;letter-spacing:.05em;text-transform:uppercase}
+.f-dive .links a{color:rgba(234,244,250,.82)}
+.f-dive .navbtn{background:#33D6F5;color:#04202C;border-radius:4px;font-weight:700}
+.f-dive .eyebrow{color:#33D6F5}
+.f-dive h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:66px;letter-spacing:-.005em;line-height:.9}
+.f-dive .sub{color:rgba(234,244,250,.7)}
+.f-dive .btn{background:#33D6F5;color:#04202C;border-radius:4px}
+.f-dive .btn.ghost{background:transparent;color:#EAF4FA;box-shadow:inset 0 0 0 1px rgba(234,244,250,.3)}
+.f-dive .chip{border-color:rgba(234,244,250,.2);color:rgba(234,244,250,.82)}
+.f-dive .fade{background:linear-gradient(90deg,#07203A 0%,rgba(7,32,58,0) 100%)}
+.f-dive .cond{position:absolute;right:20px;bottom:18px;display:flex;gap:6px}
+.f-dive .cond div{background:rgba(4,20,36,.72);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:7px 10px;min-width:74px}
+.f-dive .cond small{display:block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(234,244,250,.6);font-weight:600;margin-bottom:2px}
+.f-dive .cond b{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.01em}
+/* 06 Dany's Detailing */
+.f-dany .site{background:#0E0E0F;color:#F5F5F3}
+.f-dany .nav{border-bottom:1px solid rgba(255,90,31,.7)}
+.f-dany .logo{font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;letter-spacing:.12em;text-transform:uppercase;font-variation-settings:'wdth' 100}
+.f-dany .links a{color:rgba(245,245,243,.82)}
+.f-dany .navbtn{background:#FF5A1F;color:#140A05;border-radius:4px;font-weight:700}
+.f-dany .eyebrow{color:#FF5A1F}
+.f-dany h1{font-family:'Archivo',sans-serif;font-weight:900;font-style:italic;font-size:52px;letter-spacing:-.035em;line-height:.98;font-variation-settings:'wdth' 100}
+.f-dany .sub{color:rgba(245,245,243,.68)}
+.f-dany .btn{background:#FF5A1F;color:#140A05;border-radius:4px}
+.f-dany .btn.ghost{background:transparent;color:#F5F5F3;box-shadow:inset 0 0 0 1px rgba(245,245,243,.28)}
+.f-dany .chip{border-color:rgba(245,245,243,.2);color:rgba(245,245,243,.82)}
+.f-dany .fade{background:linear-gradient(90deg,#0E0E0F 0%,rgba(14,14,15,0) 100%)}
+.f-dany .toggle{position:absolute;right:20px;bottom:18px;display:flex;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px;font-size:10px;font-weight:600;gap:2px}
+.f-dany .toggle span{padding:5px 11px;border-radius:999px;color:rgba(245,245,243,.7)}
+.f-dany .toggle .on{background:#F5F5F3;color:#0E0E0F}
+.f-dany .stamp{position:absolute;left:24px;bottom:20px;display:flex;align-items:center;gap:8px;font-size:10px;font-weight:600;color:#F5F5F3;background:rgba(10,10,10,.6);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 12px 6px 8px}
+.f-dany .stamp i{display:block;width:16px;height:16px;border-radius:50%;background:#FF5A1F}
+</style>
+<div class="board">
+  <div class="grid"></div>
+  <div class="hd"><span><b>Jupiter</b> / Web Concepts</span><span><b>02</b> <span class="n">/ 04</span></span></div>
+  <div class="rule"></div>
+  <div class="cat"><span>Coastal Adventure &amp; Auto</span><span>Concepts 04 – 06</span></div>
+
+  <div class="frames">
+
+    <!-- 04 BLUELINE -->
+    <div class="frame f-blue">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url">[[LOCK]] bluelinesurf.com</div>
+        <span class="tag">04 · Surf &amp; paddle</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">BLUELINE<small>SURF &amp; PADDLE CO.</small></a>
+          <div class="links"><a href="#shop">Shop</a><a href="#rentals">Rentals</a><a href="#lessons">Lessons</a><a href="#tours">Tours</a></div>
+          <a class="navbtn" href="#book">Book a rental</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Jupiter Inlet · Rentals &amp; lessons</div>
+            <h1>More time<br>on the water.</h1>
+            <p class="sub">Paddleboards, kayaks and surf gear, rented by the hour or the week, steps from the inlet.</p>
+            <div class="cta"><a class="btn" href="#rentals">Explore rentals</a><a class="link" href="#lessons">Book a lesson [[ARROW]]</a></div>
+            <div class="chips"><span class="chip">Hourly</span><span class="chip">Daily</span><span class="chip">Weekly</span><span class="chip">Guided tours</span></div>
+          </div>
+          <div class="photo">
+            <img src="assets/paddle.jpg" alt="Paddleboard on clear turquoise water">
+            <div class="card"><div class="ic">[[BOARD]]</div><div><b>Paddleboard rental</b><span>Hourly · Daily · Weekly</span><br><em><span class="live"></span>Available today</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 JUPITER DIVE CENTER -->
+    <div class="frame f-dive">
+      <div class="chrome dark"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url">[[LOCK]] jupiterdivecenter.com</div>
+        <span class="tag">05 · Scuba diving</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">Jupiter Dive Center</a>
+          <div class="links"><a href="#charters">Charters</a><a href="#learn">Learn to Dive</a><a href="#gear">Gear</a><a href="#trips">Trips</a></div>
+          <a class="navbtn" href="#book">Book a charter</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Charters · Courses · Gear</div>
+            <h1>A deeper kind<br>of adventure.</h1>
+            <p class="sub">Drift dives on the Gulf Stream, turtle season on the ledge and courses from Open Water up.</p>
+            <div class="cta"><a class="btn" href="#charters">Explore dive charters</a><a class="btn ghost" href="#learn">Learn to dive</a></div>
+            <div class="chips"><span class="chip">2-tank charters</span><span class="chip">Night dives</span><span class="chip">Nitrox</span><span class="chip">Gear rental</span></div>
+          </div>
+          <div class="photo">
+            <img src="assets/turtle.jpg" alt="Sea turtle swimming over a reef">
+            <div class="fade"></div>
+            <div class="cond"><div><small>Visibility</small><b>60 ft</b></div><div><small>Water</small><b>82°F</b></div><div><small>Current</small><b>Mild</b></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 DANY'S DETAILING -->
+    <div class="frame f-dany">
+      <div class="chrome dark"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url">[[LOCK]] danysdetailing.com</div>
+        <span class="tag">06 · Mobile auto detailing</span>
+      </div>
+      <div class="site">
+        <div class="nav">
+          <a class="logo" href="#top">Dany’s Detailing</a>
+          <div class="links"><a href="#services">Services</a><a href="#work">Our Work</a><a href="#ceramic">Ceramic Coating</a><a href="#contact">Contact</a></div>
+          <a class="navbtn" href="#quote">Request a quote</a>
+        </div>
+        <div class="hero">
+          <div class="copy">
+            <div class="eyebrow"><i></i>Mobile detailing · Jupiter, FL</div>
+            <h1>The detail is<br>everything.</h1>
+            <p class="sub">Hand wash, paint correction and ceramic coating, done at your driveway or your dock.</p>
+            <div class="cta"><a class="btn" href="#quote">Request a quote</a><a class="btn ghost" href="#work">See our work</a></div>
+            <div class="chips"><span class="chip">We come to you</span><span class="chip">Cars &amp; boats</span><span class="chip">Interior · Exterior</span></div>
+          </div>
+          <div class="photo">
+            <img src="assets/car.jpg" alt="Headlight of a freshly detailed black sports car">
+            <div class="fade"></div>
+            <div class="stamp"><i></i>Ceramic coating · 5-year protection</div>
+            <div class="toggle"><span>Before</span><span class="on">After</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ft"><span>Jupiter, FL</span><span class="mid">Unofficial redesign concepts · Not affiliated · Concept imagery</span><span>2026</span></div>
+</div>
