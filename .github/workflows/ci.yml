@@ -1,0 +1,44 @@
+name: CI
+
+# This repository holds one file that anyone reads: the profile README. Its two
+# count-bearing claims are about things that live elsewhere and keep moving, so
+# the schedule matters more than the push trigger. A README nobody edits for a
+# month still goes stale the moment a skill is added in another repository.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    # 07:00 UTC on Mondays. Weekly is enough for counts that move a few times a
+    # month, and a failing run is the notification.
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  claims:
+    name: Profile claim guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Patterns first. If a claim no longer matches the README, the live check
+      # would pass by simply not looking, so this has to fail before it runs.
+      - name: Claim pattern tests
+        run: node --test tests/profile-claims.test.mjs
+
+      - name: Claims match their live sources
+        env:
+          # The default token. Needed for the search endpoint's rate limit, and
+          # read-only by the permissions block above.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/check-profile-claims.mjs
