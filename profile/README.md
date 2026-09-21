@@ -126,11 +126,7 @@ Suede Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com/xp
 
 ### Books
 
-**[The Signal Chain](https://guitar.solutions)** — 3 editions: Standard, Deluxe, Workbook  
-The full history of guitar amplifiers, effects, and the pursuit of electric tone. Free.
-
-**[The Guitar Without a Number](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
-Memoir-driven instruction for the self-taught player: modes, voice leading, 13 artist songbooks, gear, and the music IP rights chapter no other guitar book includes.
+Five on Kindle, two self-hosted.
 
 **[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
 The thesis document for programmable IP infrastructure in the AI media era.
@@ -140,6 +136,18 @@ How to build systems that hold up when nobody trusts anybody: proof baked in, no
 
 **[Stake Your Claim](https://www.amazon.com/dp/B0GRG8LGQQ)** — Kindle  
 Hard truths about turning the AI era into a real asset for creators.
+
+**[The Claude Code Bible](https://www.amazon.com/dp/B0HHTMJWB4)** — Kindle  
+The complete operator's guide to Claude Code and AI coding agents.
+
+**[Codex in Production](https://www.amazon.com/dp/B0HHTF3LG1)** — Kindle  
+A practical operator's guide to OpenAI Codex, `AGENTS.md`, worktrees, skills, security and long-running agent work.
+
+**[The Screenshot](https://seo.suedeai.ai/book)** — free, in full  
+Why AI recommends your competitors, and how to fix it. Johnny Suede Press, 65 pages: HTML, PDF, EPUB and Markdown source.
+
+**[The Signal Chain](https://strumly.suedeai.ai/book)** — paid, self-hosted  
+The full history of guitar amplifiers, effects, and the pursuit of electric tone. It absorbed the earlier *The Guitar Without a Number*, which is no longer a standalone title.
 
 ---
 

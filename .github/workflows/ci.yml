@@ -50,3 +50,14 @@ jobs:
           # read-only by the permissions block above.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/check-profile-claims.mjs
+
+      - name: Link guard pattern tests
+        run: node --test tests/profile-links.test.mjs
+
+      # The structural half of this is offline and deterministic; the liveness
+      # half needs egress, which the runner has and most sandboxes do not. It
+      # is the reason this step lives in CI rather than in a pre-commit hook.
+      # Only 404, 410 and an off-host redirect fail it — see the script's
+      # header for why a 403 from Amazon is reported and not failed.
+      - name: Profile links resolve
+        run: node scripts/check-profile-links.mjs
