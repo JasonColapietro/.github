@@ -1,11 +1,13 @@
 ## Jason Colapietro (Johnny Suede)
 
-**Founder & CEO, Suede Labs AI · 5x published author · guitarist**
+**Founder & CEO, Suede Labs AI · 5x published author · guitarist**  
+Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
 
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
 [![Upstream merged](https://img.shields.io/badge/upstream%20merged-45%20PRs%20%2F%2041%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Patent](https://img.shields.io/badge/USPTO-63%2F947%2C120%20pending-0A66C2?style=for-the-badge)](https://suedeai.ai)
+[![Book a call](https://img.shields.io/badge/book%20a%2015--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
 
 <p align="left">
   <img height="165" src="https://github-readme-stats.vercel.app/api?username=JasonColapietro&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=github_dark&custom_title=Jason%20Colapietro%20%E2%80%94%2012%2C280%20contributions" alt="GitHub stats" />
@@ -122,6 +124,8 @@ Hard truths about turning the AI era into a real asset for creators.
 Built on Base, Avalanche, Solana and Ethereum, with LayerZero for interoperability.
 Live: [IP Registry](https://ip.suedeai.ai) · [Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
 
+I write about all of it weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — creator ownership, AI visibility, and what building this in public actually looks like.
+
 ---
 
 ### Stack
@@ -144,6 +148,16 @@ Live: [IP Registry](https://ip.suedeai.ai) · [Agent Studio](https://agents.sued
 
 ### Connect
 
-- [suedeai.ai/founder](https://suedeai.ai/founder)
-- [x.com/johnnysuede](https://x.com/johnnysuede)
-- [guitar.solutions](https://guitar.solutions)
+**Book a call** · [15 minutes, pick a time](https://calendar.app.google/8FyvYAspZaQFFP5eA)  
+**Phone** · [(561) 401-0518](tel:+15614010518)  
+**Email** · [johnny@suedeai.ai](mailto:johnny@suedeai.ai) · press: [press@suedeai.ai](mailto:press@suedeai.ai)  
+**Based in** · Jupiter / West Palm Beach, Florida
+
+| Where | Link |
+|---|---|
+| Newsletter | [jasoncolapietro.substack.com](https://jasoncolapietro.substack.com) |
+| Founder page | [suedeai.ai/founder](https://suedeai.ai/founder) |
+| X | [x.com/johnnysuede](https://x.com/johnnysuede) |
+| Instagram | [instagram.com/suedeai](https://instagram.com/suedeai) |
+| Books & guitar writing | [guitar.solutions](https://guitar.solutions) |
+| GEO/AEO practice | [seo.suedeai.ai](https://seo.suedeai.ai) |
