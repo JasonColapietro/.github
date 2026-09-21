@@ -1,11 +1,16 @@
 ## Jason Colapietro (Johnny Suede)
 
-**Founder & CEO, Suede Labs AI · 5x published author · guitarist**
+**Full-stack GEO, AEO and SEO — founder of [Suede AI SEO](https://seo.suedeai.ai)**  
+I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category.  
+Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
 
+[![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-45%20PRs%20%2F%2041%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-49%20PRs%20%2F%2044%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Patent](https://img.shields.io/badge/USPTO-63%2F947%2C120%20pending-0A66C2?style=for-the-badge)](https://suedeai.ai)
+[![Book a call](https://img.shields.io/badge/book%20a%2015--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
 
 <p align="left">
   <img height="165" src="https://github-readme-stats.vercel.app/api?username=JasonColapietro&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=github_dark&custom_title=Jason%20Colapietro%20%E2%80%94%2012%2C280%20contributions" alt="GitHub stats" />
@@ -14,9 +19,31 @@
 
 ---
 
-I've spent two decades chasing guitar tone and ended up building IP infrastructure for the AI era. The signal chain — pickups, cables, amp, speaker — is where I started. The royalty chain — creation proof, rights metadata, on-chain registration, royalty routing — is where that thinking led.
+Search is being replaced by answers. When a buyer asks an engine about your category, something gets named. Most of the time it is not you, and the reason is sitting in your pages and your entity records.
 
-I founded [Suede Labs AI](https://suedeai.ai) to give musicians and creators a technical ownership layer: cryptographic proof of authorship, programmable licensing, and payment rails built on Base and USDC. Along the way I wrote five books. The last one puts a full music IP rights chapter inside a guitar theory memoir, because those two subjects have always belonged together.
+That is the work I do. [Suede AI SEO](https://seo.suedeai.ai) runs **full-stack GEO**: capture what ChatGPT, Perplexity, Gemini and Google's AI results actually say about your category, dated and screenshotted, then repair the pages, schema and third-party records those answers are built from, then publish the receipts.
+
+What separates this from the rest of the category is that I ship the fixes. Most GEO vendors hand you a report. Schema, `llms.txt` and page structure go to production as pull requests, with a source diff. The upstream record below is the same pair of hands.
+
+### Start here
+
+| | |
+|---|---|
+| **Free** | [AI Citation Check](https://seo.suedeai.ai/ai-citation-check) &mdash; four buyer questions put to real engines, and which sites they cited instead of you |
+| **Then** | A 30-day answer-share sprint at a fixed fee, measured before and after on a prompt set you approve |
+| **Then** | Managed agents on a monthly retainer, reported against the same prompts |
+
+[Book 15 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 401-0518](tel:+15614010518) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
+
+### Seven lanes, one firm
+
+Full-stack GEO &middot; entity records and search &middot; press and reputation &middot; AI operations &middot; managed AI agents &middot; fractional forward-deployed engineer &middot; IP and rights integration
+
+In partnership with Google Cloud since September 2025, running on Vertex AI. Eleven feature placements across Business Insider, TechBullion, Programming Insider, Altcoin Investor and Indie Hackers. Thirty-plus live sites and nine iOS apps shipped and operated.
+
+---
+
+I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built [Suede Labs AI](https://suedeai.ai): proof of authorship, programmable licensing and payment rails for creators, USPTO patent filed. Five books along the way.
 
 ---
 
@@ -59,10 +86,16 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 | [xupersplit](https://github.com/kanylbullen/xupersplit/pull/86) | Escape legal page apostrophes |
 | [backcheck](https://github.com/VectorInstitute/backcheck/pull/12) | Vector Institute — validation fix |
 | [Ledger_c](https://github.com/Din-es/Ledger_c/pull/11) | C ledger work, 6 files |
+| [buildwithclaude](https://github.com/davepoon/buildwithclaude/pull/305) | Add the suede-skills plugin |
+| [awesome-ai-tools](https://github.com/aliammari1/awesome-ai-tools/pull/60) | Catalog listing *(Suede-AI account)* |
+| [awesome-ai-tools](https://github.com/pingan8787/awesome-ai-tools/pull/103) | Catalog listing *(Suede-AI account)* |
+| [awesome-ai-tools](https://github.com/eudk/awesome-ai-tools/pull/210) | Catalog listing *(Suede-AI account)* |
 
 Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v6 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** 45 merged pull requests across 41 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream.
+**Totals:** 49 merged pull requests across 44 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream on the substantive work listed above.
+
+That 49 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **28 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 49.
 
 ---
 
@@ -112,15 +145,24 @@ Hard truths about turning the AI era into a real asset for creators.
 
 ### Current Work
 
-**[Suede Labs AI](https://suedeai.ai)** — creator ownership infrastructure for the AI media era.
+**[Suede AI SEO](https://seo.suedeai.ai)** — the practice. Full-stack GEO, AEO and classic SEO, delivered as one retainer.
 
-- Proof of creation and cryptographic media registration — USPTO patent pending 63/947,120
+- **Measure** — what ChatGPT, Perplexity, Gemini and Google's AI results answer about your category, captured dated and screenshotted before anything is changed
+- **Repair** — pages, schema, `llms.txt`, knowledge panels and third-party entity records, shipped as pull requests with a source diff
+- **Press** — founder story, newsroom and outreach, every placement filed as an exhibit an engine can quote back
+- **Receipts** — published, dated, and re-measured against the same approved prompt set
+
+Read the method: [What is GEO and AEO?](https://seo.suedeai.ai/what-is-geo) · [Full-stack GEO](https://seo.suedeai.ai/full-stack-geo) · [Who ships the fixes](https://seo.suedeai.ai/geo-implementation) · [The receipts](https://seo.suedeai.ai/evidence)
+
+**[Suede Labs AI](https://suedeai.ai)** — the product side: creator ownership infrastructure for the AI media era.
+
+- Proof of creation and cryptographic media registration, USPTO 63/947,120 filed
 - Programmable IP licensing and royalty routing on Base/USDC and Solana
 - x402 micropayment layer: AI agents buy licenses autonomously, value flows to creators at the moment of use
-- Built for musicians, producers, and any creator whose work can be trained on, remixed, or monetized without their knowledge
 
-Built on Base, Avalanche, Solana and Ethereum, with LayerZero for interoperability.
 Live: [IP Registry](https://ip.suedeai.ai) · [Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
+
+I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — AI search visibility, what the engines are actually citing, and the work done in public.
 
 ---
 
@@ -144,6 +186,16 @@ Live: [IP Registry](https://ip.suedeai.ai) · [Agent Studio](https://agents.sued
 
 ### Connect
 
-- [suedeai.ai/founder](https://suedeai.ai/founder)
-- [x.com/johnnysuede](https://x.com/johnnysuede)
-- [guitar.solutions](https://guitar.solutions)
+**Book a call** · [15 minutes, pick a time](https://calendar.app.google/8FyvYAspZaQFFP5eA)  
+**Phone** · [(561) 401-0518](tel:+15614010518)  
+**Email** · [johnny@suedeai.ai](mailto:johnny@suedeai.ai) · press: [press@suedeai.ai](mailto:press@suedeai.ai)  
+**Based in** · Jupiter / West Palm Beach, Florida
+
+| Where | Link |
+|---|---|
+| Newsletter | [jasoncolapietro.substack.com](https://jasoncolapietro.substack.com) |
+| Founder page | [suedeai.ai/founder](https://suedeai.ai/founder) |
+| X | [x.com/johnnysuede](https://x.com/johnnysuede) |
+| Instagram | [instagram.com/suedeai](https://instagram.com/suedeai) |
+| Books & guitar writing | [guitar.solutions](https://guitar.solutions) |
+| GEO/AEO practice | [seo.suedeai.ai](https://seo.suedeai.ai) |
