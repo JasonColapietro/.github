@@ -11,14 +11,16 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-import { claimsFor, audit, README_PATH } from "../scripts/check-profile-claims.mjs";
+import { claimsFor, audit, readClaimed, countUpstream, README_PATH } from "../scripts/check-profile-claims.mjs";
 
 const README = fs.readFileSync(README_PATH, "utf8");
 
-// The counts the README currently states. If a real count moves, the guard
-// reports drift and `--fix` updates both the README and this constant's
-// relevance; these tests only care that the patterns find and compare numbers.
-const CURRENT = { skills: 76, prs: 49, repos: 44 };
+// Read the baseline out of the README rather than pinning it here. A hardcoded
+// fixture goes stale the moment `--fix` updates a count, and these tests would
+// then fail on a correct README, leaving the repair path unable to restore CI
+// on its own. These tests are about pattern integrity and internal agreement,
+// not about which numbers are currently true; the live check owns that.
+const CURRENT = readClaimed(README);
 
 test("every claim pattern still matches the README", () => {
   const missing = [];
@@ -61,6 +63,19 @@ test("--fix rewrites every occurrence, including the restated counts", () => {
   assert.deepEqual(failures, [], `rewrite left drift behind:\n${failures.join("\n")}`);
 });
 
+test("a --fix run leaves the suite green without a second edit", () => {
+  // The cycle that matters: a count moves, --fix rewrites the README, and the
+  // next CI run must pass on that README alone. A pinned fixture broke this.
+  const moved = { skills: 91, prs: 63, repos: 58 };
+  const { updated } = audit(README, claimsFor(moved), { rewrite: true });
+
+  assert.deepEqual(readClaimed(updated), moved, "the rewritten README does not read back as the new counts");
+
+  const baseline = readClaimed(updated);
+  const { failures } = audit(updated, claimsFor(baseline));
+  assert.deepEqual(failures, [], `the suite would still fail after --fix:\n${failures.join("\n")}`);
+});
+
 test("rewriting does not touch unrelated numbers", () => {
   const bumped = { skills: 80, prs: 52, repos: 47 };
   const { updated } = audit(README, claimsFor(bumped), { rewrite: true });
@@ -69,4 +84,29 @@ test("rewriting does not touch unrelated numbers", () => {
   assert.ok(updated.includes("awesome-skills/pull/49"), "a same-valued PR link was rewritten");
   assert.ok(updated.includes("63/947,120"), "the patent number was rewritten");
   assert.ok(updated.includes("12%2C280"), "the contributions badge was rewritten");
+});
+
+// This one does stub fetch, deliberately. It is not testing GitHub; it is
+// testing the branch that decides whether a 200 response can be trusted, and
+// that branch cannot be reached with a real, healthy API.
+test("a timed-out search is refused rather than counted", async () => {
+  const real = globalThis.fetch;
+  globalThis.fetch = async () =>
+    new Response(
+      JSON.stringify({
+        incomplete_results: true,
+        items: [
+          {
+            html_url: "https://github.com/someone/repo/pull/1",
+            repository_url: "https://api.github.com/repos/someone/repo",
+          },
+        ],
+      }),
+      { status: 200, headers: { "content-type": "application/json" } }
+    );
+  try {
+    await assert.rejects(countUpstream(), /incomplete_results/);
+  } finally {
+    globalThis.fetch = real;
+  }
 });

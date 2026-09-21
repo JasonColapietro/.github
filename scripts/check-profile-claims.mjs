@@ -80,6 +80,13 @@ export async function countUpstream() {
     const q = ["is:pr", "is:merged", `author:${author}`, ...AUTHORS.map((a) => `-user:${a}`)].join("+");
     for (let page = 1; page <= 10; page += 1) {
       const data = await getJSON(`${API}/search/issues?q=${q}&per_page=100&page=${page}`);
+      // A search that times out still answers 200, with incomplete_results set
+      // and a short items array. Trusting that array undercounts, which is the
+      // worst failure this script has: it reports drift that is not real, and
+      // --fix then lowers a published number to match a truncated search.
+      if (data.incomplete_results) {
+        throw new Error(`search for ${author} returned incomplete_results (GitHub timed out); refusing to count a partial page`);
+      }
       const items = data.items ?? [];
       for (const item of items) {
         seen.set(item.html_url, item.repository_url.split("/repos/")[1]);
@@ -105,6 +112,26 @@ export function claimsFor({ skills, prs, repos }) {
     { label: "totals note, kernel caveat", re: /not counted in the (\d+)\./, expected: prs },
     { label: "skill catalogs paragraph", re: /— (\d+) open-source agent skills for Claude Code and Codex —/, expected: skills },
   ];
+}
+
+// The numbers the README currently states, read back out of it. Tests use this
+// instead of a hardcoded fixture: a fixture goes stale the moment `--fix` runs,
+// which would leave the repair path unable to restore CI on its own.
+//
+// Each value is taken from its badge, which is the one occurrence per number
+// that cannot be confused with another. If the prose disagrees with the badge,
+// that is drift, and audit() reports it rather than this hiding it.
+export function readClaimed(text) {
+  const read = (label, re) => {
+    const m = text.match(re);
+    if (!m) throw new Error(`could not read the ${label} from the README; its wording changed`);
+    return Number(m[1]);
+  };
+  return {
+    skills: read("skills badge", /badge\/open--source%20skills-(\d+)-/),
+    prs: read("upstream badge pull request count", /badge\/upstream%20merged-(\d+)%20PRs/),
+    repos: read("upstream badge repository count", /%20PRs%20%2F%20(\d+)%20repos/),
+  };
 }
 
 export function audit(text, claims, { rewrite = false } = {}) {
