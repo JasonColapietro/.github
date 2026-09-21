@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="size" content="1500x500"><title>Jason Colapietro X header</title>
+<style>
+  :root{--surface:#ffffff;--surface-muted:#f5f5fa;--ink:#111827;--ink-muted:#4b5563;--line:#e5e7eb;
+        --indigo:#4f46e5;--indigo-deep:#4338ca;--indigo-soft:#eef2ff;--on-indigo:#ffffff;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden}
+  body{font-family:Geist,Inter,"Helvetica Neue",Arial,system-ui,sans-serif;background:var(--surface);color:var(--ink);
+       -webkit-font-smoothing:antialiased}
+  .light{background:var(--surface);color:var(--ink)}
+  .indigo{background:linear-gradient(135deg,var(--indigo) 0%,var(--indigo-deep) 100%);color:var(--on-indigo)}
+  .frame{position:relative;width:100%;height:100%;display:flex;align-items:center}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(var(--g) 1px,transparent 1px),linear-gradient(90deg,var(--g) 1px,transparent 1px);
+        background-size:64px 64px;opacity:.9}
+  .light .grid{--g:#eef0f4}.indigo .grid{--g:rgba(255,255,255,.08)}
+  .content{position:relative;padding:0 var(--pad,96px);width:100%;display:flex;align-items:center;gap:var(--gap,56px)}
+  .mark{flex:none;display:flex;align-items:center;justify-content:center;border-radius:22%;
+        font-weight:800;letter-spacing:-.04em;line-height:1}
+  .light .mark{background:linear-gradient(135deg,var(--indigo),var(--indigo-deep));color:var(--on-indigo)}
+  .indigo .mark{background:var(--on-indigo);color:var(--indigo-deep)}
+  .text{min-width:0}
+  .kicker{font-size:var(--k,18px);font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6em}
+  .light .kicker{color:var(--indigo)}.indigo .kicker{color:rgba(255,255,255,.78)}
+  h1{font-size:var(--h,72px);font-weight:700;letter-spacing:-.035em;line-height:1.02}
+  .lede{font-size:var(--l,26px);line-height:1.35;margin-top:.7em;max-width:var(--lw,900px)}
+  .light .lede{color:var(--ink-muted)}.indigo .lede{color:rgba(255,255,255,.86)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.1em}
+  .chip{font-size:var(--c,17px);font-weight:600;padding:.45em .9em;border-radius:999px;border:1.5px solid}
+  .light .chip{background:var(--indigo-soft);border-color:#c7d2fe;color:var(--indigo-deep)}
+  .indigo .chip{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}
+  .url{position:absolute;right:var(--pad,96px);bottom:var(--urlb,40px);font-size:var(--u,20px);font-weight:600;letter-spacing:.02em}
+  .light .url{color:var(--ink-muted)}.indigo .url{color:rgba(255,255,255,.85)}
+  .org{position:absolute;right:var(--pad,96px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px}
+  .org .row{display:flex;gap:14px}
+  .node{border-radius:10px;border:1.5px solid;padding:8px 14px;font-size:14px;font-weight:600;white-space:nowrap}
+  .light .node{background:#fff;border-color:var(--line);color:var(--ink)}
+  .light .node.exec{background:var(--indigo-deep);border-color:var(--indigo-deep);color:#fff}
+  .indigo .node{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff}
+  .indigo .node.exec{background:#fff;border-color:#fff;color:var(--indigo-deep)}
+  .org .stem{width:1.5px;height:18px}
+  .light .stem{background:var(--line)}.indigo .stem{background:rgba(255,255,255,.35)}
+  .stack{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;height:100%;gap:.35em}
+</style></head><body class="light" style="--h:62px;--l:24px;--lw:820px"><div class="frame">
+  <div class="grid"></div>
+  <div class="content">
+    <div class="mark" style="width:150px;height:150px;font-size:93px">S</div>
+    <div class="text"><div class="kicker">Jason Colapietro · Founder, Suede AI</div><h1>I ship the fixes AI answers are built from.</h1>
+      <div class="lede">Full-stack GEO, AEO and SEO with AI architecture integration, delivered as pull requests with a source diff.</div>
+      <div class="chips"><span class="chip">Full-stack GEO / AEO / SEO</span><span class="chip">AI architecture & integration</span><span class="chip">49 upstream PRs merged</span><span class="chip">Five books</span></div>
+    </div>
+  </div><div class="url">seo.suedeai.ai</div></div></body></html>

@@ -1,7 +1,7 @@
 ## Jason Colapietro (Johnny Suede)
 
-**Full-stack GEO, AEO and SEO — founder of [Suede AI SEO](https://seo.suedeai.ai)**  
-I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category.  
+**Full-stack GEO, AEO and SEO with AI architecture integration — founder of [Suede AI](https://seo.suedeai.ai)**  
+I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category, then wire AI into the operation behind the answer.  
 Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
 
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
@@ -21,7 +21,7 @@ Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.a
 
 Search is being replaced by answers. When a buyer asks an engine about your category, something gets named. Most of the time it is not you, and the reason is sitting in your pages and your entity records.
 
-That is the work I do. [Suede AI SEO](https://seo.suedeai.ai) runs **full-stack GEO**: capture what ChatGPT, Perplexity, Gemini and Google's AI results actually say about your category, dated and screenshotted, then repair the pages, schema and third-party records those answers are built from, then publish the receipts.
+That is the work I do. [Suede AI](https://seo.suedeai.ai) runs **full-stack GEO with AI architecture integration**: capture what ChatGPT, Perplexity, Gemini and Google's AI results actually say about your category, dated and screenshotted, then repair the pages, schema and third-party records those answers are built from, then publish the receipts. The same engineers then integrate AI into the operation itself: architecture, automations and managed agents that run in [Suede AI Agent Studio](https://agents.suedeai.ai).
 
 What separates this from the rest of the category is that I ship the fixes. Most GEO vendors hand you a report. Schema, `llms.txt` and page structure go to production as pull requests, with a source diff. The upstream record below is the same pair of hands.
 
@@ -35,15 +35,15 @@ What separates this from the rest of the category is that I ship the fixes. Most
 
 [Book 15 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 401-0518](tel:+15614010518) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
 
-### Seven lanes, one firm
+### Eight lanes, one firm
 
-Full-stack GEO &middot; entity records and search &middot; press and reputation &middot; AI operations &middot; managed AI agents &middot; fractional forward-deployed engineer &middot; IP and rights integration
+Full-stack GEO &middot; AI architecture and integration &middot; entity records and search &middot; press and reputation &middot; AI operations &middot; managed AI agents in Suede AI Agent Studio &middot; fractional forward-deployed engineer &middot; IP and rights integration
 
 In partnership with Google Cloud since September 2025, running on Vertex AI. Eleven feature placements across Business Insider, TechBullion, Programming Insider, Altcoin Investor and Indie Hackers. Thirty-plus live sites and nine iOS apps shipped and operated.
 
 ---
 
-I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built [Suede Labs AI](https://suedeai.ai): proof of authorship, programmable licensing and payment rails for creators, USPTO patent filed. Five books along the way.
+I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built the [Suede AI](https://suedeai.ai) product side: proof of authorship, programmable licensing and payment rails for creators, USPTO patent filed. Five books along the way.
 
 ---
 
@@ -120,7 +120,7 @@ That 49 counts the verified `JasonColapietro` and `Suede-AI` accounts together, 
 | [ichangyou/awesome-codex](https://github.com/ichangyou/awesome-codex) | [#2](https://github.com/ichangyou/awesome-codex/pull/2) |
 | [ichangyou/awesome-claude-code](https://github.com/ichangyou/awesome-claude-code) | [#9](https://github.com/ichangyou/awesome-claude-code/pull/9) |
 
-Suede Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com/xpaysh/awesome-x402/pull/518), and `@suedeai/plugin-suede` in the [elizaOS plugin registry](https://github.com/elizaOS/eliza/pull/19210).
+Suede AI Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com/xpaysh/awesome-x402/pull/518), and `@suedeai/plugin-suede` in the [elizaOS plugin registry](https://github.com/elizaOS/eliza/pull/19210).
 
 ---
 
@@ -145,22 +145,23 @@ Hard truths about turning the AI era into a real asset for creators.
 
 ### Current Work
 
-**[Suede AI SEO](https://seo.suedeai.ai)** — the practice. Full-stack GEO, AEO and classic SEO, delivered as one retainer.
+**[Suede AI](https://seo.suedeai.ai)** — the practice. Full-stack GEO, AEO and classic SEO with AI architecture integration, delivered as one retainer.
 
 - **Measure** — what ChatGPT, Perplexity, Gemini and Google's AI results answer about your category, captured dated and screenshotted before anything is changed
 - **Repair** — pages, schema, `llms.txt`, knowledge panels and third-party entity records, shipped as pull requests with a source diff
 - **Press** — founder story, newsroom and outreach, every placement filed as an exhibit an engine can quote back
 - **Receipts** — published, dated, and re-measured against the same approved prompt set
+- **Integrate** — AI architecture for the business behind the pages: workflow automation, system integration and managed agents, built and watched live in Suede AI Agent Studio
 
-Read the method: [What is GEO and AEO?](https://seo.suedeai.ai/what-is-geo) · [Full-stack GEO](https://seo.suedeai.ai/full-stack-geo) · [Who ships the fixes](https://seo.suedeai.ai/geo-implementation) · [The receipts](https://seo.suedeai.ai/evidence)
+Read the method: [What is GEO and AEO?](https://seo.suedeai.ai/what-is-geo) · [Full-stack GEO](https://seo.suedeai.ai/full-stack-geo) · [Who ships the fixes](https://seo.suedeai.ai/geo-implementation) · [AI operations](https://seo.suedeai.ai/ai-operations) · [Managed AI agents](https://seo.suedeai.ai/managed-ai-agents) · [The receipts](https://seo.suedeai.ai/evidence)
 
-**[Suede Labs AI](https://suedeai.ai)** — the product side: creator ownership infrastructure for the AI media era.
+**[Suede AI](https://suedeai.ai)** — the product side: creator ownership infrastructure for the AI media era.
 
 - Proof of creation and cryptographic media registration, USPTO 63/947,120 filed
 - Programmable IP licensing and royalty routing on Base/USDC and Solana
 - x402 micropayment layer: AI agents buy licenses autonomously, value flows to creators at the moment of use
 
-Live: [IP Registry](https://ip.suedeai.ai) · [Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
+Live: [IP Registry](https://ip.suedeai.ai) · [Suede AI Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
 
 I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — AI search visibility, what the engines are actually citing, and the work done in public.
 
@@ -195,7 +196,9 @@ I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro
 |---|---|
 | Newsletter | [jasoncolapietro.substack.com](https://jasoncolapietro.substack.com) |
 | Founder page | [suedeai.ai/founder](https://suedeai.ai/founder) |
-| X | [x.com/johnnysuede](https://x.com/johnnysuede) |
+| X | [x.com/johnnysuede](https://x.com/johnnysuede) · [x.com/AISUEDE](https://x.com/AISUEDE) |
 | Instagram | [instagram.com/suedeai](https://instagram.com/suedeai) |
+| LinkedIn | [linkedin.com/in/jasoncolapietro](https://www.linkedin.com/in/jasoncolapietro) |
+| Telegram | [t.me/suedeai](https://t.me/suedeai) |
 | Books & guitar writing | [guitar.solutions](https://guitar.solutions) |
 | GEO/AEO practice | [seo.suedeai.ai](https://seo.suedeai.ai) |
