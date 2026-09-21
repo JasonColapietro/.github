@@ -7,7 +7,7 @@ Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.a
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-49%20PRs%20%2F%2044%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-50%20PRs%20%2F%2044%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Patent](https://img.shields.io/badge/USPTO-63%2F947%2C120%20pending-0A66C2?style=for-the-badge)](https://suedeai.ai)
 [![Book a call](https://img.shields.io/badge/book%20a%2015--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
@@ -73,6 +73,7 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 
 | Project | Contribution |
 |---|---|
+| [coreos/ignition](https://github.com/coreos/ignition/pull/2326) | Drop the duplicate Butane docs check |
 | [nautobot](https://github.com/nautobot/nautobot/pull/9359) | Correct Celery queues flag in docs |
 | [prometheus/docs](https://github.com/prometheus/docs/pull/3053) | Update TSDB storage comparison |
 | [avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing/pull/106) | Docs correction |
@@ -93,9 +94,9 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 
 Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v6 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** 49 merged pull requests across 44 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream on the substantive work listed above.
+**Totals:** 50 merged pull requests across 44 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream on the substantive work listed above.
 
-That 49 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **28 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 49.
+That 50 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **29 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 50.
 
 ---
 
@@ -126,11 +127,7 @@ Suede AI Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com
 
 ### Books
 
-**[The Signal Chain](https://guitar.solutions)** — 3 editions: Standard, Deluxe, Workbook  
-The full history of guitar amplifiers, effects, and the pursuit of electric tone. Free.
-
-**[The Guitar Without a Number](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
-Memoir-driven instruction for the self-taught player: modes, voice leading, 13 artist songbooks, gear, and the music IP rights chapter no other guitar book includes.
+Five on Kindle, two self-hosted.
 
 **[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
 The thesis document for programmable IP infrastructure in the AI media era.
@@ -140,6 +137,18 @@ How to build systems that hold up when nobody trusts anybody: proof baked in, no
 
 **[Stake Your Claim](https://www.amazon.com/dp/B0GRG8LGQQ)** — Kindle  
 Hard truths about turning the AI era into a real asset for creators.
+
+**[The Claude Code Bible](https://www.amazon.com/dp/B0HHTMJWB4)** — Kindle  
+The complete operator's guide to Claude Code and AI coding agents.
+
+**[Codex in Production](https://www.amazon.com/dp/B0HHTF3LG1)** — Kindle  
+A practical operator's guide to OpenAI Codex, `AGENTS.md`, worktrees, skills, security and long-running agent work.
+
+**[The Screenshot](https://seo.suedeai.ai/book)** — free, in full  
+Why AI recommends your competitors, and how to fix it. Johnny Suede Press, 65 pages: HTML, PDF, EPUB and Markdown source.
+
+**[The Signal Chain](https://strumly.suedeai.ai/book)** — paid, self-hosted  
+The full history of guitar amplifiers, effects, and the pursuit of electric tone. It absorbed the earlier *The Guitar Without a Number*, which is no longer a standalone title.
 
 ---
 
