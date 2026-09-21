@@ -8,11 +8,12 @@ the article.
 
 ## Layout
 
-    src/      8 HTML sources + msn-article.webp
+    src/      8 HTML sources + assets/
     images/   8 PNG, 2160x2700
     render.mjs
 
-Light scheme only. `01-cover.html` is the cover in use, built on a capture of the article;
+Light scheme only. `01-cover.html` is the cover in use, an article card built from the
+coverage;
 `01-cover-typographic.html` is the no-capture fallback. Slides are numbered 01-07
 in swipe order; 1080x1350 is the 4:5 portrait frame, the tallest Instagram allows in a
 carousel.
@@ -27,21 +28,25 @@ type better than uploading at native size; pass `SCALE=1` for pixel-exact 1080x1
 waits on `document.fonts.ready` and warns if the brand faces did not arrive, because a
 screenshot taken too early falls back to system fonts silently.
 
-## The article capture
+## The cover
 
-`01-cover.html` is a full-bleed capture of the article as it runs on MSN —
-`src/msn-article.webp`, cropped from the top so the msn masthead, the deck and
-the photo all carry, and cut at a gap between body lines so no text is sliced.
-A red rule separates it from the paper panel below.
+`01-cover.html` sets the article as a clean card: the msn masthead, the deck, the
+photo, the caption and the opening paragraph, with the app furniture — search
+bar, icon rail, hamburger, "Back to feed" — left out. Below a red rule sits a
+paper strip with the credit, the seat count and the swipe cue.
 
-The crop height is set in the source (`822px` for the image, `522px` for the
-panel, plus the 6px rule = 1350). If the capture is ever replaced, re-pick the
-cut: `object-fit: cover` scales by width, so a source row R lands at
-`round(R * 1080 / <capture width>)`, and the cut wants to fall in a gap between
-lines rather than through one.
+Nothing on it is invented. The text is the article's own, the mark and the photo
+are cut from the capture the coverage actually ran with:
 
-`01-cover-typographic.html` is the fallback cover, crediting MSN in type with no
-capture. Nothing here draws a publisher's page — the capture is a real one.
+    src/assets/msn-logo.png   176x74,   from the page header
+    src/assets/hero.png       1060x560, the article photo (c) suedeai.ai
+
+The one edit is to the opening sentence, which reads "Suede AI, also known as
+Suede Labs AI, has opened…" on MSN and is trimmed here to "Suede AI has
+opened…" so the card carries one brand name. Meaning is unchanged.
+
+`01-cover-typographic.html` is the fallback cover: MSN credited in type, no
+imagery.
 
 ## Palette
 
