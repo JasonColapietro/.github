@@ -7,7 +7,7 @@ Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.a
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-45%20PRs%20%2F%2041%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-49%20PRs%20%2F%2044%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Patent](https://img.shields.io/badge/USPTO-63%2F947%2C120%20pending-0A66C2?style=for-the-badge)](https://suedeai.ai)
 [![Book a call](https://img.shields.io/badge/book%20a%2015--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
@@ -86,10 +86,16 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 | [xupersplit](https://github.com/kanylbullen/xupersplit/pull/86) | Escape legal page apostrophes |
 | [backcheck](https://github.com/VectorInstitute/backcheck/pull/12) | Vector Institute — validation fix |
 | [Ledger_c](https://github.com/Din-es/Ledger_c/pull/11) | C ledger work, 6 files |
+| [buildwithclaude](https://github.com/davepoon/buildwithclaude/pull/305) | Add the suede-skills plugin |
+| [awesome-ai-tools](https://github.com/aliammari1/awesome-ai-tools/pull/60) | Catalog listing *(Suede-AI account)* |
+| [awesome-ai-tools](https://github.com/pingan8787/awesome-ai-tools/pull/103) | Catalog listing *(Suede-AI account)* |
+| [awesome-ai-tools](https://github.com/eudk/awesome-ai-tools/pull/210) | Catalog listing *(Suede-AI account)* |
 
 Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v6 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** 45 merged pull requests across 41 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream.
+**Totals:** 49 merged pull requests across 44 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream on the substantive work listed above.
+
+That 49 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **28 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 49.
 
 ---
 
