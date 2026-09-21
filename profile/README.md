@@ -7,7 +7,7 @@ Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.a
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-49%20PRs%20%2F%2044%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-50%20PRs%20%2F%2044%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Patent](https://img.shields.io/badge/USPTO-63%2F947%2C120%20pending-0A66C2?style=for-the-badge)](https://suedeai.ai)
 [![Book a call](https://img.shields.io/badge/book%20a%2015--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
@@ -66,7 +66,8 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 | [**Hardhat**](https://github.com/NomicFoundation/hardhat/pull/8522) *(8.5k★)* | Remove deprecated Holesky chain descriptor | +19 / −31 |
 | [**Solana Pay**](https://github.com/solana-foundation/pay/pull/451) *(1.8k★)* | Align MCP provider guidance with catalog format | +86 / −87 |
 | [**Solana Pay Kit**](https://github.com/solana-foundation/pay-kit/pull/299) *(73★)* | Modernize Pay Kit protocol references | +265 / −335 |
-| [**coreos/ignition**](https://github.com/coreos/ignition/pull/2303) *(974★)* | Provisioning fix, 3 files | +126 / −32 |
+| [**coreos/ignition**](https://github.com/coreos/ignition/pull/2303) *(974★)* | Restore Butane config coverage in the docs checker, 3 files | +126 / −32 |
+| [**coreos/ignition**](https://github.com/coreos/ignition/pull/2326) *(974★)* | Drop the duplicate Butane docs check | +1 / −31 |
 | [**elizaOS**](https://github.com/elizaOS/eliza/pull/25122) *(19.4k★)* | Bound Discord IPC frame payload length | +13 / −0 |
 
 ### Also merged
@@ -93,9 +94,9 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 
 Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v6 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** 49 merged pull requests across 44 repositories I do not maintain, 8 of them 5,000+ stars · **+2,667 / −657** lines changed upstream on the substantive work listed above.
+**Totals:** 50 merged pull requests across 44 repositories I do not maintain, 8 of them 5,000+ stars · **+2,668 / −688** lines changed upstream on the substantive work listed above.
 
-That 49 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **28 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 49.
+That 50 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **29 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 50.
 
 ---
 

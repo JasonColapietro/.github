@@ -61,10 +61,10 @@ Receipts, dated: seo.suedeai.ai/evidence
 Jason Colapietro | Suede AI
 ```
 
-**Bio** (160/160)
+**Bio** (158/160)
 
 ```
-Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship the fixes as PRs. Google Cloud partner. 5 books. Guitar. Jupiter, FL. seo.suedeai.ai
+Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship fixes as PRs. Google Cloud partner. 5 books. Jupiter, FL. seo.suedeai.ai
 ```
 
 **Location**: `Jupiter / West Palm Beach, FL`
@@ -118,10 +118,10 @@ Suede AI
 Full-stack GEO, AEO & SEO with AI architecture integration. Managed AI agents. Google Cloud partner.
 ```
 
-**About** (254/255)
+**About** (231/255)
 
 ```
-Suede AI, founded by Jason Colapietro. Full-stack GEO, AEO and SEO: we measure what AI answers say about your category, repair the pages and entity records behind them, and publish the receipts. Then we integrate AI into the operation: architecture, automation, managed agents.
+Suede AI, founded by Jason Colapietro. Full-stack GEO, AEO and SEO: we measure what AI answers say about your category, repair the pages and entity records behind them, and publish the receipts. Then we build AI into the operation.
 ```
 
 **Specialties** (replace the six saved on 2026-09-14 with these seven)
@@ -189,7 +189,7 @@ Jason edits this one himself. Copy to paste:
 **Headline** (191/220)
 
 ```
-Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 49 upstream PRs merged · Author of five books
+Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 50 upstream PRs merged · Author of five books
 ```
 
 **Cover**: `images/li-cover-founder.png` (1584×396)
@@ -251,10 +251,10 @@ Agent Studio: https://agents.suedeai.ai
 ## TikTok — @suedeai
 
 **Name**: `Suede AI`
-**Bio** (79/80):
+**Bio** (75/80):
 
 ```
-GEO, SEO & AI architecture. Managed AI agents. Google Cloud partner. seo.suedeai.ai
+GEO, SEO & AI architecture. AI agents. Google Cloud partner. seo.suedeai.ai
 ```
 
 ---
