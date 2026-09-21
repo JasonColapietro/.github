@@ -1,8 +1,11 @@
 ## Jason Colapietro (Johnny Suede)
 
-**Founder & CEO, Suede Labs AI · 5x published author · guitarist**  
+**Full-stack GEO, AEO and SEO — founder of [Suede AI SEO](https://seo.suedeai.ai)**  
+I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category.  
 Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
 
+[![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
 [![Upstream merged](https://img.shields.io/badge/upstream%20merged-45%20PRs%20%2F%2041%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
@@ -16,9 +19,31 @@ Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.a
 
 ---
 
-I've spent two decades chasing guitar tone and ended up building IP infrastructure for the AI era. The signal chain — pickups, cables, amp, speaker — is where I started. The royalty chain — creation proof, rights metadata, on-chain registration, royalty routing — is where that thinking led.
+Search is being replaced by answers. When a buyer asks an engine about your category, something gets named. Most of the time it is not you, and the reason is sitting in your pages and your entity records.
 
-I founded [Suede Labs AI](https://suedeai.ai) to give musicians and creators a technical ownership layer: cryptographic proof of authorship, programmable licensing, and payment rails built on Base and USDC. Along the way I wrote five books. The last one puts a full music IP rights chapter inside a guitar theory memoir, because those two subjects have always belonged together.
+That is the work I do. [Suede AI SEO](https://seo.suedeai.ai) runs **full-stack GEO**: capture what ChatGPT, Perplexity, Gemini and Google's AI results actually say about your category, dated and screenshotted, then repair the pages, schema and third-party records those answers are built from, then publish the receipts.
+
+What separates this from the rest of the category is that I ship the fixes. Most GEO vendors hand you a report. Schema, `llms.txt` and page structure go to production as pull requests, with a source diff. The upstream record below is the same pair of hands.
+
+### Start here
+
+| | |
+|---|---|
+| **Free** | [AI Citation Check](https://seo.suedeai.ai/ai-citation-check) &mdash; four buyer questions put to real engines, and which sites they cited instead of you |
+| **Then** | A 30-day answer-share sprint at a fixed fee, measured before and after on a prompt set you approve |
+| **Then** | Managed agents on a monthly retainer, reported against the same prompts |
+
+[Book 15 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 401-0518](tel:+15614010518) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
+
+### Seven lanes, one firm
+
+Full-stack GEO &middot; entity records and search &middot; press and reputation &middot; AI operations &middot; managed AI agents &middot; fractional forward-deployed engineer &middot; IP and rights integration
+
+In partnership with Google Cloud since September 2025, running on Vertex AI. Eleven feature placements across Business Insider, TechBullion, Programming Insider, Altcoin Investor and Indie Hackers. Thirty-plus live sites and nine iOS apps shipped and operated.
+
+---
+
+I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built [Suede Labs AI](https://suedeai.ai): proof of authorship, programmable licensing and payment rails for creators, USPTO patent filed. Five books along the way.
 
 ---
 
@@ -114,17 +139,24 @@ Hard truths about turning the AI era into a real asset for creators.
 
 ### Current Work
 
-**[Suede Labs AI](https://suedeai.ai)** — creator ownership infrastructure for the AI media era.
+**[Suede AI SEO](https://seo.suedeai.ai)** — the practice. Full-stack GEO, AEO and classic SEO, delivered as one retainer.
 
-- Proof of creation and cryptographic media registration — USPTO patent pending 63/947,120
+- **Measure** — what ChatGPT, Perplexity, Gemini and Google's AI results answer about your category, captured dated and screenshotted before anything is changed
+- **Repair** — pages, schema, `llms.txt`, knowledge panels and third-party entity records, shipped as pull requests with a source diff
+- **Press** — founder story, newsroom and outreach, every placement filed as an exhibit an engine can quote back
+- **Receipts** — published, dated, and re-measured against the same approved prompt set
+
+Read the method: [What is GEO and AEO?](https://seo.suedeai.ai/what-is-geo) · [Full-stack GEO](https://seo.suedeai.ai/full-stack-geo) · [Who ships the fixes](https://seo.suedeai.ai/geo-implementation) · [The receipts](https://seo.suedeai.ai/evidence)
+
+**[Suede Labs AI](https://suedeai.ai)** — the product side: creator ownership infrastructure for the AI media era.
+
+- Proof of creation and cryptographic media registration, USPTO 63/947,120 filed
 - Programmable IP licensing and royalty routing on Base/USDC and Solana
 - x402 micropayment layer: AI agents buy licenses autonomously, value flows to creators at the moment of use
-- Built for musicians, producers, and any creator whose work can be trained on, remixed, or monetized without their knowledge
 
-Built on Base, Avalanche, Solana and Ethereum, with LayerZero for interoperability.
 Live: [IP Registry](https://ip.suedeai.ai) · [Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
 
-I write about all of it weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — creator ownership, AI visibility, and what building this in public actually looks like.
+I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — AI search visibility, what the engines are actually citing, and the work done in public.
 
 ---
 
