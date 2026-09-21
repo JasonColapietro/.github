@@ -44,6 +44,30 @@ test("badge and stats images are not treated as destinations", () => {
   assert.deepEqual(targets.map((t) => t.url), ["https://seo.suedeai.ai/x"]);
 });
 
+test("a badge pointing at a local anchor is still a badge", () => {
+  // Codex P2 on #4. When the outer target was required to be an http URL,
+  // these badges fell through to the general pattern, which matched from the
+  // outer bracket and yielded a link labelled "![Upstream merged" whose URL
+  // was the Shields image. It was classified as a destination, so the
+  // liveness step probed the badge service on every run.
+  const md = "[![Upstream merged](https://img.shields.io/badge/x-1-2ea44f)](#selected-upstream-contributions)";
+  const links = extractLinks(md);
+
+  const shields = links.filter((l) => l.url.includes("img.shields.io"));
+  assert.equal(shields.length, 1);
+  assert.equal(shields[0].image, true, "the shields URL is an image, not a destination");
+  assert.equal(shields[0].label, "Upstream merged", "the label should be the alt text, not the raw markdown");
+
+  // The anchor is a real target but not one this guard can resolve, so it is
+  // recorded as nothing rather than as a URL.
+  assert.deepEqual(destinations(links), []);
+});
+
+test("the real README leaks no badge images into destinations", () => {
+  const leaked = destinations(extractLinks(README)).filter((d) => d.url.includes("img.shields.io"));
+  assert.deepEqual(leaked.map((d) => d.label), [], "shields URLs must never be probed as destinations");
+});
+
 test("one ASIN linked as two titles fails", () => {
   // The 2026-09-21 defect, kept as a regression: *The Guitar Without a Number*
   // and *Suede Labs: The Human Authenticity Layer* both pointed at B0GD5FX6N6.

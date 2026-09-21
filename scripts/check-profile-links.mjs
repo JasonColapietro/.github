@@ -57,7 +57,14 @@ const IMAGE_HOSTS = new Set([
 // the `[^\]]*` label class and the outer target would otherwise never be seen
 // at all. Every badge across the top of the README is one of these, so getting
 // this wrong means silently checking none of them.
-const BADGE_LINK = /\[\s*!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)\s*\]\((https?:\/\/[^\s)]+)\)/g;
+// The outer target is deliberately `[^\s)]+` and not an http URL: a badge may
+// point at a local anchor, and two of them do. Requiring a URL there made this
+// pattern miss those badges entirely, and the general pattern below then ate
+// them from the outer `[`, producing a link whose label was the literal text
+// `![Upstream merged` and whose URL was the Shields image — classified as a
+// destination, so the liveness step went and probed the badge service that
+// `destinations()` exists to exclude.
+const BADGE_LINK = /\[\s*!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)\s*\]\(([^\s)]+)\)/g;
 
 // `[label](url)` and a bare `![alt](src)`. The leading `!` is captured so an
 // image source can be told from a link target. The URL half stops at
@@ -73,8 +80,10 @@ export function extractLinks(text) {
   const rest = text.replace(BADGE_LINK, (_whole, alt, src, target) => {
     found.push({ url: src, label: alt.trim(), image: true });
     // The alt text is the badge's anchor text, so it is the label that matters
-    // for the target too.
-    found.push({ url: target, label: alt.trim(), image: false });
+    // for the target too. A local anchor is a real badge target but not one
+    // this guard can resolve over HTTP, so the badge is still blanked and the
+    // target simply is not recorded as a destination.
+    if (/^https?:\/\//i.test(target)) found.push({ url: target, label: alt.trim(), image: false });
     return "";
   });
 
