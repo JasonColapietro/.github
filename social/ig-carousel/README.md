@@ -8,12 +8,12 @@ the article.
 
 ## Layout
 
-    src/      8 HTML sources
+    src/      8 HTML sources + msn-article.webp
     images/   8 PNG, 2160x2700
     render.mjs
 
-Light scheme only. `01-cover.html` is the cover in use; `01-cover-with-capture.html` is the
-same slide with a slot for a screenshot of the article (see below). Slides are numbered 01-07
+Light scheme only. `01-cover.html` is the cover in use, built on a capture of the article;
+`01-cover-typographic.html` is the no-capture fallback. Slides are numbered 01-07
 in swipe order; 1080x1350 is the 4:5 portrait frame, the tallest Instagram allows in a
 carousel.
 
@@ -29,14 +29,19 @@ screenshot taken too early falls back to system fonts silently.
 
 ## The article capture
 
-`01-cover-with-capture.html` carries a **920 x 400** placeholder where a screenshot of the MSN
-article goes. It is a placeholder on purpose: nothing here fabricates a publisher's page. Drop
-the real capture in by replacing the placeholder block with the `<img>` in the comment above
-it, put the file next to the source, and re-render.
+`01-cover.html` is a full-bleed capture of the article as it runs on MSN —
+`src/msn-article.webp`, cropped from the top so the msn masthead, the deck and
+the photo all carry, and cut at a gap between body lines so no text is sliced.
+A red rule separates it from the paper panel below.
 
-If the capture is used, prefer a shot that includes MSN's own masthead — the point of the slide
-is that the coverage is real and checkable, and the typographic "AS REPORTED ON MSN" plate is
-the fallback when no capture is available.
+The crop height is set in the source (`822px` for the image, `522px` for the
+panel, plus the 6px rule = 1350). If the capture is ever replaced, re-pick the
+cut: `object-fit: cover` scales by width, so a source row R lands at
+`round(R * 1080 / <capture width>)`, and the cut wants to fall in a gap between
+lines rather than through one.
+
+`01-cover-typographic.html` is the fallback cover, crediting MSN in type with no
+capture. Nothing here draws a publisher's page — the capture is a real one.
 
 ## Palette
 
