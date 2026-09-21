@@ -57,6 +57,15 @@ indigo `#4f46e5` on bright white. That one dresses the profile and cover surface
 follows the suedeai.org site the coverage is about. Worth reconciling if the two ever have to
 sit next to each other in a feed.
 
+## Cohort status
+
+Slides 1, 2 and 7 state **3 of 5 seats open**. That is a live number, not a
+design element: slide 2 marks seats 01-02 `FILLED` and 03-05 `OPEN`, and the
+cover and the closing slide both carry it. Re-render after any change —
+`src/dark-02-five-businesses.html` and its light twin hold the per-seat
+markup, the cover chip is in `*-01-cover.html`, and the closing line is in
+`*-07-read-on-msn.html`.
+
 ## Content notes
 
 Sourced from the syndicated coverage of the release (Business Insider, TechBullion) and the
