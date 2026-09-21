@@ -21,6 +21,30 @@ Metricool `media` takes public URLs. The repo is public, so push first and use
 `https://raw.githubusercontent.com/JasonColapietro/.github/<commit-sha>/<path>`
 — pin the commit SHA, not the branch name.
 
+## Copy style
+
+**No em dashes.** Not in captions, not on slides, not in thread copy. Use a
+comma, a full stop, or a colon. The one exception is text quoted from a
+publication: the MSN article's dateline reads "WEST PALM BEACH, Fla. —" and
+the cover reproduces it as printed, because changing punctuation inside a
+quote misquotes the source.
+
+## Published posts
+
+**Never edit, reschedule or reopen a post that has gone out**, and do not
+re-post to "fix" one. If something is wrong with a live post, say so and let
+the user decide. Checking status read-only is fine.
+
+## Coverage
+
+The cohort has been covered by **Business Insider** (20 Sept 2026) and **MSN**
+(21 Sept 2026). Cite both.
+
+- Business Insider: https://markets.businessinsider.com/news/currencies/award-winning-developer-jason-colapietro-opens-suede-labs-ai-s-long-awaited-seo-cohort-1036549662
+- MSN: https://www.msn.com/en-xl/news/other/suede-ai-opens-seo-cohort-with-optional-ai-integration-and-live-agent-workflows/ar-AA2cBTep
+
+Both outlets run the headline as "Suede Labs AI". We still say Suede AI.
+
 ## Brand name
 
 The company is **Suede AI**. Not "Suede Labs AI" — that name appears in some
