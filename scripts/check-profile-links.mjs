@@ -197,6 +197,17 @@ export async function probe(url, { fetchImpl = fetch } = {}) {
   }
 }
 
+// Link shorteners that are first-party to their destination, and the one host
+// each is allowed to land on. An off-host redirect is normally the signal that
+// a domain was parked, sold or repointed, which is worth failing over — but a
+// shortener crossing hosts is the entire point of a shortener.
+//
+// The pair is pinned rather than the source alone: `calendar.app.google` is
+// Google's own short domain for appointment schedules and lands on
+// `calendar.google.com`. If it ever landed anywhere else, that is exactly the
+// kind of change this guard should still catch.
+const FIRST_PARTY_SHORTENERS = new Map([["calendar.app.google", "calendar.google.com"]]);
+
 // Fatal: the link is wrong. Warning: the answer says more about the responder
 // than about the link.
 export function classify({ url, label }, { status, finalUrl, error }) {
@@ -208,7 +219,9 @@ export function classify({ url, label }, { status, finalUrl, error }) {
 
   const from = hostOf(url);
   const to = hostOf(finalUrl);
-  if (from && to && from.replace(/^www\./, "") !== to.replace(/^www\./, "")) {
+  const expected = FIRST_PARTY_SHORTENERS.get(from);
+  const shortened = expected != null && to === expected;
+  if (from && to && !shortened && from.replace(/^www\./, "") !== to.replace(/^www\./, "")) {
     return { level: "fail", message: `${label || url}: redirects off-host to ${finalUrl} (${url})` };
   }
 

@@ -105,6 +105,24 @@ test("a timeout is unverified, not broken", () => {
   assert.match(verdict.message, /timed out/);
 });
 
+test("a first-party shortener may cross hosts, but only to its own target", () => {
+  // CI caught this one: the booking badge points at Google's own short domain
+  // for appointment schedules, which lands on calendar.google.com by design.
+  // The pair is pinned, so a shortener repointed somewhere else still fails.
+  const booking = { url: "https://calendar.app.google/8FyvYAspZaQFFP5eA", label: "Book a call" };
+  assert.equal(
+    classify(booking, {
+      status: 200,
+      finalUrl: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2i5EvP",
+    }).level,
+    "ok"
+  );
+  assert.equal(
+    classify(booking, { status: 200, finalUrl: "https://parked-domain.example/" }).level,
+    "fail"
+  );
+});
+
 test("an off-host redirect fails, a www or path redirect does not", () => {
   const link = { url: "https://guitar.solutions", label: "The Signal Chain" };
   assert.equal(
