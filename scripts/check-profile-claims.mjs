@@ -101,6 +101,14 @@ export async function countUpstream() {
 // Each claim names what it guards, the pattern whose first capture group is the
 // number, and the value it must equal. A pattern that appears more than once
 // must agree at every occurrence, not just the first.
+//
+// One claim is shaped differently. The totals note breaks the pull request count
+// into substantive contributions and accepted catalog listings, and neither half
+// is derivable from the search: which side a pull request falls on is a judgement
+// about what it changed. So that claim carries `parts` instead of `re` and checks
+// the one thing that is mechanical, that the halves still add up to the total.
+// Without it, `--fix` moving 50 to 51 leaves 29 and 21 behind, still summing to a
+// number the README no longer states anywhere.
 export function claimsFor({ skills, prs, repos }) {
   return [
     { label: "upstream badge, pull request count", re: /badge\/upstream%20merged-(\d+)%20PRs/, expected: prs },
@@ -111,6 +119,14 @@ export function claimsFor({ skills, prs, repos }) {
     { label: "totals note, restated pull request count", re: /That (\d+) counts the verified/, expected: prs },
     { label: "totals note, kernel caveat", re: /not counted in the (\d+)\./, expected: prs },
     { label: "skill catalogs paragraph", re: /— (\d+) open-source agent skills for Claude Code and Codex —/, expected: skills },
+    {
+      label: "totals note, substantive and catalog split",
+      parts: [
+        /\*\*(\d+) substantive code or documentation contributions\*\*/,
+        /\*\*(\d+) accepted listings\*\*/,
+      ],
+      expected: prs,
+    },
   ];
 }
 
@@ -144,6 +160,18 @@ export function audit(text, claims, { rewrite = false } = {}) {
   let updated = text;
 
   for (const claim of claims) {
+    if (claim.parts) {
+      // A split is never rewritten. The halves are a judgement about which pull
+      // requests are substantive, so nothing here knows which one absorbed the
+      // change, and guessing would publish a breakdown nobody decided on.
+      const message = auditSum(text, claim);
+      if (message) {
+        failures.push(message);
+        unguarded.push(message);
+      }
+      continue;
+    }
+
     const global = new RegExp(claim.re.source, "g");
     const found = [...text.matchAll(global)];
     if (found.length === 0) {
@@ -162,6 +190,20 @@ export function audit(text, claims, { rewrite = false } = {}) {
   }
 
   return { failures, unguarded, updated };
+}
+
+// Returns the failure a split claim reports, or null when it holds.
+function auditSum(text, claim) {
+  const found = claim.parts.map((re) => text.match(re));
+  if (found.some((m) => m === null)) {
+    return `${claim.label}: pattern not found, so this claim is no longer guarded`;
+  }
+  const parts = found.map((m) => Number(m[1]));
+  const total = parts.reduce((sum, n) => sum + n, 0);
+  if (total !== claim.expected) {
+    return `${claim.label}: README splits into ${parts.join(" + ")} = ${total}, live count is ${claim.expected}`;
+  }
+  return null;
 }
 
 // Replace the captured digits where they actually sit, not where a string search
@@ -213,7 +255,7 @@ async function run() {
     if (unguarded.length > 0) {
       console.error("\nprofile claim guard: --fix cannot repair these\n");
       for (const f of unguarded) console.error(`  ${f}`);
-      console.error("\nRe-pin the pattern in scripts/check-profile-claims.mjs, then run this again.");
+      console.error("\nRe-pin the pattern in scripts/check-profile-claims.mjs, or restate the split in the README, then run this again.");
       process.exit(1);
     }
     return;
@@ -224,6 +266,7 @@ async function run() {
     for (const f of failures) console.error(`  ${f}`);
     console.error("\nRun `node scripts/check-profile-claims.mjs --fix` to bring the README into line.");
     console.error("If a pattern went missing, the wording changed and the claim needs re-pinning in this script.");
+    console.error("If the split no longer adds up, decide which half moved and restate it in the README; --fix will not guess.");
     process.exit(1);
   }
 
