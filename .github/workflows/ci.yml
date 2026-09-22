@@ -25,8 +25,20 @@ on:
 permissions:
   contents: read
 
+# Superseding is only ever right for a pull request: a newer commit there makes
+# the older run's answer irrelevant. Nothing else here supersedes anything.
+#
+# Keying on `github.ref` alone put three of those together. A push to main, the
+# Monday schedule and a manual dispatch on main all read `refs/heads/main`, so a
+# merge landing on a Monday morning would cancel the weekly drift check, and a
+# dispatch run for a person watching it would cancel, or be cancelled by, an
+# unrelated merge. The survivor does check the same live counts moments later,
+# so nothing goes unverified — but the cancelled run is recorded against main as
+# a run that did not finish, which reads like a CI problem on a commit that has
+# none. Naming the event and falling back to the run id gives each of those runs
+# a group of its own, so none of them can cancel another.
 concurrency:
-  group: ci-${{ github.event.pull_request.number || github.ref }}
+  group: ci-${{ github.event_name }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: true
 
 jobs:
