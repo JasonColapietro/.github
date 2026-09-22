@@ -134,8 +134,13 @@ export function readClaimed(text) {
   };
 }
 
+// `unguarded` is the subset of failures a rewrite cannot repair. Rewriting fixes a
+// number; it cannot fix a pattern that no longer matches, because that needs
+// re-pinning in claimsFor above. `--fix` has to tell the two apart or it reports
+// success over exactly the hole this guard exists to close.
 export function audit(text, claims, { rewrite = false } = {}) {
   const failures = [];
+  const unguarded = [];
   let updated = text;
 
   for (const claim of claims) {
@@ -143,7 +148,9 @@ export function audit(text, claims, { rewrite = false } = {}) {
     const found = [...text.matchAll(global)];
     if (found.length === 0) {
       // A claim whose wording changed is a silent hole, so it fails loudly.
-      failures.push(`${claim.label}: pattern not found, so this claim is no longer guarded`);
+      const message = `${claim.label}: pattern not found, so this claim is no longer guarded`;
+      failures.push(message);
+      unguarded.push(message);
       continue;
     }
     for (const m of found) {
@@ -151,12 +158,26 @@ export function audit(text, claims, { rewrite = false } = {}) {
         failures.push(`${claim.label}: README says ${m[1]}, live count is ${claim.expected}`);
       }
     }
-    if (rewrite) {
-      updated = updated.replaceAll(global, (whole, captured) => whole.replace(captured, String(claim.expected)));
-    }
+    if (rewrite) updated = rewriteCount(updated, claim);
   }
 
-  return { failures, updated };
+  return { failures, unguarded, updated };
+}
+
+// Replace the captured digits where they actually sit, not where a string search
+// first finds them. `whole.replace(captured, ...)` took a string needle, so the
+// digits could match an earlier run inside a badge URL's %20 and %2F escapes:
+// a repository count of 20 rewrote "%20PRs" to "%21PRs", and a count of 202
+// published 302. The `d` flag gives the group's own offsets; splicing from the
+// end keeps the earlier ones valid.
+function rewriteCount(text, claim) {
+  const indexed = new RegExp(claim.re.source, "gd");
+  const spans = [...text.matchAll(indexed)].map((m) => m.indices?.[1]).filter(Boolean);
+  let updated = text;
+  for (const [start, end] of spans.reverse()) {
+    updated = updated.slice(0, start) + String(claim.expected) + updated.slice(end);
+  }
+  return updated;
 }
 
 async function run() {
@@ -173,7 +194,7 @@ async function run() {
   }
 
   const text = fs.readFileSync(README_PATH, "utf8");
-  const { failures, updated } = audit(text, claimsFor(counts), { rewrite: fix });
+  const { failures, unguarded, updated } = audit(text, claimsFor(counts), { rewrite: fix });
 
   console.log(
     `live counts: ${counts.skills} skills, ${counts.prs} merged pull requests across ${counts.repos} repositories`
@@ -185,6 +206,15 @@ async function run() {
       console.log("profile claim guard: README updated to match the live counts");
     } else {
       console.log("profile claim guard: nothing to change");
+    }
+    // Rewriting cannot re-pin a pattern. Returning 0 here used to report success
+    // on a claim that had stopped being checked, and the verify path sends people
+    // to `--fix` in exactly that case.
+    if (unguarded.length > 0) {
+      console.error("\nprofile claim guard: --fix cannot repair these\n");
+      for (const f of unguarded) console.error(`  ${f}`);
+      console.error("\nRe-pin the pattern in scripts/check-profile-claims.mjs, then run this again.");
+      process.exit(1);
     }
     return;
   }
