@@ -76,6 +76,36 @@ test("a --fix run leaves the suite green without a second edit", () => {
   assert.deepEqual(failures, [], `the suite would still fail after --fix:\n${failures.join("\n")}`);
 });
 
+test("--fix separates what it can repair from what it cannot", () => {
+  // Rewriting fixes a number. It cannot fix a pattern that stopped matching, and
+  // `--fix` used to return 0 on one, reporting success over an unguarded claim
+  // while the verify path was telling people to run `--fix` for exactly that.
+  const reworded = README.replace("**Totals:**", "**Grand totals:**");
+  const { unguarded, updated } = audit(reworded, claimsFor(CURRENT), { rewrite: true });
+  assert.ok(
+    unguarded.some((f) => f.includes("totals line")),
+    `a reworded claim is not listed as unrepairable: ${unguarded.join("; ")}`
+  );
+  assert.equal(updated, reworded, "a rewrite has nothing to change when the pattern is gone");
+
+  // A plain count drift stays repairable, so `--fix` must not refuse that run.
+  const drifted = audit(README, claimsFor({ ...CURRENT, prs: CURRENT.prs + 1 }), { rewrite: true });
+  assert.deepEqual(drifted.unguarded, [], "an ordinary count drift should still be repairable");
+  assert.ok(drifted.updated !== README, "an ordinary count drift should still be rewritten");
+});
+
+test("a rewrite lands on the count, not on an earlier digit run in the badge URL", () => {
+  // The URL carries its own digits inside %20 and %2F. A string search for the
+  // captured digits hit those first: a repository count of 20 rewrote "%20PRs"
+  // to "%21PRs", and a count of 202 published 302.
+  for (const repos of [20, 202]) {
+    const line = `![x](https://img.shields.io/badge/upstream%20merged-50%20PRs%20%2F%20${repos}%20repos-blue)`;
+    const { updated } = audit(line, claimsFor({ skills: 76, prs: 50, repos: repos + 1 }), { rewrite: true });
+    assert.ok(updated.includes(`%2F%20${repos + 1}%20repos`), `a count of ${repos} rewrote wrong: ${updated}`);
+    assert.ok(updated.includes("upstream%20merged-50%20PRs"), `the URL escapes were damaged: ${updated}`);
+  }
+});
+
 test("rewriting does not touch unrelated numbers", () => {
   const bumped = { skills: 80, prs: 52, repos: 47 };
   const { updated } = audit(README, claimsFor(bumped), { rewrite: true });
