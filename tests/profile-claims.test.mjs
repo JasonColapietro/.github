@@ -22,6 +22,22 @@ const README = fs.readFileSync(README_PATH, "utf8");
 // not about which numbers are currently true; the live check owns that.
 const CURRENT = readClaimed(README);
 
+// The split halves get the same treatment, and for the same reason: pinning 29
+// and 21 here would go stale the moment the total moves and a person restates
+// them, which is precisely the maintenance this guard exists to demand. Read
+// them through the claim's own patterns, so there is one definition of where
+// those numbers live.
+const SPLIT = claimsFor(CURRENT).find((claim) => claim.parts);
+
+const readSplit = (text) => SPLIT.parts.map((re) => Number(text.match(re)[1]));
+
+// Restate one half in place, at the capture group's own offsets, so this helper
+// cannot land on a neighbouring digit run the way the guard's rewrite once did.
+function restateHalf(text, half, next) {
+  const [start, end] = text.match(new RegExp(SPLIT.parts[half].source, "d")).indices[1];
+  return text.slice(0, start) + String(next) + text.slice(end);
+}
+
 test("every claim pattern still matches the README", () => {
   const missing = [];
   for (const claim of claimsFor(CURRENT)) {
@@ -96,10 +112,8 @@ test("a moved pull request count needs the split restated before it goes green",
   );
 
   // Restating it by hand is all that remains, and then the README stands alone.
-  const restated = updated.replace(
-    "**29 substantive code or documentation contributions**",
-    "**30 substantive code or documentation contributions**"
-  );
+  const [substantive] = readSplit(updated);
+  const restated = restateHalf(updated, 0, substantive + 1);
   assert.deepEqual(audit(restated, claimsFor(moved)).failures, [], "restating the split did not clear the guard");
 });
 
@@ -153,15 +167,16 @@ test("a total that moved past the split is reported, and --fix refuses it", () =
 
   // The counts it can repair are still repaired; only the split is left alone.
   assert.ok(updated.includes(`**Totals:** ${moved.prs} merged pull requests`), "the repairable counts were not rewritten");
-  assert.ok(
-    updated.includes("**29 substantive code or documentation contributions**") &&
-      updated.includes("**21 accepted listings**"),
+  assert.deepEqual(
+    readSplit(updated),
+    readSplit(README),
     "a rewrite guessed at the split instead of leaving it to a person"
   );
 });
 
 test("a reworded half of the split is reported rather than silently skipped", () => {
   const reworded = README.replace("accepted listings", "accepted catalog listings");
+  assert.notEqual(reworded, README, "this test rewords a phrase the README no longer uses");
   const { failures } = audit(reworded, claimsFor(CURRENT));
   assert.ok(
     failures.some((f) => f.includes("substantive and catalog split") && f.includes("no longer guarded")),
