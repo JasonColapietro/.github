@@ -131,7 +131,7 @@ Suede AI Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com
 
 ### Books
 
-Eight books: five on Amazon, three published independently.
+Eight titles: five on Amazon, two published independently, and *The Guitar Without a Number*, now incorporated into *The Signal Chain*.
 
 **[The Screenshot](https://seo.suedeai.ai/book)** — free, [source on GitHub](https://github.com/JasonColapietro/suede-geo-book)  
 Why AI recommends your competitors, and how to fix it. The full method behind the GEO practice, in eleven chapters.
@@ -139,7 +139,7 @@ Why AI recommends your competitors, and how to fix it. The full method behind th
 **[The Signal Chain](https://guitar.solutions)** — 3 editions: Standard, Deluxe, Workbook  
 The full history of guitar amplifiers, effects, and the pursuit of electric tone. Free.
 
-**[The Guitar Without a Number](https://strumly.suedeai.ai/book/catalog)** — published independently  
+**[The Guitar Without a Number](https://strumly.suedeai.ai/book/catalog)** — now part of *The Signal Chain*  
 Memoir-driven instruction for the self-taught player: modes, voice leading, 13 artist songbooks, gear, and the music IP rights chapter no other guitar book includes.
 
 **[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
