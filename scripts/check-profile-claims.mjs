@@ -285,7 +285,7 @@ async function run() {
     }
     if (rewritten.length === 0) console.log("profile claim guard: nothing to change");
     if (rewritten.some((surface) => surface.rendered)) {
-      console.log("Re-render the images: cd social && node build-sources.mjs && node render.mjs");
+      console.log("Re-render the images, or CI fails on them: cd social && node build-sources.mjs && node render.mjs");
     }
     // Rewriting cannot re-pin a pattern. Returning 0 here used to report success
     // on a claim that had stopped being checked, and the verify path sends people

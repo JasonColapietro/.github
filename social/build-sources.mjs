@@ -5,7 +5,9 @@ import fs from "node:fs";
 import path from "node:path";
 
 const here = path.dirname(new URL(import.meta.url).pathname);
-const out = path.join(here, "images-src");
+// SOCIAL_SRC_OUT lets the tests regenerate into a scratch directory and diff the
+// result against the committed sources.
+const out = process.env.SOCIAL_SRC_OUT || path.join(here, "images-src");
 fs.mkdirSync(out, { recursive: true });
 
 const css = `
