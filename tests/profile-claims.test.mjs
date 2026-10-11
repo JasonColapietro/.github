@@ -11,7 +11,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 
-import { claimsFor, audit, readClaimed, countUpstream, README_PATH } from "../scripts/check-profile-claims.mjs";
+import { claimsFor, audit, readClaimed, countUpstream, README_PATH, KIT_SURFACES } from "../scripts/check-profile-claims.mjs";
 
 const README = fs.readFileSync(README_PATH, "utf8");
 
@@ -192,6 +192,28 @@ test("rewriting does not touch unrelated numbers", () => {
   assert.ok(updated.includes("awesome-skills/pull/49"), "a same-valued PR link was rewritten");
   assert.ok(updated.includes("63/947,120"), "the patent number was rewritten");
   assert.ok(updated.includes("12%2C280"), "the contributions badge was rewritten");
+});
+
+test("the social kit states the same pull request count as the README", () => {
+  // The kit drifted to 50 and 49 while the README guard stayed green, because
+  // nothing read it. Checking it against the README's own count catches that on
+  // every pull request, without waiting for the weekly live run.
+  for (const surface of KIT_SURFACES) {
+    const text = fs.readFileSync(surface.path, "utf8");
+    const { failures } = audit(text, surface.claims(CURRENT), { source: surface.path });
+    assert.deepEqual(failures, [], failures.join("\n"));
+  }
+});
+
+test("a drifted social kit count is reported and --fix repairs it", () => {
+  for (const surface of KIT_SURFACES) {
+    const text = fs.readFileSync(surface.path, "utf8");
+    const moved = { ...CURRENT, prs: CURRENT.prs + 3 };
+    const { failures, unguarded, updated } = audit(text, surface.claims(moved), { rewrite: true });
+    assert.ok(failures.length > 0, `${surface.path}: a wrong count was not reported`);
+    assert.deepEqual(unguarded, [], `${surface.path}: an ordinary drift should be repairable`);
+    assert.deepEqual(audit(updated, surface.claims(moved)).failures, [], `${surface.path}: --fix left drift behind`);
+  }
 });
 
 // This one does stub fetch, deliberately. It is not testing GitHub; it is

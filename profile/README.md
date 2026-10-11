@@ -2,15 +2,15 @@
 
 **Full-stack GEO, AEO and SEO with AI architecture integration — founder of [Suede AI](https://seo.suedeai.ai)**  
 I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category, then wire AI into the operation behind the answer.  
-Jupiter / West Palm Beach, Florida · [Book a 15-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
+West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
 
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-50%20PRs%20%2F%2044%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-54%20PRs%20%2F%2046%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
-[![Patent](https://img.shields.io/badge/USPTO-63%2F947%2C120%20pending-0A66C2?style=for-the-badge)](https://suedeai.ai)
-[![Book a call](https://img.shields.io/badge/book%20a%2015--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
+[![Patents](https://img.shields.io/badge/USPTO-5%20provisional%20applications-0A66C2?style=for-the-badge)](https://suedeai.ai)
+[![Book a call](https://img.shields.io/badge/book%20a%2030--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
 
 <p align="left">
   <img height="165" src="https://github-readme-stats.vercel.app/api?username=JasonColapietro&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=github_dark&custom_title=Jason%20Colapietro%20%E2%80%94%2012%2C280%20contributions" alt="GitHub stats" />
@@ -29,21 +29,21 @@ What separates this from the rest of the category is that I ship the fixes. Most
 
 | | |
 |---|---|
-| **Free** | [AI Citation Check](https://seo.suedeai.ai/ai-citation-check) &mdash; four buyer questions put to real engines, and which sites they cited instead of you |
-| **Then** | A 30-day answer-share sprint at a fixed fee, measured before and after on a prompt set you approve |
-| **Then** | Managed agents on a monthly retainer, reported against the same prompts |
+| **Free** | The teardown, back within three business days: your answer share, the buyer prompts where an engine named someone else, and a prioritized fix list. Or run the self-serve [AI Citation Check](https://seo.suedeai.ai/ai-citation-check) first |
+| **Then** | A fixed-fee 30-day answer-share sprint, quoted case by case, measured before and after on a prompt set you approve |
+| **Then** | Compound: a monthly SEO and GEO retainer that builds on the sprint, reported against the same prompts |
 
-[Book 15 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 401-0518](tel:+15614010518) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
+[Book 30 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 401-0518](tel:+15614010518) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
 
 ### Eight lanes, one firm
 
 Full-stack GEO &middot; AI architecture and integration &middot; entity records and search &middot; press and reputation &middot; AI operations &middot; managed AI agents in Suede AI Agent Studio &middot; fractional forward-deployed engineer &middot; IP and rights integration
 
-In partnership with Google Cloud since September 2025, running on Vertex AI. Eleven feature placements across Business Insider, TechBullion, Programming Insider, Altcoin Investor and Indie Hackers. Thirty-plus live sites and nine iOS apps shipped and operated.
+In partnership with Google Cloud since September 2025, running on Vertex AI. Thirteen feature placements across seven outlets: Gigawatt Group, MSN, Business Insider, TechBullion, Programming Insider, Altcoin Investor and Indie Hackers. Thirty-plus live sites and nine iOS apps shipped and operated.
 
 ---
 
-I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built the [Suede AI](https://suedeai.ai) product side: proof of authorship, programmable licensing and payment rails for creators, USPTO patent filed. Five books along the way.
+I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built the [Suede AI](https://suedeai.ai) product side: proof of authorship, programmable licensing and payment rails for creators, five USPTO provisional patent applications filed. Eight books along the way, five of them on Amazon.
 
 ---
 
@@ -68,12 +68,16 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 | [**Solana Pay Kit**](https://github.com/solana-foundation/pay-kit/pull/299) *(73★)* | Modernize Pay Kit protocol references | +265 / −335 |
 | [**coreos/ignition**](https://github.com/coreos/ignition/pull/2303) *(974★)* | Restore Butane config coverage in the docs checker, 3 files | +126 / −32 |
 | [**coreos/ignition**](https://github.com/coreos/ignition/pull/2326) *(974★)* | Drop the duplicate Butane docs check | +1 / −31 |
+| [**coreos/ignition**](https://github.com/coreos/ignition/pull/2301) *(974★)* | Drop the caller's supplementary groups when switching to a target user, 3 files | +125 / −1 |
+| [**coreos/ignition**](https://github.com/coreos/ignition/pull/2302) *(974★)* | File append and overwrite examples in the Butane docs | +48 / −0 |
 | [**elizaOS**](https://github.com/elizaOS/eliza/pull/25122) *(19.4k★)* | Bound Discord IPC frame payload length | +13 / −0 |
 
 ### Also merged
 
 | Project | Contribution |
 |---|---|
+| [html-to-docx](https://github.com/TurboDocx/html-to-docx/pull/229) | Render a `<table>` nested inside a list item instead of dropping it, 4 files |
+| [xrpl.js](https://github.com/XRPLF/xrpl.js/pull/3430) | Use the network base fee for VaultCreate autofill |
 | [nautobot](https://github.com/nautobot/nautobot/pull/9359) | Correct Celery queues flag in docs |
 | [prometheus/docs](https://github.com/prometheus/docs/pull/3053) | Update TSDB storage comparison |
 | [avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing/pull/106) | Docs correction |
@@ -87,22 +91,21 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 | [xupersplit](https://github.com/kanylbullen/xupersplit/pull/86) | Escape legal page apostrophes |
 | [backcheck](https://github.com/VectorInstitute/backcheck/pull/12) | Vector Institute — validation fix |
 | [Ledger_c](https://github.com/Din-es/Ledger_c/pull/11) | C ledger work, 6 files |
-| [buildwithclaude](https://github.com/davepoon/buildwithclaude/pull/305) | Add the suede-skills plugin |
 | [awesome-ai-tools](https://github.com/aliammari1/awesome-ai-tools/pull/60) | Catalog listing *(Suede-AI account)* |
 | [awesome-ai-tools](https://github.com/pingan8787/awesome-ai-tools/pull/103) | Catalog listing *(Suede-AI account)* |
 | [awesome-ai-tools](https://github.com/eudk/awesome-ai-tools/pull/210) | Catalog listing *(Suede-AI account)* |
 
-Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v6 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
+Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v7 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** 50 merged pull requests across 44 repositories I do not maintain, 8 of them 5,000+ stars · **+2,668 / −688** lines changed upstream on the substantive work listed above.
+**Totals:** 54 merged pull requests across 46 repositories I do not maintain, 8 of them 5,000+ stars · **+3,168 / −704** lines changed upstream on the substantive work listed above.
 
-That 50 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **29 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 50.
+That 54 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **33 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 54.
 
 ---
 
 ## Skill catalogs & awesome lists
 
-[Suede Creator Skills](https://skills.suedeai.ai) — 76 open-source agent skills for Claude Code and Codex — has been reviewed and merged into fourteen independent catalogs I don't maintain. Every link is the merged pull request.
+[Suede Creator Skills](https://skills.suedeai.ai) — 76 open-source agent skills for Claude Code and Codex — has been reviewed and merged into fifteen independent catalogs I don't maintain. Every link is the merged pull request.
 
 | Catalog | Merged |
 |---|---|
@@ -119,6 +122,7 @@ That 50 counts the verified `JasonColapietro` and `Suede-AI` accounts together, 
 | [hashgraph-online/awesome-ai-plugins](https://github.com/hashgraph-online/awesome-ai-plugins) | [#148](https://github.com/hashgraph-online/awesome-ai-plugins/pull/148) |
 | [yzfly/awesome-skills-zh](https://github.com/yzfly/awesome-skills-zh) | [#14](https://github.com/yzfly/awesome-skills-zh/pull/14) |
 | [ichangyou/awesome-codex](https://github.com/ichangyou/awesome-codex) | [#2](https://github.com/ichangyou/awesome-codex/pull/2) |
+| [davepoon/buildwithclaude](https://github.com/davepoon/buildwithclaude) | [#305](https://github.com/davepoon/buildwithclaude/pull/305) |
 | [ichangyou/awesome-claude-code](https://github.com/ichangyou/awesome-claude-code) | [#9](https://github.com/ichangyou/awesome-claude-code/pull/9) |
 
 Suede AI Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com/xpaysh/awesome-x402/pull/518), and `@suedeai/plugin-suede` in the [elizaOS plugin registry](https://github.com/elizaOS/eliza/pull/19210).
@@ -127,10 +131,15 @@ Suede AI Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com
 
 ### Books
 
+Eight books: five on Amazon, three published independently.
+
+**[The Screenshot](https://seo.suedeai.ai/book)** — free, [source on GitHub](https://github.com/JasonColapietro/suede-geo-book)  
+Why AI recommends your competitors, and how to fix it. The full method behind the GEO practice, in eleven chapters.
+
 **[The Signal Chain](https://guitar.solutions)** — 3 editions: Standard, Deluxe, Workbook  
 The full history of guitar amplifiers, effects, and the pursuit of electric tone. Free.
 
-**[The Guitar Without a Number](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
+**[The Guitar Without a Number](https://strumly.suedeai.ai/book/catalog)** — published independently  
 Memoir-driven instruction for the self-taught player: modes, voice leading, 13 artist songbooks, gear, and the music IP rights chapter no other guitar book includes.
 
 **[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
@@ -141,6 +150,12 @@ How to build systems that hold up when nobody trusts anybody: proof baked in, no
 
 **[Stake Your Claim](https://www.amazon.com/dp/B0GRG8LGQQ)** — Kindle  
 Hard truths about turning the AI era into a real asset for creators.
+
+**[The Claude Code Bible](https://www.amazon.com/dp/B0HHTMJWB4)** — Kindle  
+The operator's manual for running Claude Code and AI coding agents as real infrastructure rather than a demo.
+
+**[Codex in Production](https://www.amazon.com/dp/B0HHTF3LG1)** — Kindle  
+Running OpenAI Codex in production: AGENTS.md, worktrees, skills, security, and agent work that outlives a single session.
 
 ---
 
@@ -158,11 +173,11 @@ Read the method: [What is GEO and AEO?](https://seo.suedeai.ai/what-is-geo) · [
 
 **[Suede AI](https://suedeai.ai)** — the product side: creator ownership infrastructure for the AI media era.
 
-- Proof of creation and cryptographic media registration, USPTO 63/947,120 filed
+- Proof of creation and cryptographic media registration, USPTO provisional 63/947,120 filed, one of five provisional applications
 - Programmable IP licensing and royalty routing on Base/USDC and Solana
 - x402 micropayment layer: AI agents buy licenses autonomously, value flows to creators at the moment of use
 
-Live: [IP Registry](https://ip.suedeai.ai) · [Suede AI Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
+Live: [Proof of creation](https://suedeai.ai/proof-of-creation) · [Suede AI Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
 
 I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — AI search visibility, what the engines are actually citing, and the work done in public.
 
@@ -188,10 +203,10 @@ I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro
 
 ### Connect
 
-**Book a call** · [15 minutes, pick a time](https://calendar.app.google/8FyvYAspZaQFFP5eA)  
+**Book a call** · [30 minutes, pick a time](https://calendar.app.google/8FyvYAspZaQFFP5eA)  
 **Phone** · [(561) 401-0518](tel:+15614010518)  
-**Email** · [johnny@suedeai.ai](mailto:johnny@suedeai.ai) · press: [press@suedeai.ai](mailto:press@suedeai.ai)  
-**Based in** · Jupiter / West Palm Beach, Florida
+**Email** · [info@suedeai.ai](mailto:info@suedeai.ai) · press: [press@suedeai.ai](mailto:press@suedeai.ai)  
+**Based in** · West Palm Beach, Florida
 
 | Where | Link |
 |---|---|

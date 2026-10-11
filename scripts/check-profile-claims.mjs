@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Guard the countable claims in profile/README.md against their live sources.
+// Guard the countable claims in profile/README.md, and the pull request count the
+// social kit restates, against their live sources.
 //
 // Why this exists. The skill count and the upstream contribution count are each
 // stated in two forms: a shields.io badge and a prose sentence. Both drift,
@@ -130,6 +131,30 @@ export function claimsFor({ skills, prs, repos }) {
   ];
 }
 
+// The README is not the only place this repository publishes the count. The
+// social kit restates it in the LinkedIn headline and on the X founder header,
+// and both went stale (50 and 49) while the live count reached 54 and this guard
+// stayed green, because it never opened either file. Each surface is audited the
+// same way as the README, so a drift here fails CI and `--fix` repairs it.
+//
+// A rewrite of build-sources.mjs fixes the HTML source, not the rendered PNG;
+// run() says so, because the image is what actually gets uploaded.
+export const KIT_SURFACES = [
+  {
+    path: path.join(REPO_ROOT, "social", "PROFILES.md"),
+    claims: ({ prs }) => [
+      { label: "social kit, LinkedIn headline pull request count", re: /· (\d+) upstream PRs merged ·/, expected: prs },
+    ],
+  },
+  {
+    path: path.join(REPO_ROOT, "social", "build-sources.mjs"),
+    rendered: true,
+    claims: ({ prs }) => [
+      { label: "social kit, X founder header pull request chip", re: /"(\d+) upstream PRs merged"/, expected: prs },
+    ],
+  },
+];
+
 // The numbers the README currently states, read back out of it. Tests use this
 // instead of a hardcoded fixture: a fixture goes stale the moment `--fix` runs,
 // which would leave the repair path unable to restore CI on its own.
@@ -154,7 +179,7 @@ export function readClaimed(text) {
 // number; it cannot fix a pattern that no longer matches, because that needs
 // re-pinning in claimsFor above. `--fix` has to tell the two apart or it reports
 // success over exactly the hole this guard exists to close.
-export function audit(text, claims, { rewrite = false } = {}) {
+export function audit(text, claims, { rewrite = false, source = "README" } = {}) {
   const failures = [];
   const unguarded = [];
   let updated = text;
@@ -183,7 +208,7 @@ export function audit(text, claims, { rewrite = false } = {}) {
     }
     for (const m of found) {
       if (Number(m[1]) !== claim.expected) {
-        failures.push(`${claim.label}: README says ${m[1]}, live count is ${claim.expected}`);
+        failures.push(`${claim.label}: ${source} says ${m[1]}, live count is ${claim.expected}`);
       }
     }
     if (rewrite) updated = rewriteCount(updated, claim);
@@ -235,19 +260,32 @@ async function run() {
     process.exit(1);
   }
 
-  const text = fs.readFileSync(README_PATH, "utf8");
-  const { failures, unguarded, updated } = audit(text, claimsFor(counts), { rewrite: fix });
+  const surfaces = [{ path: README_PATH, claims: claimsFor }, ...KIT_SURFACES];
+  const failures = [];
+  const unguarded = [];
+  const rewritten = [];
+  for (const surface of surfaces) {
+    const text = fs.readFileSync(surface.path, "utf8");
+    const result = audit(text, surface.claims(counts), { rewrite: fix, source: path.relative(REPO_ROOT, surface.path) });
+    failures.push(...result.failures);
+    unguarded.push(...result.unguarded);
+    if (fix && result.updated !== text) {
+      fs.writeFileSync(surface.path, result.updated);
+      rewritten.push(surface);
+    }
+  }
 
   console.log(
     `live counts: ${counts.skills} skills, ${counts.prs} merged pull requests across ${counts.repos} repositories`
   );
 
   if (fix) {
-    if (updated !== text) {
-      fs.writeFileSync(README_PATH, updated);
-      console.log("profile claim guard: README updated to match the live counts");
-    } else {
-      console.log("profile claim guard: nothing to change");
+    for (const surface of rewritten) {
+      console.log(`profile claim guard: ${path.relative(REPO_ROOT, surface.path)} updated to match the live counts`);
+    }
+    if (rewritten.length === 0) console.log("profile claim guard: nothing to change");
+    if (rewritten.some((surface) => surface.rendered)) {
+      console.log("Re-render the images: cd social && node build-sources.mjs && node render.mjs");
     }
     // Rewriting cannot re-pin a pattern. Returning 0 here used to report success
     // on a claim that had stopped being checked, and the verify path sends people
@@ -264,7 +302,7 @@ async function run() {
   if (failures.length > 0) {
     console.error("\nprofile claim guard: drift found\n");
     for (const f of failures) console.error(`  ${f}`);
-    console.error("\nRun `node scripts/check-profile-claims.mjs --fix` to bring the README into line.");
+    console.error("\nRun `node scripts/check-profile-claims.mjs --fix` to bring the README and the social kit into line.");
     console.error("If a pattern went missing, the wording changed and the claim needs re-pinning in this script.");
     console.error("If the split no longer adds up, decide which half moved and restate it in the README; --fix will not guess.");
     process.exit(1);
