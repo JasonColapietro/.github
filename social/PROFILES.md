@@ -189,7 +189,7 @@ Jason edits this one himself. Copy to paste:
 **Headline** (195/220)
 
 ```
-Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 54 upstream PRs merged · Author of eight books
+Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 54 upstream PRs merged · Author of seven books
 ```
 
 **Cover**: `images/li-cover-founder.png` (1584×396)
@@ -210,7 +210,7 @@ in this repository (`profile/README.md`) already carries the full positioning.
 **User `JasonColapietro`** — bio (159/160):
 
 ```
-Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship the fixes as PRs. Google Cloud partner. Eight books. West Palm Beach, FL.
+Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship the fixes as PRs. Google Cloud partner. Seven books. West Palm Beach, FL.
 ```
 
 ---
@@ -277,7 +277,7 @@ AI search visibility, AI architecture and the work Suede AI does in public, week
   are superseded by the indigo Agent Studio set in `images/`.
 - 2026-10-11: counts and contact facts brought into line with seo.suedeai.ai and the live
   guard: 54 upstream PRs (was 50 in the LinkedIn headline, 49 on the X founder header),
-  eight books (five on Amazon), and West Palm Beach, FL as the location, matching the
+  seven books (five on Amazon, two independent), and West Palm Beach, FL as the location, matching the
   practice's schema address. Character counts re-measured; the X founder bio drops its book
   count to stay under 160. All images re-rendered in Inter, the first installed face in the
   font stack. The PR count in this kit is now checked by `scripts/check-profile-claims.mjs`.

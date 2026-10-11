@@ -43,7 +43,7 @@ In partnership with Google Cloud since September 2025, running on Vertex AI. Thi
 
 ---
 
-I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built the [Suede AI](https://suedeai.ai) product side: proof of authorship, programmable licensing and payment rails for creators, five USPTO provisional patent applications filed. Eight books along the way, five of them on Amazon.
+I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built the [Suede AI](https://suedeai.ai) product side: proof of authorship, programmable licensing and payment rails for creators, five USPTO provisional patent applications filed. Seven books along the way, five of them on Amazon.
 
 ---
 
@@ -131,16 +131,13 @@ Suede AI Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com
 
 ### Books
 
-Eight titles: five on Amazon, two published independently, and *The Guitar Without a Number*, now incorporated into *The Signal Chain*.
+Seven current books: five on Amazon and two published independently.
 
 **[The Screenshot](https://seo.suedeai.ai/book)** — free, [source on GitHub](https://github.com/JasonColapietro/suede-geo-book)  
 Why AI recommends your competitors, and how to fix it. The full method behind the GEO practice, in eleven chapters.
 
 **[The Signal Chain](https://guitar.solutions)** — 3 editions: Standard, Deluxe, Workbook  
-The full history of guitar amplifiers, effects, and the pursuit of electric tone. Free.
-
-**[The Guitar Without a Number](https://strumly.suedeai.ai/book/catalog)** — now part of *The Signal Chain*  
-Memoir-driven instruction for the self-taught player: modes, voice leading, 13 artist songbooks, gear, and the music IP rights chapter no other guitar book includes.
+The full history of guitar amplifiers, effects, and the pursuit of electric tone, sold direct. It now incorporates the earlier [*The Guitar Without a Number*](https://strumly.suedeai.ai/book/catalog), memoir-driven instruction for the self-taught player.
 
 **[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
 The thesis document for programmable IP infrastructure in the AI media era.
