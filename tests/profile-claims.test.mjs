@@ -191,10 +191,10 @@ test("a reworded half of the split is reported rather than silently skipped", ()
 test("rewriting does not touch unrelated numbers", () => {
   const bumped = { skills: 80, prs: 52, repos: 47 };
   const { updated } = audit(README, claimsFor(bumped), { rewrite: true });
-  // A catalog pull request that happens to be numbered 49, and the patent
+  // A catalog pull request that happens to be numbered 49, and the phone
   // number, must survive a rewrite of the totals.
   assert.ok(updated.includes("awesome-skills/pull/49"), "a same-valued PR link was rewritten");
-  assert.ok(updated.includes("63/947,120"), "the patent number was rewritten");
+  assert.ok(updated.includes("401-0518"), "the phone number was rewritten");
   assert.ok(updated.includes("12%2C280"), "the contributions badge was rewritten");
 });
 
