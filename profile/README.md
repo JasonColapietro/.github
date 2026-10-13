@@ -9,7 +9,6 @@ West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
 [![Upstream merged](https://img.shields.io/badge/upstream%20merged-54%20PRs%20%2F%2046%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
 [![Open-source skills](https://img.shields.io/badge/open--source%20skills-76-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
-[![Patents](https://img.shields.io/badge/USPTO-5%20provisional%20applications-0A66C2?style=for-the-badge)](https://suedeai.ai)
 [![Book a call](https://img.shields.io/badge/book%20a%2030--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
 
 <p align="left">
@@ -43,7 +42,7 @@ In partnership with Google Cloud since September 2025, running on Vertex AI. Thi
 
 ---
 
-I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built the [Suede AI](https://suedeai.ai) product side: proof of authorship, programmable licensing and payment rails for creators, five USPTO provisional patent applications filed. Seven books along the way, five of them on Amazon.
+I came to this sideways. Two decades chasing guitar tone taught me the signal chain, pickups through amp to speaker, where every link either passes the signal or eats it. Answer engines work the same way. So does the royalty chain, which is why I also built the [Suede AI](https://suedeai.ai) product side: proof of authorship, programmable licensing and payment rails for creators. Seven books along the way, five of them on Amazon.
 
 ---
 
@@ -170,11 +169,11 @@ Read the method: [What is GEO and AEO?](https://seo.suedeai.ai/what-is-geo) · [
 
 **[Suede AI](https://suedeai.ai)** — the product side: creator ownership infrastructure for the AI media era.
 
-- Proof of creation and cryptographic media registration, USPTO provisional 63/947,120 filed, one of five provisional applications
+- Proof of creation and cryptographic media registration in the [music IP registry](https://ip.suedeai.ai)
 - Programmable IP licensing and royalty routing on Base/USDC and Solana
 - x402 micropayment layer: AI agents buy licenses autonomously, value flows to creators at the moment of use
 
-Live: [Proof of creation](https://suedeai.ai/proof-of-creation) · [Suede AI Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
+Live: [Music IP registry](https://ip.suedeai.ai) · [Suede AI Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
 
 I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — AI search visibility, what the engines are actually citing, and the work done in public.
 
