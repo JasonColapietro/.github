@@ -169,11 +169,11 @@ Read the method: [What is GEO and AEO?](https://seo.suedeai.ai/what-is-geo) · [
 
 **[Suede AI](https://suedeai.ai)** — the product side: creator ownership infrastructure for the AI media era.
 
-- Proof of creation and cryptographic media registration in the [music IP registry](https://ip.suedeai.ai)
-- Programmable IP licensing and royalty routing on Base/USDC and Solana
-- x402 micropayment layer: AI agents buy licenses autonomously, value flows to creators at the moment of use
+- Proof of creation in the [IP Registry](https://registry.suedeai.ai): a file fingerprint, wallet-signed creator claim, contributors and timestamp on Base and Avalanche
+- Artist Coordination on the [music IP site](https://ip.suedeai.ai): artist profiles, release destinations, approvals and correction cases in one auditable record
+- x402 pay-per-call endpoints: AI agents pay in USDC on Base for music, video and image generation
 
-Live: [Music IP registry](https://ip.suedeai.ai) · [Suede AI Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
+Live: [IP Registry](https://registry.suedeai.ai) · [Music IP site](https://ip.suedeai.ai) · [Suede AI Agent Studio](https://agents.suedeai.ai) · [GEO/AEO](https://seo.suedeai.ai)
 
 I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro.substack.com)** — AI search visibility, what the engines are actually citing, and the work done in public.
 
