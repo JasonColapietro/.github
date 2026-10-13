@@ -9,9 +9,13 @@
 
 import test from "node:test";
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
+import { spawnSync } from "node:child_process";
 import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 
-import { claimsFor, audit, readClaimed, countUpstream, README_PATH } from "../scripts/check-profile-claims.mjs";
+import { claimsFor, audit, readClaimed, countUpstream, README_PATH, KIT_SURFACES } from "../scripts/check-profile-claims.mjs";
 
 const README = fs.readFileSync(README_PATH, "utf8");
 
@@ -192,6 +196,65 @@ test("rewriting does not touch unrelated numbers", () => {
   assert.ok(updated.includes("awesome-skills/pull/49"), "a same-valued PR link was rewritten");
   assert.ok(updated.includes("63/947,120"), "the patent number was rewritten");
   assert.ok(updated.includes("12%2C280"), "the contributions badge was rewritten");
+});
+
+test("the social kit states the same pull request count as the README", () => {
+  // The kit drifted to 50 and 49 while the README guard stayed green, because
+  // nothing read it. Checking it against the README's own count catches that on
+  // every pull request, without waiting for the weekly live run.
+  for (const surface of KIT_SURFACES) {
+    const text = fs.readFileSync(surface.path, "utf8");
+    const { failures } = audit(text, surface.claims(CURRENT), { source: surface.path });
+    assert.deepEqual(failures, [], failures.join("\n"));
+  }
+});
+
+test("a drifted social kit count is reported and --fix repairs it", () => {
+  for (const surface of KIT_SURFACES) {
+    const text = fs.readFileSync(surface.path, "utf8");
+    const moved = { ...CURRENT, prs: CURRENT.prs + 3 };
+    const { failures, unguarded, updated } = audit(text, surface.claims(moved), { rewrite: true });
+    assert.ok(failures.length > 0, `${surface.path}: a wrong count was not reported`);
+    assert.deepEqual(unguarded, [], `${surface.path}: an ordinary drift should be repairable`);
+    assert.deepEqual(audit(updated, surface.claims(moved)).failures, [], `${surface.path}: --fix left drift behind`);
+  }
+});
+
+// The kit claim above checks build-sources.mjs, the generator. What gets uploaded
+// is two steps downstream of it: the HTML it writes to images-src/, and the PNG
+// render.mjs takes of that HTML. A --fix that rewrites the generator, or a hand
+// edit to it, leaves both stale unless someone re-runs the build, so each step is
+// checked against the one before it.
+const SOCIAL = new URL("../social/", import.meta.url);
+const SOURCES = new URL("images-src/", SOCIAL);
+const sourceFiles = () => fs.readdirSync(SOURCES).filter((f) => f.endsWith(".html")).sort();
+
+test("the image sources are exactly what build-sources.mjs generates", () => {
+  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), "social-src-"));
+  try {
+    const run = spawnSync(process.execPath, [new URL("build-sources.mjs", SOCIAL).pathname], {
+      env: { ...process.env, SOCIAL_SRC_OUT: scratch },
+      encoding: "utf8",
+    });
+    assert.equal(run.status, 0, run.stderr);
+    assert.deepEqual(fs.readdirSync(scratch).sort(), sourceFiles(), "generated and committed source sets differ");
+    const stale = sourceFiles().filter(
+      (f) => fs.readFileSync(path.join(scratch, f), "utf8") !== fs.readFileSync(new URL(f, SOURCES), "utf8")
+    );
+    assert.deepEqual(stale, [], `regenerate with \`cd social && node build-sources.mjs\`: ${stale.join(", ")}`);
+  } finally {
+    fs.rmSync(scratch, { recursive: true, force: true });
+  }
+});
+
+test("every image was rendered from its current source", () => {
+  const renderedFrom = JSON.parse(fs.readFileSync(new URL("images/rendered-from.json", SOCIAL), "utf8"));
+  const stale = sourceFiles().filter((f) => {
+    const png = f.replace(/\.html$/, ".png");
+    const hash = crypto.createHash("sha256").update(fs.readFileSync(new URL(f, SOURCES), "utf8")).digest("hex");
+    return renderedFrom[png] !== hash || !fs.existsSync(new URL(`images/${png}`, SOCIAL));
+  });
+  assert.deepEqual(stale, [], `re-render with \`cd social && node render.mjs\`: ${stale.join(", ")}`);
 });
 
 // This one does stub fetch, deliberately. It is not testing GitHub; it is

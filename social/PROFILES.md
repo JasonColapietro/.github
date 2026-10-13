@@ -22,19 +22,19 @@ Character counts are given so each field pastes without truncation.
 
 ## X — @AISUEDE (brand)
 
-**Name** (39/50)
+**Name** (37/50)
 
 ```
 Suede AI | GEO, SEO & AI Architecture
 ```
 
-**Bio** (159/160)
+**Bio** (157/160)
 
 ```
 Full-stack GEO, AEO & SEO with AI architecture integration. Managed AI agents in Suede AI Agent Studio. Google Cloud partner. By @Johnnysuede. seo.suedeai.ai
 ```
 
-**Location**: `Jupiter / West Palm Beach, FL`
+**Location**: `West Palm Beach, FL`
 **Website**: `https://seo.suedeai.ai`
 **Header**: `images/x-header-brand.png` (1500×500)
 **Avatar**: `images/avatar-brand.png` (1200×1200, indigo field, white S mark)
@@ -55,19 +55,19 @@ Receipts, dated: seo.suedeai.ai/evidence
 
 ## X — @Johnnysuede (founder)
 
-**Name** (32/50)
+**Name** (27/50)
 
 ```
 Jason Colapietro | Suede AI
 ```
 
-**Bio** (158/160)
+**Bio** (153/160)
 
 ```
-Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship fixes as PRs. Google Cloud partner. 5 books. Jupiter, FL. seo.suedeai.ai
+Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship fixes as PRs. Google Cloud partner. West Palm Beach. seo.suedeai.ai
 ```
 
-**Location**: `Jupiter / West Palm Beach, FL`
+**Location**: `West Palm Beach, FL`
 **Website**: `https://seo.suedeai.ai`
 **Header**: `images/x-header-founder.png` (1500×500)
 **Avatar**: keep the current photo. `images/avatar-founder.png` is the wordmark fallback.
@@ -76,13 +76,13 @@ Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I
 
 ## Instagram — @suedeai
 
-**Name** (28/30)
+**Name** (27/30)
 
 ```
 Suede AI | SEO & AI Systems
 ```
 
-**Bio** (148/150, four lines)
+**Bio** (138/150, four lines)
 
 ```
 Full-stack GEO, AEO & SEO
@@ -148,7 +148,7 @@ Suede AI, founded by Jason Colapietro. Full-stack GEO, AEO and SEO: we measure w
 Suede AI
 ```
 
-**Tagline** (118/120)
+**Tagline** (111/120)
 
 ```
 Full-stack GEO, AEO & SEO with AI architecture integration. Managed AI agents. Google Cloud partner since 2025.
@@ -169,7 +169,7 @@ Integrate. AI architecture for the business behind the pages: workflow automatio
 
 Receipts. Everything is published, dated and re-measured against the same prompts.
 
-In partnership with Google Cloud since September 2025, running on Vertex AI. Founded by Jason Colapietro, Jupiter / West Palm Beach, Florida.
+In partnership with Google Cloud since September 2025, running on Vertex AI. Founded by Jason Colapietro, West Palm Beach, Florida.
 
 Start with the free AI Citation Check: https://seo.suedeai.ai/ai-citation-check
 ```
@@ -186,10 +186,10 @@ Start with the free AI Citation Check: https://seo.suedeai.ai/ai-citation-check
 
 Jason edits this one himself. Copy to paste:
 
-**Headline** (191/220)
+**Headline** (195/220)
 
 ```
-Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 50 upstream PRs merged · Author of five books
+Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 54 upstream PRs merged · Author of seven books
 ```
 
 **Cover**: `images/li-cover-founder.png` (1584×396)
@@ -198,19 +198,19 @@ Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration 
 
 ## GitHub
 
-**Organization `Suede-AI`** — display name `Suede AI`, bio (156/160):
+**Organization `Suede-AI`** — display name `Suede AI`, bio (154/160):
 
 ```
 Full-stack GEO, AEO & SEO with AI architecture integration. Managed AI agents in Suede AI Agent Studio. Google Cloud partner. Founded by Jason Colapietro.
 ```
 
-Location `Jupiter / West Palm Beach, FL`, website `https://seo.suedeai.ai`. The org profile README
+Location `West Palm Beach, FL`, website `https://seo.suedeai.ai`. The org profile README
 in this repository (`profile/README.md`) already carries the full positioning.
 
-**User `JasonColapietro`** — bio (158/160):
+**User `JasonColapietro`** — bio (159/160):
 
 ```
-Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship the fixes as PRs. Google Cloud partner. Five books. Jupiter, FL.
+Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I ship the fixes as PRs. Google Cloud partner. Seven books. West Palm Beach, FL.
 ```
 
 ---
@@ -218,7 +218,7 @@ Founder, Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration. I
 ## Telegram — t.me/suedeai
 
 **Title**: `Suede AI`
-**Description** (231/255):
+**Description** (218/255):
 
 ```
 Suede AI. Full-stack GEO, AEO & SEO with AI architecture integration, managed AI agents in Suede AI Agent Studio, and creator ownership rails. Google Cloud partner. Founded by Jason Colapietro. Services: seo.suedeai.ai
@@ -237,7 +237,7 @@ Suede AI makes companies the answer when ChatGPT, Perplexity, Gemini and Google'
 
 Full-stack GEO, AEO and SEO, shipped as pull requests with a source diff. AI architecture and integration. Managed AI agents you can watch running live in Suede AI Agent Studio. A fractional forward-deployed engineer for operations that need triage.
 
-In partnership with Google Cloud since September 2025. Founded by Jason Colapietro, Jupiter / West Palm Beach, Florida.
+In partnership with Google Cloud since September 2025. Founded by Jason Colapietro, West Palm Beach, Florida.
 
 Free AI Citation Check: https://seo.suedeai.ai/ai-citation-check
 Services: https://seo.suedeai.ai
@@ -275,3 +275,9 @@ AI search visibility, AI architecture and the work Suede AI does in public, week
   2026-09-14 with "Suede Labs AI" naming and no Agent Studio mention; both are superseded by
   the copy above. X banners live since 2026-08-28 use the navy/ivory institutional set and
   are superseded by the indigo Agent Studio set in `images/`.
+- 2026-10-11: counts and contact facts brought into line with seo.suedeai.ai and the live
+  guard: 54 upstream PRs (was 50 in the LinkedIn headline, 49 on the X founder header),
+  seven books (five on Amazon, two independent), and West Palm Beach, FL as the location, matching the
+  practice's schema address. Character counts re-measured; the X founder bio drops its book
+  count to stay under 160. All images re-rendered in Inter, the first installed face in the
+  font stack. The PR count in this kit is now checked by `scripts/check-profile-claims.mjs`.
