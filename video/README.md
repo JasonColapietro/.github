@@ -1,43 +1,63 @@
-# Suede AI Agent Studio walkthrough
+# Suede AI Agent Studio walkthrough: find, win and keep a client
 
-[`suede-agent-studio-walkthrough.mp4`](suede-agent-studio-walkthrough.mp4): 5 min 39 s, 1920×1080, H.264, no audio.
+[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 4 min 51 s, 1920×1080, H.264, with no audio.
 
-The video tours the real Agent Studio pages from first visit to finish. It follows one lead, Maya Chen of Northwind Freight, who is fictional. The lead's details are demo data, and everything runs dry: no email is sent and no payment is made.
+The video follows an agency, Northlight Growth, as it takes one prospect from first audit to active client in the Studio's Clients workspace. The prospect is Brightside Family Dental. Both businesses are fictional and everything shown is sample data. The whole run is dry: nothing is crawled, sent, called or charged.
 
 | Chapter | Pages | What happens |
 |---|---|---|
-| 1 · Start | `/`, `/start`, `/templates/sales-call-scorecard` | Home page, Guided mode, picking a sales template |
-| 2 · Build | `/build/…` | Canvas, the voice steps (Transcribe Audio, Speak), a test run on Maya's call transcript, save version, launch |
-| 3 · Company | `/company`, `/company?id=…`, `/company/briefing` | Inbound Lead Desk after 7 days on autopilot: org chart, guardrails, morning briefing and its email preview |
-| 4 · Voice | `/phone` | The AI voice agent: answering, approved context, example conversations, handoff summary |
-| 5 · Email | `/company/support`, `/company/growth` | Maya's email lands as a sales lead with a drafted reply, a second lead's reply is approved, follow-ups on day 3 and day 7, outreach email with address and unsubscribe link |
-| 6 · Agents | `/docs/mcp`, `/a/<agent>`, `/runs`, `/runs/<id>`, `/ap2/authorize` | Maya's AI assistant reads the agent card and calls the launched agent on her behalf. This is a live request, shown with its real response. The run is logged with trigger `agent`. AP2 shows how a person approves an agent's payment |
-| 7 · Finish | `/flows`, `/pricing` | Workspace with the agents live, then pricing |
+| 1 · Find | `/`, `/clients`, `/clients/new`, `/clients/[id]` | The homepage ("Reports win clients. Workflows keep them."). The practice is added on camera as a prospect, and its next action reads "Run the first audit" |
+| 2 · Audit | `/clients/[id]/audit` | Audit v1, scoring 74/100, and the three items below. Both findings and their prepared fixes are switched on for the prospect |
+| 3 · Offer | `/clients/[id]/packet` | The two-brand packet is built from the audit and the selection, previewed, and published |
+| 4 · Win | `/clients/[id]/brand`, `/clients/[id]/inboxes`, `/clients/[id]` | The first-touch email is approved; approving it does not send it. Dr. Park's illustrative reply and the prepared scope follow, then the practice is marked Active |
+| 5 · Keep | `/clients/[id]/voice`, `leads`, `kpis`, `loop`, `share`, `/cv/[token]` | The four steps below, ending on the read-only client view with both brands on it |
+| 6 · Agents | `/docs/seo-skills`, `/clients` | MCP and the twelve SEO skills an AI assistant can run for each client |
+
+Audit v1 contains:
+- duplicate titles on three pages, with the pages as evidence
+- the operator's own observation that 2 of 3 after-hours test calls reached voicemail; nothing is inferred from the website
+- AI visibility marked as not run, rather than guessed
+
+The Keep chapter shows:
+- a sample after-hours call that the AI receptionist handled
+- the caller becoming a client lead, moved to Booked on camera
+- KPIs that start from a baseline and show where each number came from
+- the monthly loop, with the next client review on record
 
 ## How it was made
 
-The sandbox it was recorded in could not reach agents.suedeai.ai. The app was therefore run locally from `JasonColapietro/suede-agent-studio` at `main` (`e8c1476`), with no source changes, under these settings:
+The sandbox it was recorded in cannot reach agents.suedeai.ai. The app was therefore run locally from `JasonColapietro/suede-agent-studio` at `main` (`bd4be64`), with no source changes:
 
-- `DB_DRIVER=sqlite`
-- `X402_SKIP_SETTLEMENT=true`
+- `next dev` with `DB_DRIVER=sqlite`
 - no provider keys
+- no credit, no spend exemption, and live sending off
 
-The repo's own local dev sign-in supplied the session for the signed-in pages.
+The repo's local dev sign-in supplied the session.
 
-1. **Company.** `scripts/demo-company-autopilot.ts` founded "Inbound Lead Desk" from `sales-pipeline-shop` and ran it for 7 simulated days. The local copy started the clock on 2026-10-06 instead of 2031 so the dates read naturally.
-2. **Seed.** [`recorder/local-demo-seed.ts`](recorder/local-demo-seed.ts) handed the company to the demo login. It added Maya's and Raj's inbound messages and the growth email drafts through the app's own service functions.
-3. **Recording.** [`recorder/record.mjs`](recorder/record.mjs) drove Chromium with Playwright at 1600×900 @1.2×. It captured frames through a CDP screencast and added the captions, cursor and chapter cards on top of each page.
-4. **Encoding.** [`recorder/build.mjs`](recorder/build.mjs) encoded the frames to MP4.
+[`recorder/local-brightside-seed.ts`](recorder/local-brightside-seed.ts) fills in what the camera can't do in this environment. It runs in three phases between recording segments, and it uses the app's own repo functions:
 
-Two pages were left out because they are restricted to verified, allowlisted operator emails, which the local dev login cannot be:
+1. **`prep`:** the sample agency identity.
+2. **`audit`:** runs after the client is created on camera.
+   - Audit v1 goes through the real `runClientAudit` pipeline, with stubbed crawl runners because the sandbox can't fetch the site.
+   - It also adds the outreach draft and the illustrative reply.
+3. **`client`:** runs after the client is marked Active on camera. It adds:
+   - the sample call
+   - the client leads
+   - the KPI baselines
+   - this month's loop steps
+   - a client-view link
 
-- the populated phone inbox
-- the operator voice-sales console
+These steps were done on camera through the UI:
+- creating the client
+- the include toggles
+- building and publishing the packet
+- approving the outreach
+- the status change
+- the lead stage change
 
-The voice chapter uses the AI voice agent page inside `/phone` instead.
-
-To re-record, run the app this way and then run these from a scratch folder:
-
-- `auth.mjs`, which needs a `devsecret` file holding `AGX_DEV_SIGN_IN` and writes `state.json`
-- `record.mjs`
-- `build.mjs`
+To record:
+1. Put the seed script in the Studio repo's `scripts/` folder and run the app as above.
+2. In a scratch folder, put a `devsecret` file holding `AGX_DEV_SIGN_IN`, then run [`recorder/auth.mjs`](recorder/auth.mjs). It writes `state.json`.
+3. Run `seed.sh prep`. [`recorder/seed.sh`](recorder/seed.sh) reads `STUDIO` (the Studio repo path) and `SCRATCH` (the scratch folder).
+4. Run [`recorder/story.mjs`](recorder/story.mjs), which uses [`recorder/lib.mjs`](recorder/lib.mjs) for the screencast, captions and cards.
+5. Run [`recorder/build.mjs`](recorder/build.mjs) to encode the MP4.
