@@ -3,8 +3,65 @@
 // site's dark Makro theme (near-black ground, #f4f4f5 ink, lime #d9ff5c accent).
 import { createRequire } from "node:module";
 import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
 const require = createRequire(import.meta.url);
 const { chromium } = require("/opt/node22/lib/node_modules/playwright");
+const HERE = path.dirname(new URL(import.meta.url).pathname);
+
+// ── Kokoro narration (sherpa-onnx export of Kokoro v0.19) ──────────────────
+const VOICE = Number(process.env.VO_SID ?? 1); // 1 = af_bella
+const VO_SPEED = Number(process.env.VO_SPEED ?? 1.0);
+const VO_DIR = path.join(HERE, "vo");
+fs.mkdirSync(VO_DIR, { recursive: true });
+let ttsEngine = null;
+function tts() {
+  if (ttsEngine) return ttsEngine;
+  const sherpa = require(path.join(HERE, "tts-runtime/node_modules/sherpa-onnx-node"));
+  const M = path.join(HERE, "kokoro-model");
+  ttsEngine = {
+    sherpa,
+    engine: new sherpa.OfflineTts({
+      model: { kokoro: { model: `${M}/model.int8.onnx`, voices: `${M}/voices.bin`, tokens: `${M}/tokens.txt`, dataDir: `${M}/espeak-ng-data` }, numThreads: 4, provider: "cpu", debug: false },
+      maxNumSentences: 1,
+    }),
+  };
+  return ttsEngine;
+}
+// Spell out what the phonemizer would otherwise misread.
+export function spoken(text) {
+  return text
+    .replace(/\bDr\./g, "Doctor")
+    .replace(/\bKPIs\b/g, "K.P.I.s")
+    .replace(/\bKPI\b/g, "K.P.I.")
+    .replace(/\bSEO\b/g, "S.E.O.")
+    .replace(/\bMCP\b/g, "M.C.P.")
+    .replace(/\bAI\b/g, "A.I.")
+    .replace(/\b7:12pm\b/g, "seven twelve p.m.")
+    .replace(/\b(\d{1,2})pm\b/g, "$1 p.m.")
+    .replace(/\b(\d{1,2})am\b/g, "$1 a.m.")
+    .replace(/\bNov 19\b/g, "November nineteenth")
+    .replace(/\bv1\b/g, "version one")
+    .replace(/\s*·\s*/g, ", ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+function clipFor(text) {
+  const say = spoken(text);
+  const key = crypto.createHash("sha1").update(`${VOICE}|${VO_SPEED}|${say}`).digest("hex").slice(0, 16);
+  const file = path.join(VO_DIR, `${key}.wav`);
+  const meta = `${file}.json`;
+  if (fs.existsSync(meta)) return { file, ...JSON.parse(fs.readFileSync(meta, "utf8")), cached: true };
+  return { file, say, cached: false };
+}
+function synth(clip) {
+  const { sherpa, engine } = tts();
+  const a = engine.generate({ text: clip.say, sid: VOICE, speed: VO_SPEED });
+  sherpa.writeWave(clip.file, { samples: a.samples, sampleRate: a.sampleRate });
+  const dur = a.samples.length / a.sampleRate;
+  fs.writeFileSync(`${clip.file}.json`, JSON.stringify({ dur, say: clip.say }));
+  return { ...clip, dur, cached: false };
+}
 
 export const BASE = "http://localhost:3210";
 
@@ -25,6 +82,8 @@ export async function startStudio({ out = "frames" } = {}) {
   let frameNo = 0;
   let recording = false;
   let cursor = { x: 800, y: 470 };
+  const narration = [];
+  let narrationEnd = 0;
 
   cdp.on("Page.screencastFrame", async ({ data, metadata, sessionId }) => {
     try { await cdp.send("Page.screencastFrameAck", { sessionId }); } catch { /* closed */ }
@@ -50,8 +109,13 @@ export async function startStudio({ out = "frames" } = {}) {
     await cdp.send("Page.startScreencast", { format: "jpeg", quality: 90, maxWidth: 1920, maxHeight: 1080, everyNthFrame: 1 });
     await nudge();
   }
+  async function untilQuiet(gap = 0.35) {
+    const left = narrationEnd + gap - Date.now() / 1000;
+    if (left > 0) await page.waitForTimeout(Math.ceil(left * 1000));
+  }
   async function cut() {
     if (!recording) return;
+    await untilQuiet(0.45);
     await page.waitForTimeout(120);
     recording = false;
     segments[segments.length - 1].end = Date.now() / 1000;
@@ -134,7 +198,25 @@ export async function startStudio({ out = "frames" } = {}) {
     await decorate();
   }
 
+  // Speak `text` now. Synthesis (first take only) happens with the camera off.
+  async function speak(text) {
+    let clip = clipFor(text);
+    if (!clip.cached) {
+      const wasRecording = recording;
+      if (wasRecording) await cut();
+      clip = synth(clip);
+      log("voiced", clip.dur.toFixed(1) + "s", clip.say.slice(0, 60));
+      if (wasRecording) await rec();
+    }
+    await untilQuiet(0.25);
+    const t = Date.now() / 1000;
+    narration.push({ t, file: clip.file, dur: clip.dur });
+    narrationEnd = t + clip.dur;
+    return clip.dur;
+  }
+
   async function say(kicker, text, holdMs = 0) {
+    await untilQuiet(0.3);
     await page.evaluate(async ({ kicker, text }) => {
       const cap = document.getElementById("demo-cap");
       if (!cap) return;
@@ -146,6 +228,7 @@ export async function startStudio({ out = "frames" } = {}) {
       cap.querySelector(".t").textContent = text;
       cap.classList.add("show");
     }, { kicker, text });
+    if (recording) await speak(text);
     if (holdMs) await wait(holdMs);
   }
 
@@ -219,7 +302,7 @@ export async function startStudio({ out = "frames" } = {}) {
 
   // Full-screen title card. `title` is the first line, `dim` the grey second
   // line, and `mark` an optional lime-marked phrase appended to the second line.
-  async function card({ eyebrow, title, dim = "", mark = "", body = "", chips = [], fine = "" }, { holdMs = 3200, fadeOut = true } = {}) {
+  async function card({ eyebrow, title, dim = "", mark = "", body = "", chips = [], fine = "", voice = null }, { holdMs = 3200, fadeOut = true } = {}) {
     await page.evaluate(({ eyebrow, title, dim, mark, body, chips, fine }) => {
       document.getElementById("demo-card")?.remove();
       const el = document.createElement("div");
@@ -242,7 +325,8 @@ export async function startStudio({ out = "frames" } = {}) {
     }, { eyebrow, title, dim, mark, body, chips, fine });
     await rec();
     await nudge();
-    await wait(holdMs);
+    const dur = voice ? await speak(voice) : 0;
+    await wait(Math.max(holdMs, dur * 1000 + 700));
     if (fadeOut) {
       await page.evaluate(() => document.getElementById("demo-card")?.classList.add("hide"));
       await wait(650);
@@ -256,7 +340,7 @@ export async function startStudio({ out = "frames" } = {}) {
 
   async function finish() {
     await cut();
-    fs.writeFileSync("timeline.json", JSON.stringify({ frames, segments }));
+    fs.writeFileSync("timeline.json", JSON.stringify({ frames, segments, narration }));
     log("frames", frames.length, "segments", segments.length);
     await browser.close();
   }

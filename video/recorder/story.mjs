@@ -9,7 +9,8 @@ const S = await startStudio();
 const { page, wait, log, rec, cut, go, say, pointAt, click, clickNav, type, scrollY, scrollTo, card, safe, finish } = S;
 const seed = (phase) => log("seed", phase, execFileSync("./seed.sh", [phase], { encoding: "utf8" }).trim().split("\n").pop());
 const CH = 6;
-const chap = (n, title, dim, mark, body) => card({ eyebrow: `Chapter ${n} of ${CH}`, title, dim, mark, body }, { holdMs: 2700 });
+const WORDS = ["zero", "one", "two", "three", "four", "five", "six"];
+const chap = (n, title, dim, mark, body) => card({ eyebrow: `Chapter ${n} of ${CH}`, title, dim, mark, body, voice: `Chapter ${WORDS[n]}. ${title} ${dim} ${mark}` }, { holdMs: 2700 });
 
 // ═══ Opening ═══════════════════════════════════════════════════════════════
 await go("/");
@@ -20,6 +21,7 @@ await card({
   mark: "keep them.",
   body: "Follow one prospect from first audit to active client. Brightside Family Dental is a fictional practice, and Northlight Growth is a sample agency.",
   fine: "Real product pages · sample data · dry run: nothing is crawled, sent, called or charged",
+  voice: "Reports win clients. Workflows keep them. Here's one prospect, from first audit to active client, in Suede AI Agent Studio. Brightside Family Dental is a fictional practice, and everything you'll see is sample data.",
 }, { holdMs: 5600 });
 
 // ═══ 1 · Find ══════════════════════════════════════════════════════════════
@@ -240,6 +242,7 @@ await card({
   body: "Audit a prospect, send the packet, win the account, and keep it with voice, inbox and SEO workflows in Suede AI Agent Studio.",
   chips: ["Start building free", "Book a 30-minute call"],
   fine: "Suede AI Agent Studio · The workforce that works while you sleep.",
+  voice: "Reports win clients. Workflows keep them. Suede AI Agent Studio: the workforce that works while you sleep.",
 }, { holdMs: 5600, fadeOut: false });
 
 await finish();

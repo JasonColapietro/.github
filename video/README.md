@@ -1,6 +1,6 @@
 # Suede AI Agent Studio walkthrough: find, win and keep a client
 
-[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 4 min 51 s, 1920×1080, H.264, with no audio.
+[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 5 min 24 s, 1920×1080, H.264, with an AAC voiceover read by Kokoro (the `af_bella` voice) and matching on-screen captions.
 
 The video follows an agency, Northlight Growth, as it takes one prospect from first audit to active client in the Studio's Clients workspace. The prospect is Brightside Family Dental. Both businesses are fictional and everything shown is sample data. The whole run is dry: nothing is crawled, sent, called or charged.
 
@@ -59,5 +59,16 @@ To record:
 1. Put the seed script in the Studio repo's `scripts/` folder and run the app as above.
 2. In a scratch folder, put a `devsecret` file holding `AGX_DEV_SIGN_IN`, then run [`recorder/auth.mjs`](recorder/auth.mjs). It writes `state.json`.
 3. Run `seed.sh prep`. [`recorder/seed.sh`](recorder/seed.sh) reads `STUDIO` (the Studio repo path) and `SCRATCH` (the scratch folder).
-4. Run [`recorder/story.mjs`](recorder/story.mjs), which uses [`recorder/lib.mjs`](recorder/lib.mjs) for the screencast, captions and cards.
-5. Run [`recorder/build.mjs`](recorder/build.mjs) to encode the MP4.
+4. Run [`recorder/story.mjs`](recorder/story.mjs), which uses [`recorder/lib.mjs`](recorder/lib.mjs) for the screencast, captions, cards and narration.
+5. Run [`recorder/build.mjs`](recorder/build.mjs) to encode the silent video, then [`recorder/mix.mjs`](recorder/mix.mjs) to add the voice track.
+
+## Voiceover
+
+The narration is the on-screen captions read aloud by Kokoro, using the `af_bella` voice. A few words are spelled out first so they're read correctly; for example "AI" becomes "A.I." and "5pm" becomes "5 p.m.".
+
+- **Model and runtime:** Kokoro v0.19 in its sherpa-onnx export (`kokoro-int8-en-v0_19`), run through the official `sherpa-onnx-node` package. Hugging Face was blocked in the recording sandbox, so the model files were copied from the npm package `n8n-nodes-ttsbro`, which bundles them. Only the model files were used; none of that package's code was run.
+- **Pacing:** the recorder waits for each line to finish before it moves to the next caption or cuts to the next page. Each scene therefore lasts as long as its line.
+- **Caching:** the first take synthesizes every line with the camera paused and caches it in `vo/`. A second take from a clean database then plays at natural pace.
+- **Placement:** `mix.mjs` maps each line's logged start time onto the cut-down video, places the clips with `adelay`, and normalizes the mix to −16 LUFS.
+
+To use a different voice, set `VO_SID`. The available voices are 0 `af`, 1 `af_bella`, 2 `af_nicole`, 3 `af_sarah`, 4 `af_sky`, 5 `am_adam`, 6 `am_michael`, 7 `bf_emma`, 8 `bf_isabella`, 9 `bm_george` and 10 `bm_lewis`.
