@@ -1,6 +1,6 @@
 # Suede AI Agent Studio walkthrough: find, win and keep a client
 
-[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 5 min 24 s, 1920×1080, H.264, with an AAC voiceover read by Kokoro (the `af_bella` voice) and matching on-screen captions.
+[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 5 min 24 s, 1920×1080, H.264, with an AAC voiceover read by Kokoro (the British `bf_emma` voice) and matching on-screen captions.
 
 The video follows an agency, Northlight Growth, as it takes one prospect from first audit to active client in the Studio's Clients workspace. The prospect is Brightside Family Dental. Both businesses are fictional and everything shown is sample data. The whole run is dry: nothing is crawled, sent, called or charged.
 
@@ -64,11 +64,11 @@ To record:
 
 ## Voiceover
 
-The narration is the on-screen captions read aloud by Kokoro, using the `af_bella` voice. A few words are spelled out first so they're read correctly; for example "AI" becomes "A.I." and "5pm" becomes "5 p.m.".
+The narration is the on-screen captions read aloud by Kokoro, using the British `bf_emma` voice. A few words are spelled out first so they're read correctly; for example "AI" becomes "A.I." and "5pm" becomes "5 p.m.".
 
 - **Model and runtime:** Kokoro v0.19 in its sherpa-onnx export (`kokoro-int8-en-v0_19`), run through the official `sherpa-onnx-node` package. Hugging Face was blocked in the recording sandbox, so the model files were copied from the npm package `n8n-nodes-ttsbro`, which bundles them. Only the model files were used; none of that package's code was run.
 - **Pacing:** the recorder waits for each line to finish before it moves to the next caption or cuts to the next page. Each scene therefore lasts as long as its line.
 - **Caching:** the first take synthesizes every line with the camera paused and caches it in `vo/`. A second take from a clean database then plays at natural pace.
 - **Placement:** `mix.mjs` maps each line's logged start time onto the cut-down video, places the clips with `adelay`, and normalizes the mix to −16 LUFS.
 
-To use a different voice, set `VO_SID`. The available voices are 0 `af`, 1 `af_bella`, 2 `af_nicole`, 3 `af_sarah`, 4 `af_sky`, 5 `am_adam`, 6 `am_michael`, 7 `bf_emma`, 8 `bf_isabella`, 9 `bm_george` and 10 `bm_lewis`.
+To use a different voice, set `VO_SID` (the default is 7, `bf_emma`). [`recorder/pregen.cjs`](recorder/pregen.cjs) re-voices every cached line for a new speaker, so one take is enough. The available voices are 0 `af`, 1 `af_bella`, 2 `af_nicole`, 3 `af_sarah`, 4 `af_sky`, 5 `am_adam`, 6 `am_michael`, 7 `bf_emma`, 8 `bf_isabella`, 9 `bm_george` and 10 `bm_lewis`.

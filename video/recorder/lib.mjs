@@ -10,7 +10,7 @@ const { chromium } = require("/opt/node22/lib/node_modules/playwright");
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 
 // ── Kokoro narration (sherpa-onnx export of Kokoro v0.19) ──────────────────
-const VOICE = Number(process.env.VO_SID ?? 1); // 1 = af_bella
+const VOICE = Number(process.env.VO_SID ?? 7); // 7 = bf_emma
 const VO_SPEED = Number(process.env.VO_SPEED ?? 1.0);
 const VO_DIR = path.join(HERE, "vo");
 fs.mkdirSync(VO_DIR, { recursive: true });
