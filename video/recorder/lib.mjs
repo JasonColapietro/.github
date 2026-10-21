@@ -136,16 +136,16 @@ export async function startStudio({ out = "frames" } = {}) {
       style.id = "demo-style";
       style.textContent = `
         nextjs-portal{display:none!important}
-        #demo-nudge{position:fixed;right:0;bottom:0;width:2px;height:2px;background:#1b1b1d;opacity:.01;z-index:2147483647;pointer-events:none}
+        #demo-nudge{position:fixed;right:0;bottom:0;width:2px;height:2px;background:#ebeff5;opacity:.01;z-index:2147483647;pointer-events:none}
         #demo-cursor{position:fixed;left:0;top:0;width:28px;height:28px;z-index:2147483647;pointer-events:none;transition:transform 750ms cubic-bezier(.25,.8,.25,1);will-change:transform}
-        #demo-cursor svg{filter:drop-shadow(0 2px 4px rgba(0,0,0,.55))}
-        #demo-cursor .ring{position:absolute;left:-14px;top:-14px;width:30px;height:30px;border-radius:50%;border:3px solid #d9ff5c;opacity:0;transform:scale(.4)}
+        #demo-cursor svg{filter:drop-shadow(0 2px 4px rgba(36,36,38,.45))}
+        #demo-cursor .ring{position:absolute;left:-14px;top:-14px;width:30px;height:30px;border-radius:50%;border:3px solid #35363b;opacity:0;transform:scale(.4)}
         #demo-cursor.click .ring{animation:demoRing 520ms ease-out}
         @keyframes demoRing{0%{opacity:.95;transform:scale(.4)}100%{opacity:0;transform:scale(1.7)}}
-        #demo-cap{position:fixed;left:28px;bottom:28px;max-width:660px;z-index:2147483646;background:rgba(36,36,38,.97);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -16px rgba(0,0,0,.7);padding:14px 20px 16px;font-family:geistSans,system-ui,sans-serif;opacity:0;transform:translateY(14px);transition:opacity 420ms ease,transform 420ms ease;pointer-events:none}
+        #demo-cap{position:fixed;left:28px;bottom:28px;max-width:660px;z-index:2147483646;background:rgba(255,255,255,.98);border:1px solid rgba(36,36,38,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(36,36,38,.38);padding:14px 20px 16px;font-family:geistSans,system-ui,sans-serif;opacity:0;transform:translateY(14px);transition:opacity 420ms ease,transform 420ms ease;pointer-events:none}
         #demo-cap.show{opacity:1;transform:none}
         #demo-cap .k{display:inline-block;font-family:geistMono,ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#1b1b1d;background:#d9ff5c;border-radius:999px;padding:3px 10px;margin-bottom:9px;font-weight:600}
-        #demo-cap .t{font-size:19.5px;line-height:1.42;color:#f4f4f5;font-weight:450;letter-spacing:-.005em}
+        #demo-cap .t{font-size:19.5px;line-height:1.42;color:#242426;font-weight:450;letter-spacing:-.005em}
         #demo-card{position:fixed;inset:0;z-index:2147483645;background:#1b1b1d;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity 600ms ease;font-family:geistSans,system-ui,sans-serif}
         #demo-card.hide{opacity:0}
         #demo-card .inner{max-width:1240px;padding:0 72px;text-align:left;width:100%}
@@ -184,7 +184,7 @@ export async function startStudio({ out = "frames" } = {}) {
       document.body.appendChild(n);
       const c = document.createElement("div");
       c.id = "demo-cursor";
-      c.innerHTML = '<div class="ring"></div><svg width="28" height="28" viewBox="0 0 28 28"><path d="M5 3 L22 14.2 L14.3 15.9 L10.4 23.4 Z" fill="#ffffff" stroke="#1b1b1d" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+      c.innerHTML = '<div class="ring"></div><svg width="28" height="28" viewBox="0 0 28 28"><path d="M5 3 L22 14.2 L14.3 15.9 L10.4 23.4 Z" fill="#242426" stroke="#ffffff" stroke-width="1.8" stroke-linejoin="round"/></svg>';
       c.style.transition = "none";
       c.style.transform = `translate(${x - 5}px, ${y - 3}px)`;
       document.body.appendChild(c);

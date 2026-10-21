@@ -5,7 +5,13 @@ import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 
 const [video, out] = [process.argv[2], process.argv[3]];
-const { frames, segments, narration = [] } = JSON.parse(fs.readFileSync("timeline.json", "utf8"));
+const { frames: allFrames, segments, narration = [] } = JSON.parse(fs.readFileSync("timeline.json", "utf8"));
+// Drop frames the browser delivered late from before their segment began (it
+// happens after a long synchronous pause), and order each segment by capture
+// time, since a few frames arrive out of order.
+const frames = allFrames
+  .filter((f) => f.ts >= segments[f.seg].start - 0.05)
+  .sort((a, b) => a.seg - b.seg || a.ts - b.ts);
 
 const firstTs = new Map();
 for (const f of frames) if (!firstTs.has(f.seg)) firstTs.set(f.seg, f.ts);
