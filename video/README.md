@@ -1,6 +1,6 @@
 # Suede AI Agent Studio walkthrough: find, win and keep a client
 
-[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 5 min 24 s, 1920×1080, H.264, with an AAC voiceover read by Kokoro (the British `bf_emma` voice) and matching on-screen captions.
+[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 5 min 24 s, 1920×1080, H.264, with an AAC voiceover read by Kokoro (the British `bf_emma` voice), matching on-screen captions, and an original background track that ducks under the voice.
 
 The video follows an agency, Northlight Growth, as it takes one prospect from first audit to active client in the Studio's Clients workspace. The prospect is Brightside Family Dental. Both businesses are fictional and everything shown is sample data. The whole run is dry: nothing is crawled, sent, called or charged.
 
@@ -61,6 +61,7 @@ To record:
 3. Run `seed.sh prep`. [`recorder/seed.sh`](recorder/seed.sh) reads `STUDIO` (the Studio repo path) and `SCRATCH` (the scratch folder).
 4. Run [`recorder/story.mjs`](recorder/story.mjs), which uses [`recorder/lib.mjs`](recorder/lib.mjs) for the screencast, captions, cards and narration.
 5. Run [`recorder/build.mjs`](recorder/build.mjs) to encode the silent video, then [`recorder/mix.mjs`](recorder/mix.mjs) to add the voice track.
+6. Run [`recorder/add-music.sh`](recorder/add-music.sh) to add the background music.
 
 ## Voiceover
 
@@ -72,3 +73,15 @@ The narration is the on-screen captions read aloud by Kokoro, using the British 
 - **Placement:** `mix.mjs` maps each line's logged start time onto the cut-down video, places the clips with `adelay`, and normalizes the mix to −16 LUFS.
 
 To use a different voice, set `VO_SID` (the default is 7, `bf_emma`). [`recorder/pregen.cjs`](recorder/pregen.cjs) re-voices every cached line for a new speaker, so one take is enough. The available voices are 0 `af`, 1 `af_bella`, 2 `af_nicole`, 3 `af_sarah`, 4 `af_sky`, 5 `am_adam`, 6 `am_michael`, 7 `bf_emma`, 8 `bf_isabella`, 9 `bm_george` and 10 `bm_lewis`.
+
+## Music
+
+[`recorder/music.py`](recorder/music.py) composes the background track from scratch, with no samples or licensed music, so Suede owns it outright. It uses numpy to synthesize a 96 BPM bed in D major. The bed follows the D - Bm - G - A progression of the Studio's *Live Canvas* motion film.
+
+- **Instruments:** a soft pad, an FM electric piano, a round bass, a marimba-like arpeggio, and light kick, rim and hats.
+- **Structure:** a two-bar intro, then a 16-bar cycle of 10 full bars followed by 6 lighter bars without drums, then a held D add9 chord to finish.
+
+[`recorder/add-music.sh`](recorder/add-music.sh) mixes it under the voice:
+- It removes the lowest bass and dips the 250 Hz and 2.5 kHz ranges, so the voice stays clear.
+- It sets the music to -24 LUFS and ducks it under the voice with sidechain compression.
+- The final mix measures about -16.8 LUFS overall. Between lines, the music plays on its own at about -24 LUFS.
