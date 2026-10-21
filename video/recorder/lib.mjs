@@ -123,8 +123,14 @@ export async function startStudio({ out = "frames" } = {}) {
   }
 
   async function decorate() {
-    await page.evaluate(({ x, y }) => {
+    await page.evaluate(({ x, y, hideCaptions }) => {
       document.documentElement.style.scrollBehavior = "auto";
+      if (hideCaptions && !document.getElementById("demo-hide-cap")) {
+        const h = document.createElement("style");
+        h.id = "demo-hide-cap";
+        h.textContent = "#demo-cap{display:none!important}";
+        document.head.appendChild(h);
+      }
       if (document.getElementById("demo-style")) return;
       const style = document.createElement("style");
       style.id = "demo-style";
@@ -187,7 +193,7 @@ export async function startStudio({ out = "frames" } = {}) {
       cap.id = "demo-cap";
       cap.innerHTML = '<div class="k"></div><div class="t"></div>';
       document.body.appendChild(cap);
-    }, cursor);
+    }, { ...cursor, hideCaptions: process.env.HIDE_CAPTIONS === "1" });
   }
 
   async function go(path, { settle = 900 } = {}) {
