@@ -85,3 +85,20 @@ To use a different voice, set `VO_SID` (the default is 7, `bf_emma`). [`recorder
 - It removes the lowest bass and dips the 250 Hz and 2.5 kHz ranges, so the voice stays clear.
 - It sets the music to about -32 LUFS (normalized to -24 LUFS, then lowered 8 dB) and ducks it further under the voice with sidechain compression.
 - The final mix measures about -15.7 LUFS overall. Between lines, the music plays on its own at about -32 LUFS, a quiet background layer.
+
+## 60-second social cut
+
+`social/` holds the same story cut to 59.5 s for social media, in two formats:
+
+- [`suede-social-60s-vertical.mp4`](social/suede-social-60s-vertical.mp4): 1080×1920, for Reels, TikTok and Shorts. The headline is above the footage, the caption below, and a lime progress bar runs along the bottom.
+- [`suede-social-60s-16x9.mp4`](social/suede-social-60s-16x9.mp4): 1920×1080, for LinkedIn, X and YouTube. A headline chip sits top left and a caption bar along the bottom.
+
+Both cuts have nine beats: the hook, add the prospect, the audit, the two-brand packet, email, reply and won, the AI receptionist, KPIs and the monthly loop, the client view, and the end card. Emma reads a shorter social script, captions are burned in for muted viewing, and a fresh 60-second take of the music track runs underneath. The mix measures -14.6 LUFS.
+
+How it is made:
+
+1. Record a caption-free take: run `story.mjs` with `HIDE_CAPTIONS=1`. The pacing still follows the cached narration.
+2. Run [`recorder/beats-map.mjs`](recorder/beats-map.mjs). It lists where each original line falls in that footage, which is how each beat's source moments were chosen.
+3. Run [`recorder/social-vo.cjs`](recorder/social-vo.cjs) to voice the lines in [`recorder/social-beats.json`](recorder/social-beats.json).
+4. Run [`recorder/render-overlays.mjs`](recorder/render-overlays.mjs) to draw the headlines, captions, frame and end cards with the site's Geist and Instrument Serif fonts.
+5. Run [`recorder/compose.py`](recorder/compose.py). For each beat it cuts, speeds up and zooms into the app column (a 1440×810 crop), then layers the overlays, joins the beats, and mixes the narration over the ducked music.
