@@ -6,6 +6,6 @@
   { "id": "b5", "head": "Email. Reply. Won.", "sub": "The scope is ready when they answer", "cap": "Approve the first email. When they reply, the scope is ready. Mark them won.", "say": "Approve the first email. When they reply, the scope is ready. Mark them won." },
   { "id": "b6", "head": "An AI receptionist", "sub": "answers their calls after hours", "cap": "Then keep them. An AI receptionist answers their calls after hours.", "say": "Then keep them. An A.I. receptionist answers their calls after hours." },
   { "id": "b7", "head": "KPIs from day one", "sub": "and a monthly loop on schedule", "cap": "KPIs track every booking against the baseline, and a monthly loop keeps the work on schedule.", "say": "K.P.I.s track every booking against the baseline, and a monthly loop keeps the work on schedule." },
-  { "id": "b8", "head": "Your client sees results", "sub": "under your brand", "cap": "Your client sees the results, under your brand.", "say": "Your client sees the results, under your brand." },
-  { "id": "b9", "head": "Reports win clients.", "sub": "Workflows keep them.", "cap": "Reports win clients. Workflows keep them. Suede AI Agent Studio.", "say": "Reports win clients. Workflows keep them. Suede A.I. Agent Studio." }
+  { "id": "b8", "head": "Your client sees results", "sub": "with your brand beside theirs", "cap": "Your client sees the results, with your brand beside theirs.", "say": "Your client sees the results, with your brand beside theirs." },
+  { "id": "b9", "head": "Turn audits into clients.", "sub": "Keep them on autopilot.", "cap": "Turn audits into clients. Keep them on autopilot. Suede AI Agent Studio.", "say": "Turn audits into clients. Keep them on autopilot. Suede A.I. Agent Studio." }
 ]
