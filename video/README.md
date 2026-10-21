@@ -83,5 +83,5 @@ To use a different voice, set `VO_SID` (the default is 7, `bf_emma`). [`recorder
 
 [`recorder/add-music.sh`](recorder/add-music.sh) mixes it under the voice:
 - It removes the lowest bass and dips the 250 Hz and 2.5 kHz ranges, so the voice stays clear.
-- It sets the music to -24 LUFS and ducks it under the voice with sidechain compression.
-- The final mix measures about -16.8 LUFS overall. Between lines, the music plays on its own at about -24 LUFS.
+- It sets the music to about -32 LUFS (normalized to -24 LUFS, then lowered 8 dB) and ducks it further under the voice with sidechain compression.
+- The final mix measures about -15.7 LUFS overall. Between lines, the music plays on its own at about -32 LUFS, a quiet background layer.
