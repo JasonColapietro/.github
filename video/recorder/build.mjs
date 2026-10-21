@@ -2,7 +2,13 @@
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 const out = process.argv[2] || "walkthrough.mp4";
-const { frames, segments } = JSON.parse(fs.readFileSync("timeline.json", "utf8"));
+const { frames: allFrames, segments } = JSON.parse(fs.readFileSync("timeline.json", "utf8"));
+// Drop frames the browser delivered late from before their segment began (it
+// happens after a long synchronous pause), and order each segment by capture
+// time, since a few frames arrive out of order.
+const frames = allFrames
+  .filter((f) => f.ts >= segments[f.seg].start - 0.05)
+  .sort((a, b) => a.seg - b.seg || a.ts - b.ts);
 const lines = [];
 let total = 0;
 frames.forEach((f, i) => {

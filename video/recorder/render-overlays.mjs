@@ -72,8 +72,8 @@ await shot("v_end.png", 1080, 1920, `
   <div style="position:absolute;left:80px;right:80px;top:560px">
     <span class="brand"><b></b>agents.suedeai.ai</span>
     <div class="head" style="font-size:118px;margin-top:44px">${esc(endV.head)}</div>
-    <div class="head" style="font-size:118px;color:#7c7c82">Workflows</div>
-    <div class="head" style="font-size:118px;margin-top:6px"><mark>keep them.</mark></div>
+    <div class="head" style="font-size:118px;color:#7c7c82">Keep them</div>
+    <div class="head" style="font-size:118px;margin-top:6px"><mark>on autopilot.</mark></div>
     <div class="sub" style="font-size:44px;margin-top:44px;color:#b9babf;font-weight:400">Find, win and keep clients in Suede AI Agent Studio.</div>
     <div style="margin-top:64px;display:flex;gap:18px;flex-wrap:wrap">
       <span class="pill" style="font-size:36px;padding:20px 30px">Start building free</span>
@@ -95,7 +95,7 @@ await shot("h_end.png", 1920, 1080, `
   <div style="position:absolute;left:150px;top:250px">
     <span class="brand"><b></b>agents.suedeai.ai</span>
     <div class="head" style="font-size:132px;margin-top:40px">${esc(endV.head)}</div>
-    <div class="head" style="font-size:132px;color:#7c7c82">Workflows <mark>keep them.</mark></div>
+    <div class="head" style="font-size:132px;color:#7c7c82">Keep them <mark>on autopilot.</mark></div>
     <div class="sub" style="font-size:40px;margin-top:40px;color:#b9babf;font-weight:400">Find, win and keep clients in Suede AI Agent Studio.</div>
     <div style="margin-top:52px;display:flex;gap:18px">
       <span class="pill" style="font-size:32px;padding:18px 28px">Start building free</span>

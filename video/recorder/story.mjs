@@ -16,12 +16,12 @@ const chap = (n, title, dim, mark, body) => card({ eyebrow: `Chapter ${n} of ${C
 await go("/");
 await card({
   eyebrow: "Suede AI Agent Studio · walkthrough",
-  title: "Reports win clients.",
-  dim: "Workflows",
-  mark: "keep them.",
+  title: "Turn audits into clients.",
+  dim: "Keep them",
+  mark: "on autopilot.",
   body: "Follow one prospect from first audit to active client. Brightside Family Dental is a fictional practice, and Northlight Growth is a sample agency.",
   fine: "Real product pages · sample data · dry run: nothing is crawled, sent, called or charged",
-  voice: "Reports win clients. Workflows keep them. Here's one prospect, from first audit to active client, in Suede AI Agent Studio. Brightside Family Dental is a fictional practice, and everything you'll see is sample data.",
+  voice: "Turn audits into clients. Keep them on autopilot. Here's one prospect, from first audit to active client, in Suede AI Agent Studio. Brightside Family Dental is a fictional practice, and everything you'll see is sample data.",
 }, { holdMs: 5600 });
 
 // ═══ 1 · Find ══════════════════════════════════════════════════════════════
@@ -236,13 +236,13 @@ await say("Done", "Back on Clients: Brightside is active, with its score and nex
 
 await card({
   eyebrow: "agents.suedeai.ai",
-  title: "Reports win clients.",
-  dim: "Workflows",
-  mark: "keep them.",
+  title: "Turn audits into clients.",
+  dim: "Keep them",
+  mark: "on autopilot.",
   body: "Audit a prospect, send the packet, win the account, and keep it with voice, inbox and SEO workflows in Suede AI Agent Studio.",
   chips: ["Start building free", "Book a 30-minute call"],
   fine: "Suede AI Agent Studio · The workforce that works while you sleep.",
-  voice: "Reports win clients. Workflows keep them. Suede AI Agent Studio: the workforce that works while you sleep.",
+  voice: "Turn audits into clients. Keep them on autopilot. Suede AI Agent Studio: the workforce that works while you sleep.",
 }, { holdMs: 5600, fadeOut: false });
 
 await finish();
