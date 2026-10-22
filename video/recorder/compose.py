@@ -123,7 +123,7 @@ def finish(fmt, joined, out):
     chains += [
         f"{vo_mix}amix=inputs={len(ORDER)}:normalize=0:dropout_transition=0,loudnorm=I=-15:TP=-1.5:LRA=11,apad,atrim=duration={total}[voice]",
         "[voice]asplit=2[v1][sc]",
-        f"[1:a]aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-24:TP=-3:LRA=7,volume=-5dB,apad,atrim=duration={total}[mus]",
+        f"[1:a]aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-24:TP=-3:LRA=7,volume=-2dB,apad,atrim=duration={total}[mus]",
         "[mus][sc]sidechaincompress=threshold=0.03:ratio=4:attack=40:release=600[duck]",
         f"[v1][duck]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.94,aresample=48000,apad,atrim=duration={total}[aout]",
     ]
