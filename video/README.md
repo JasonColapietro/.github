@@ -1,6 +1,6 @@
 # Suede AI Agent Studio walkthrough: find, win and keep a client
 
-[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 5 min 31 s, 1920×1080, H.264, with an AAC voiceover read by Kokoro (the British `bf_emma` voice), matching on-screen captions, and an original background track that ducks under the voice.
+[`suede-agency-walkthrough.mp4`](suede-agency-walkthrough.mp4) is 5 min 46 s, 1920×1080, H.264, with a 48 kHz AAC voiceover read by Kokoro v1.0 (the British `bf_emma` voice), matching on-screen captions, and an original background track that ducks under the voice.
 
 The video follows an agency, Northlight Growth, as it takes one prospect from first audit to active client in the Studio's Clients workspace. The prospect is Brightside Family Dental. Both businesses are fictional and everything shown is sample data. The whole run is dry: nothing is crawled, sent, called or charged.
 
@@ -65,14 +65,22 @@ To record:
 
 ## Voiceover
 
-The narration is the on-screen captions read aloud by Kokoro, using the British `bf_emma` voice. A few words are spelled out first so they're read correctly; for example "AI" becomes "A.I." and "5pm" becomes "5 p.m.".
+The narration is the on-screen captions read aloud by Kokoro v1.0, using the British `bf_emma` voice. The script is written to be heard: full sentences with verbs, no parentheses, and no lists strung together with colons.
 
-- **Model and runtime:** Kokoro v0.19 in its sherpa-onnx export (`kokoro-int8-en-v0_19`), run through the official `sherpa-onnx-node` package. Hugging Face was blocked in the recording sandbox, so the model files were copied from the npm package `n8n-nodes-ttsbro`, which bundles them. Only the model files were used; none of that package's code was run.
+- **Model:** Kokoro-82M v1.0 at full precision, in the official k2-fsa export (`kokoro-multi-lang-v1_0` from the `tts-models` release of `k2-fsa/sherpa-onnx` on GitHub). Hugging Face was blocked in the recording sandbox, and that release is the official copy that was reachable. Its `bf_emma` voice matches the one in the official `kokoro-js` npm package byte for byte.
+- **Pronunciation:** [`recorder/kokoro_v1.py`](recorder/kokoro_v1.py) turns each line into phonemes with misaki in British mode, the phonemizer Kokoro v1.0 was trained with. misaki uses spaCy's `en_core_web_sm` for word types and espeak-ng for words it doesn't know. The script then runs the model with onnxruntime and picks the voice's style vector by phoneme count, as Kokoro's own pipeline does. misaki already reads "AI", "KPIs", "SEO", "MCP" and "5pm" correctly. `spoken()` in `lib.mjs` spells out only "7:12pm", "10am", "Nov 19" and "v1".
 - **Pacing:** the recorder waits for each line to finish before it moves to the next caption or cuts to the next page. Each scene therefore lasts as long as its line.
-- **Caching:** the first take synthesizes every line with the camera paused and caches it in `vo/`. A second take from a clean database then plays at natural pace.
-- **Placement:** `mix.mjs` maps each line's logged start time onto the cut-down video, places the clips with `adelay`, and normalizes the mix to −16 LUFS.
+- **Caching:** the first take voices every line with the camera paused and caches it in `vo/`, keyed by model, voice, speed and text. A second take from a clean database then plays at natural pace.
+- **Placement:** `mix.mjs` maps each line's logged start time onto the cut-down video, places the clips with `adelay`, normalizes the mix to −16 LUFS, and resamples it to 48 kHz.
 
-To use a different voice, set `VO_SID` (the default is 7, `bf_emma`). [`recorder/pregen.cjs`](recorder/pregen.cjs) re-voices every cached line for a new speaker, so one take is enough. The available voices are 0 `af`, 1 `af_bella`, 2 `af_nicole`, 3 `af_sarah`, 4 `af_sky`, 5 `am_adam`, 6 `am_michael`, 7 `bf_emma`, 8 `bf_isabella`, 9 `bm_george` and 10 `bm_lewis`.
+Setting up the voice:
+1. Create a Python 3.12 environment.
+2. Install `misaki==0.9.4 num2words spacy phonemizer-fork espeakng-loader onnxruntime numpy` in it, plus `en_core_web_sm` 3.8.0 from spaCy's GitHub release.
+3. Set `KOKORO_PY` to that environment's Python and `KOKORO_DIR` to the unpacked `kokoro-multi-lang-v1_0` folder. `lib.mjs` starts one synthesis worker per take, so the model loads once.
+
+To use a different voice, set `VO_VOICE` (the default is `bf_emma`). [`recorder/pregen.cjs`](recorder/pregen.cjs) voices every cached line for the new voice ahead of time, so one more take is enough. British voices are `bf_alice`, `bf_emma`, `bf_isabella`, `bf_lily`, `bm_daniel`, `bm_fable`, `bm_george` and `bm_lewis`. American ones include `af_heart`, `af_bella`, `am_michael` and `am_fenrir`.
+
+The first versions of this video used Kokoro v0.19 in its compressed int8 sherpa-onnx export, with American pronunciation rules applied to the British voice. The 60-second social cuts still carry that earlier voice ([`recorder/social-vo.cjs`](recorder/social-vo.cjs)).
 
 ## Music
 
@@ -84,7 +92,7 @@ To use a different voice, set `VO_SID` (the default is 7, `bf_emma`). [`recorder
 [`recorder/add-music.sh`](recorder/add-music.sh) mixes it under the voice:
 - It removes the lowest bass and dips the 250 Hz and 2.5 kHz ranges, so the voice stays clear.
 - It sets the music to about -32 LUFS (normalized to -24 LUFS, then lowered 8 dB) and ducks it further under the voice with sidechain compression.
-- The final mix measures about -15.7 LUFS overall. Between lines, the music plays on its own at about -32 LUFS, a quiet background layer.
+- The final mix measures about -15.5 LUFS overall. Between lines, the music plays on its own at about -32 LUFS, a quiet background layer.
 
 ## 60-second social cut
 

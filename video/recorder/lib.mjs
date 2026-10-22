@@ -1,45 +1,54 @@
 // Recording helpers for the local Suede AI Agent Studio walkthrough: CDP screencast
 // capture, and an on-page caption, cursor and title-card layer styled after the
-// site's dark Makro theme (near-black ground, #f4f4f5 ink, lime #d9ff5c accent).
+// site's Makro theme (white cards on cool paper, near-black ink, lime #d9ff5c accent).
 import { createRequire } from "node:module";
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import { spawn } from "node:child_process";
 const require = createRequire(import.meta.url);
 const { chromium } = require("/opt/node22/lib/node_modules/playwright");
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 
-// ── Kokoro narration (sherpa-onnx export of Kokoro v0.19) ──────────────────
-const VOICE = Number(process.env.VO_SID ?? 7); // 7 = bf_emma
+// ── Kokoro narration (Kokoro-82M v1.0, official k2-fsa ONNX export) ─────────
+// kokoro_v1.py phonemizes with misaki's British G2P, the phonemizer Kokoro v1.0
+// was trained with, and runs in one long-lived worker so the model loads once.
+const VOICE = process.env.VO_VOICE ?? "bf_emma";
 const VO_SPEED = Number(process.env.VO_SPEED ?? 1.0);
 const VO_DIR = path.join(HERE, "vo");
+// KOKORO_DIR: the unpacked kokoro-multi-lang-v1_0 release; KOKORO_PY: a Python with
+// misaki, spaCy's en_core_web_sm and onnxruntime installed.
+const KOKORO_DIR = process.env.KOKORO_DIR ?? path.join(HERE, "kokoro-multi-lang-v1_0");
+const KOKORO_PY = process.env.KOKORO_PY ?? "python3";
 fs.mkdirSync(VO_DIR, { recursive: true });
-let ttsEngine = null;
+let worker = null;
 function tts() {
-  if (ttsEngine) return ttsEngine;
-  const sherpa = require(path.join(HERE, "tts-runtime/node_modules/sherpa-onnx-node"));
-  const M = path.join(HERE, "kokoro-model");
-  ttsEngine = {
-    sherpa,
-    engine: new sherpa.OfflineTts({
-      model: { kokoro: { model: `${M}/model.int8.onnx`, voices: `${M}/voices.bin`, tokens: `${M}/tokens.txt`, dataDir: `${M}/espeak-ng-data` }, numThreads: 4, provider: "cpu", debug: false },
-      maxNumSentences: 1,
-    }),
+  if (worker) return worker;
+  const proc = spawn(KOKORO_PY, ["-I", path.join(HERE, "kokoro_v1.py"), KOKORO_DIR, "-"], { stdio: ["pipe", "pipe", "inherit"] });
+  const waiting = [];
+  let buf = "";
+  proc.stdout.on("data", (chunk) => {
+    buf += chunk;
+    let nl;
+    while ((nl = buf.indexOf("\n")) >= 0) {
+      const line = buf.slice(0, nl);
+      buf = buf.slice(nl + 1);
+      waiting.shift()?.(JSON.parse(line));
+    }
+  });
+  proc.on("exit", (code) => { if (code) throw new Error(`kokoro worker exited ${code}`); });
+  worker = {
+    generate: (job) => new Promise((resolve) => { waiting.push(resolve); proc.stdin.write(JSON.stringify(job) + "\n"); }),
+    close: () => proc.stdin.end(),
   };
-  return ttsEngine;
+  return worker;
 }
-// Spell out what the phonemizer would otherwise misread.
+// misaki reads AI, KPIs, SEO, MCP, Dr. and "5pm" correctly; spell out the rest.
 export function spoken(text) {
   return text
     .replace(/\bDr\./g, "Doctor")
-    .replace(/\bKPIs\b/g, "K.P.I.s")
-    .replace(/\bKPI\b/g, "K.P.I.")
-    .replace(/\bSEO\b/g, "S.E.O.")
-    .replace(/\bMCP\b/g, "M.C.P.")
-    .replace(/\bAI\b/g, "A.I.")
     .replace(/\b7:12pm\b/g, "seven twelve p.m.")
-    .replace(/\b(\d{1,2})pm\b/g, "$1 p.m.")
-    .replace(/\b(\d{1,2})am\b/g, "$1 a.m.")
+    .replace(/\b(\d{1,2})am\b\.?/g, "$1 a.m.")
     .replace(/\bNov 19\b/g, "November nineteenth")
     .replace(/\bv1\b/g, "version one")
     .replace(/\s*·\s*/g, ", ")
@@ -48,19 +57,20 @@ export function spoken(text) {
 }
 function clipFor(text) {
   const say = spoken(text);
-  const key = crypto.createHash("sha1").update(`${VOICE}|${VO_SPEED}|${say}`).digest("hex").slice(0, 16);
+  const key = crypto.createHash("sha1").update(`kokoro-v1.0|${VOICE}|${VO_SPEED}|${say}`).digest("hex").slice(0, 16);
   const file = path.join(VO_DIR, `${key}.wav`);
   const meta = `${file}.json`;
   if (fs.existsSync(meta)) return { file, ...JSON.parse(fs.readFileSync(meta, "utf8")), cached: true };
   return { file, say, cached: false };
 }
-function synth(clip) {
-  const { sherpa, engine } = tts();
-  const a = engine.generate({ text: clip.say, sid: VOICE, speed: VO_SPEED });
-  sherpa.writeWave(clip.file, { samples: a.samples, sampleRate: a.sampleRate });
-  const dur = a.samples.length / a.sampleRate;
-  fs.writeFileSync(`${clip.file}.json`, JSON.stringify({ dur, say: clip.say }));
+async function synth(clip) {
+  const { dur, phonemes } = await tts().generate({ text: clip.say, out: clip.file, voice: VOICE, speed: VO_SPEED });
+  fs.writeFileSync(`${clip.file}.json`, JSON.stringify({ dur, say: clip.say, voice: `kokoro-v1.0 ${VOICE}`, phonemes }));
   return { ...clip, dur, cached: false };
+}
+export function closeVoice() {
+  worker?.close();
+  worker = null;
 }
 
 export const BASE = "http://localhost:3210";
@@ -210,7 +220,7 @@ export async function startStudio({ out = "frames" } = {}) {
     if (!clip.cached) {
       const wasRecording = recording;
       if (wasRecording) await cut();
-      clip = synth(clip);
+      clip = await synth(clip);
       log("voiced", clip.dur.toFixed(1) + "s", clip.say.slice(0, 60));
       if (wasRecording) await rec();
     }
@@ -349,6 +359,7 @@ export async function startStudio({ out = "frames" } = {}) {
     fs.writeFileSync("timeline.json", JSON.stringify({ frames, segments, narration }));
     log("frames", frames.length, "segments", segments.length);
     await browser.close();
+    closeVoice();
   }
 
   return { page, ctx, cdp, wait, log, rec, cut, nudge, decorate, go, say, moveTo, pointAt, clickFx, click, clickNav, type, scrollY, scrollTo, card, safe, finish };
