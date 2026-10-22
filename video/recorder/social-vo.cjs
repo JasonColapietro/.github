@@ -1,23 +1,26 @@
-// Voices the 60-second social cut's lines with Kokoro bf_emma (sid 7) into vo-social/.
+// Voices the 60-second social cut's lines with Kokoro v1.0 bf_emma into vo-social/,
+// through kokoro_v1.py (misaki British G2P). Uses KOKORO_DIR and KOKORO_PY like lib.mjs.
 const fs = require("node:fs");
 const path = require("node:path");
-const sherpa = require(path.join(__dirname, "tts-runtime/node_modules/sherpa-onnx-node"));
+const { execFileSync } = require("node:child_process");
 
-const M = path.join(__dirname, "kokoro-model");
+const VOICE = process.env.VO_VOICE ?? "bf_emma";
+const SPEED = Number(process.env.VO_SPEED ?? 1.0);
+const KOKORO_DIR = process.env.KOKORO_DIR ?? path.join(__dirname, "kokoro-multi-lang-v1_0");
+const KOKORO_PY = process.env.KOKORO_PY ?? "python3";
 const OUT = path.join(__dirname, "vo-social");
 fs.mkdirSync(OUT, { recursive: true });
-const tts = new sherpa.OfflineTts({
-  model: { kokoro: { model: `${M}/model.int8.onnx`, voices: `${M}/voices.bin`, tokens: `${M}/tokens.txt`, dataDir: `${M}/espeak-ng-data` }, numThreads: 4, provider: "cpu", debug: false },
-  maxNumSentences: 1,
-});
 
-const lines = JSON.parse(fs.readFileSync(path.join(__dirname, "social-beats.json"), "utf8"));
+const beats = JSON.parse(fs.readFileSync(path.join(__dirname, "social-beats.json"), "utf8"));
+const jobs = beats.map((beat) => ({ text: beat.say, out: path.join(OUT, `${beat.id}.wav`), voice: VOICE, speed: SPEED }));
+const jobFile = path.join(OUT, "jobs.json");
+fs.writeFileSync(jobFile, JSON.stringify(jobs));
+const results = execFileSync(KOKORO_PY, ["-I", path.join(__dirname, "kokoro_v1.py"), KOKORO_DIR, jobFile], { encoding: "utf8" })
+  .trim().split("\n").map((l) => JSON.parse(l));
+fs.rmSync(jobFile);
 const meta = {};
-for (const beat of lines) {
-  const a = tts.generate({ text: beat.say, sid: 7, speed: 1.05 });
-  const file = path.join(OUT, `${beat.id}.wav`);
-  sherpa.writeWave(file, { samples: a.samples, sampleRate: a.sampleRate });
-  meta[beat.id] = a.samples.length / a.sampleRate;
-  console.log(beat.id, meta[beat.id].toFixed(2) + "s", beat.say);
+for (const [i, r] of results.entries()) {
+  meta[beats[i].id] = r.dur;
+  console.log(beats[i].id, r.dur.toFixed(2) + "s", beats[i].say);
 }
 fs.writeFileSync(path.join(OUT, "durations.json"), JSON.stringify(meta, null, 2));
