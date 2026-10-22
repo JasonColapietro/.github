@@ -25,10 +25,10 @@ await card({
 }, { holdMs: 5600 });
 
 // ═══ 1 · Find ══════════════════════════════════════════════════════════════
-await say("01 · Find", "Suede AI Agent Studio is where an agency finds, wins and keeps clients: open with an audit, keep the account with workflows.", 5200);
+await say("01 · Find", "Suede AI Agent Studio is where an agency finds, wins and keeps its clients. You open with an audit, and you keep the account with workflows.", 5200);
 await safe("home outcomes", async () => {
   await scrollTo(page.getByText("Find, win and keep clients.").first(), { offset: 110, ms: 2600 });
-  await say("01 · Find", "Prospect research, audit fixes you approve, an AI receptionist and monthly AI-search checks, each one in plain view.", 5200);
+  await say("01 · Find", "Prospect research, audit fixes you approve, an AI receptionist, and monthly checks on AI search. All of it in plain view.", 5200);
 });
 
 await go("/clients");
@@ -56,7 +56,7 @@ await safe("new client", async () => {
   await rec();
   clientId = page.url().match(/\/clients\/([0-9a-f-]{36})/)?.[1] ?? null;
   log("client", clientId);
-  await say("01 · Find", "Brightside is a prospect with its own record, and the next action is already set: run the first audit.", 5000);
+  await say("01 · Find", "Brightside now has its own record, and the next step is already set: run the first audit.", 5000);
   await pointAt(page.getByText("Next action").first(), { dx: 120 });
   await wait(1200);
 });
@@ -71,15 +71,15 @@ seed("audit");
 // ═══ 2 · Audit ═════════════════════════════════════════════════════════════
 await go(`${C}/audit`);
 await chap(2, "Audit before the call.", "Evidence,", "not guesses.", "Every finding carries its source and a prepared fix.");
-await say("02 · Audit", "Run audit crawls the site and checks AI visibility. This sandbox is offline, so audit v1 holds sample findings for the demo.", 5600);
+await say("02 · Audit", "The audit crawls the site and checks how it shows up in AI search. This demo runs offline, so audit v1 holds sample findings.", 5600);
 await safe("audit read", async () => {
   await scrollTo(page.getByText("Audit version", { exact: true }).first(), { offset: 110, ms: 1800 });
-  await say("02 · Audit", "Score 74 out of 100. AI visibility wasn't run, so it's marked as not run instead of guessed.", 5000);
+  await say("02 · Audit", "It scores 74 out of 100. The AI visibility check wasn't run, so it's marked as not run, rather than guessed.", 5000);
   await scrollTo(page.getByText("Enquiries are being missed", { exact: true }).first(), { offset: 200, ms: 1800 });
-  await say("02 · Audit", "Your own observation, labeled as such: 2 of 3 test calls after 5pm went to voicemail. Nothing here is inferred from the website.", 5800);
+  await say("02 · Audit", "This one is your own observation, and it's labeled that way: two of three test calls after 5pm went to voicemail. None of it is inferred from the website.", 5800);
   await scrollTo(page.getByText("Duplicate title", { exact: true }).first(), { offset: 200, ms: 1800 });
-  await say("02 · Audit", "Duplicate titles on three pages, with the pages as evidence and a recommended workflow to fix them.", 4800);
-  await say("02 · Audit", "Choose what the prospect sees: include both findings and their prepared fixes.", 400);
+  await say("02 · Audit", "Three pages share the same title. The pages are the evidence, and there's a recommended workflow to fix them.", 4800);
+  await say("02 · Audit", "Now choose what the prospect sees. Include both findings, and their prepared fixes.", 400);
   for (const t of ["Duplicate title", "Enquiries are being missed"]) {
     await click(page.getByLabel(`Include issue: ${t}`), { ms: 600 });
     await wait(500);
@@ -99,11 +99,11 @@ await safe("packet build", async () => {
   await page.getByText("Packet v1", { exact: true }).first().waitFor({ timeout: 20000 });
   await wait(800);
   await scrollTo(page.getByText("Packet v1", { exact: true }).first(), { offset: 260, ms: 1400 });
-  await say("03 · Offer", "Packet v1 is ready. With model drafting off, its summary comes straight from the audit facts.", 4400);
+  await say("03 · Offer", "Packet v1 is ready. Model drafting is off, so the summary comes straight from the audit facts.", 4400);
   const frame = page.locator("iframe").first();
   await scrollTo(frame, { offset: 90, ms: 1800 });
   await wait(1500);
-  await say("03 · Offer", "Your agency as provider, Brightside as recipient: the findings, two free fixes, suggested workflows and next steps.", 3600);
+  await say("03 · Offer", "Your agency is the provider, and Brightside is the recipient. Inside are the findings, two free fixes, suggested workflows, and next steps.", 3600);
   await page.mouse.move(800, 600);
   for (let i = 0; i < 3; i += 1) { await page.mouse.wheel(0, 420); await wait(900); }
   await wait(1200);
@@ -117,7 +117,7 @@ await go(`${C}/brand`);
 await chap(4, "Reach out.", "Then", "win the account.", "A short first touch with its evidence, then the reply and the scope in the same record.");
 await safe("outreach", async () => {
   await scrollTo(page.getByRole("heading", { name: "Review queue" }), { offset: 90, ms: 2000 });
-  await say("04 · Win", "A first-touch email for Dr. Park: it names the three pages and offers the title fix free.", 5600);
+  await say("04 · Win", "Here's a first-touch email for Dr. Park. It names the three pages, and offers the title fix for free.", 5600);
   await click(page.getByRole("button", { name: "Approve", exact: true }).first());
   await say("04 · Win", "Approved means ready, not sent. It goes out from your own mailbox when you send it.", 4600);
 });
@@ -126,9 +126,9 @@ await go(`${C}/inboxes`);
 await rec();
 await safe("reply", async () => {
   await scrollTo(page.getByText("Re: Three Brightside pages share one title in Google").first(), { offset: 140, ms: 1600 });
-  await say("04 · Win", "Dr. Park replies (an illustrative reply for this demo): evenings are the real problem.", 5000);
+  await say("04 · Win", "Dr. Park replies. It's an illustrative reply for this demo: evenings are the real problem.", 5000);
   await scrollTo(page.getByText("Prepared reply", { exact: true }).first(), { offset: 160, ms: 1400 });
-  await say("04 · Win", "The scope is prepared in the same thread: the free title fix, page descriptions, and an AI receptionist after 5pm.", 2800);
+  await say("04 · Win", "The scope is ready in the same thread: the free title fix, page descriptions, and an AI receptionist after 5pm.", 2800);
   const ta = page.locator("textarea").first();
   await pointAt(ta);
   await ta.evaluate((el) => { el.scrollTop = 0; const end = el.scrollHeight; const t0 = performance.now(); const step = (now) => { const p = Math.min(1, (now - t0) / 2600); el.scrollTop = end * p; if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); });
@@ -138,7 +138,7 @@ await safe("reply", async () => {
 await go(C);
 await rec();
 await safe("mark won", async () => {
-  await say("04 · Win", "She says yes. Mark Brightside active: the findings, scope and conversation stay with the account.", 1000);
+  await say("04 · Win", "She says yes. Mark Brightside active, and the findings, scope and conversation stay with the account.", 1000);
   await scrollTo(page.getByText("Edit client details").first(), { offset: 420, ms: 1600 });
   await click(page.getByText("Edit client details").first());
   await wait(600);
@@ -174,7 +174,7 @@ await safe("voice", async () => {
   await scrollTo(page.getByText("Marisol Vega", { exact: true }).first(), { offset: 150, ms: 1800 });
   await say("05 · Keep", "The AI receptionist now answers Brightside's line after 5pm. In this sample call at 7:12pm, a new family of four wants Saturday visits.", 6000);
   await scrollTo(page.getByText("Note for the client").first(), { offset: 260, ms: 1400 });
-  await say("05 · Keep", "You decide what the client sees: call notes stay private, and one plain note goes to the client view.", 5000);
+  await say("05 · Keep", "You decide what the client sees. Call notes stay private, and one plain note goes to the client view.", 5000);
 });
 
 await go(`${C}/leads`);
@@ -184,7 +184,7 @@ await safe("leads", async () => {
   const stage = page.getByLabel("Stage for Marisol Vega (family of four)");
   await pointAt(stage);
   await stage.selectOption("booked");
-  await say("05 · Keep", "The front desk called back: Marisol's family is booked for Saturday.", 4400);
+  await say("05 · Keep", "The front desk called back, and Marisol's family is booked for Saturday.", 4400);
 });
 
 await go(`${C}/kpis`);
@@ -199,7 +199,7 @@ await safe("kpis", async () => {
 await go(`${C}/loop`);
 await rec();
 await safe("loop", async () => {
-  await say("05 · Keep", "Every month: re-audit, prioritize, deliver, measure, all against the same baseline.", 3600);
+  await say("05 · Keep", "Every month, the loop re-audits, prioritizes, delivers and measures, all against the same baseline.", 3600);
   await scrollTo(page.getByText(/Next client review/).first(), { offset: 260, ms: 1600 });
   await pointAt(page.getByText(/Next client review/).first(), { dx: 220 });
   await say("05 · Keep", "The next client review is already on record: Thursday, Nov 19, at 10am.", 4400);
@@ -232,7 +232,7 @@ await safe("skills scroll", async () => {
 
 await go("/clients");
 await rec();
-await say("Done", "Back on Clients: Brightside is active, with its score and next action. Find, win and keep the next one.", 5200);
+await say("Done", "Back on Clients, Brightside is active, with its score and its next action. Now find, win and keep the next one.", 5200);
 
 await card({
   eyebrow: "agents.suedeai.ai",

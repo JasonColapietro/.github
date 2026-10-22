@@ -39,7 +39,7 @@ const chains = placed.map((p, i) => {
   const ms = Math.round(p.at * 1000);
   return `[${i + 1}:a]aresample=48000,aformat=channel_layouts=stereo,adelay=${ms}|${ms}[a${i}]`;
 });
-const mix = `${placed.map((_, i) => `[a${i}]`).join("")}amix=inputs=${placed.length}:normalize=0:dropout_transition=0,loudnorm=I=-16:TP=-1.5:LRA=11,apad[aout]`;
+const mix = `${placed.map((_, i) => `[a${i}]`).join("")}amix=inputs=${placed.length}:normalize=0:dropout_transition=0,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,apad[aout]`;
 args.push(
   "-filter_complex", [...chains, mix].join(";"),
   "-map", "0:v", "-map", "[aout]",
