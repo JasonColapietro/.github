@@ -3,9 +3,8 @@
 // These tests run the real patterns against the real README, so a wording
 // change fails here rather than going quiet.
 //
-// The network half (countSkills, countUpstream) is not exercised. It needs the
-// GitHub search endpoint, which is unavailable in some sandboxes, and stubbing
-// it would only test the stub.
+// The source-verification tests supply GitHub responses to exercise the guard's
+// own trust and deduplication decisions; they do not claim to test GitHub.
 
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -280,4 +279,97 @@ test("a timed-out search is refused rather than counted", async () => {
   } finally {
     globalThis.fetch = real;
   }
+});
+
+// This is the exact historical acceptance that vanished from GitHub search
+// when its upstream repository disabled pull requests. The fixture is pinned
+// independently of the receipt file so a changed author/SHA cannot bless itself.
+const HISTORICAL_REPO = "ccplugins/awesome-claude-code-plugins";
+const HISTORICAL_SHA = "f7fb0b6201aa2f4d1392011c312522b2be696b7a";
+const HISTORICAL_PR = `https://github.com/${HISTORICAL_REPO}/pull/273`;
+const searchItem = (url, repo) => ({ html_url: url, repository_url: `https://api.github.com/repos/${repo}` });
+
+function upstreamSources(t, options = {}) {
+  const repo = { full_name: HISTORICAL_REPO, has_pull_requests: false, default_branch: "main", ...options.repo };
+  const commit = {
+    sha: HISTORICAL_SHA,
+    author: { login: "JasonColapietro", id: 55137770 },
+    commit: { message: "docs: add iOS app dev skills (#273)" },
+    ...options.commit,
+  };
+  const comparison = {
+    status: "ahead", behind_by: 0,
+    base_commit: { sha: HISTORICAL_SHA }, merge_base_commit: { sha: HISTORICAL_SHA },
+    ...options.comparison,
+  };
+  t.mock.method(globalThis, "fetch", async (input) => {
+    const url = new URL(input);
+    let data;
+    if (url.pathname === "/search/issues") {
+      const items = url.searchParams.get("q").includes("author:JasonColapietro")
+        ? (options.items ?? [searchItem("https://github.com/other/project/pull/1", "other/project")])
+        : (options.otherItems ?? []);
+      data = { incomplete_results: false, total_count: items.length, items };
+    } else if (url.pathname === `/repos/${HISTORICAL_REPO}`) {
+      data = repo;
+    } else if (url.pathname === `/repos/${HISTORICAL_REPO}/commits/${HISTORICAL_SHA}`) {
+      if (options.commitStatus) return new Response("unavailable", { status: options.commitStatus });
+      data = commit;
+    } else if (url.pathname === `/repos/${HISTORICAL_REPO}/compare/${HISTORICAL_SHA}...${repo.default_branch}`) {
+      data = comparison;
+    } else {
+      throw new Error(`unexpected source request: ${url}`);
+    }
+    return new Response(JSON.stringify(data), { status: 200, headers: { "content-type": "application/json" } });
+  });
+}
+
+test("a verified historical acceptance supplements a complete search", async (t) => {
+  upstreamSources(t);
+  assert.deepEqual(await countUpstream(), { prs: 2, repos: 2 });
+});
+
+test("a restored historical PR is deduplicated across case-insensitive search URLs", async (t) => {
+  upstreamSources(t, {
+    items: [searchItem(HISTORICAL_PR, HISTORICAL_REPO)],
+    otherItems: [searchItem(HISTORICAL_PR.toUpperCase(), HISTORICAL_REPO.toUpperCase())],
+    // Search is authoritative when the merged PR is visible again; the fallback
+    // must neither count it twice nor require the disabled-PR condition then.
+    repo: { has_pull_requests: true }, commitStatus: 403,
+  });
+  assert.deepEqual(await countUpstream(), { prs: 1, repos: 1 });
+});
+
+test("a historical acceptance does not add a second repository already in search", async (t) => {
+  upstreamSources(t, { items: [searchItem(`https://github.com/${HISTORICAL_REPO}/pull/12`, HISTORICAL_REPO.toUpperCase())] });
+  assert.deepEqual(await countUpstream(), { prs: 2, repos: 1 });
+});
+
+for (const [label, options] of [
+  ["a different repository", { repo: { full_name: "other/project" } }],
+  ["enabled pull requests", { repo: { has_pull_requests: true } }],
+  ["an unreported pull-request setting", { repo: { has_pull_requests: undefined } }],
+  ["the wrong commit SHA", { commit: { sha: "a".repeat(40) } }],
+  ["another author login", { commit: { author: { login: "someone-else", id: 55137770 } } }],
+  ["another author ID", { commit: { author: { login: "JasonColapietro", id: 1 } } }],
+  ["an unlinked commit author", { commit: { author: null } }],
+  ["another PR in the commit subject", { commit: { commit: { message: "docs: add iOS app dev skills (#999)" } } }],
+  ["a divergent default branch", { comparison: { status: "diverged", behind_by: 1 } }],
+  ["a different comparison base", { comparison: { base_commit: { sha: "a".repeat(40) } } }],
+  ["a different merge base", { comparison: { merge_base_commit: { sha: "a".repeat(40) } } }],
+]) {
+  test(`a historical receipt rejects ${label}`, async (t) => {
+    upstreamSources(t, options);
+    await assert.rejects(countUpstream(), /historical receipt/);
+  });
+}
+
+test("a historical receipt follows the repository's actual default branch", async (t) => {
+  upstreamSources(t, { repo: { default_branch: "trunk" }, comparison: { status: "identical" } });
+  assert.deepEqual(await countUpstream(), { prs: 2, repos: 2 });
+});
+
+test("an unavailable historical commit fails closed", async (t) => {
+  upstreamSources(t, { commitStatus: 403 });
+  await assert.rejects(countUpstream(), /403/);
 });

@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "ccplugins/awesome-claude-code-plugins",
+    "pull_request": 273,
+    "merge_commit": "f7fb0b6201aa2f4d1392011c312522b2be696b7a",
+    "author": { "login": "JasonColapietro", "id": 55137770 },
+    "subject": "docs: add iOS app dev skills (#273)",
+    "reason": "The repository disabled pull requests, removing this accepted listing from search. Its authored squash commit remains on the default branch."
+  }
+]
