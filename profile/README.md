@@ -1,5 +1,11 @@
 ## Jason Colapietro (Johnny Suede)
 
+<p>
+  <a href="https://themanifest.com/artificial-intelligence/consulting/deployment/companies/florida"><img src="assets/florida-ai-deployment-ranking.svg" width="380" alt="TOP 24 IN FLORIDA"></a><br>
+  <strong>AI deployment developers · October 2026</strong><br>
+  Suede AI SEO ranked <strong>#24</strong>. <a href="https://themanifest.com/artificial-intelligence/consulting/deployment/companies/florida">View ranking →</a>
+</p>
+
 **Full-stack GEO, AEO and SEO with AI architecture integration — founder of [Suede AI](https://seo.suedeai.ai)**  
 I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category, then wire AI into the operation behind the answer.  
 West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
