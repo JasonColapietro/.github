@@ -17,7 +17,8 @@
 // Both numbers are derived, never asserted:
 //   skills  directories under skills/ in JasonColapietro/suede-creator-skills
 //   PRs     merged pull requests authored by the verified JasonColapietro and
-//           Suede-AI accounts into repositories neither account owns
+//           Suede-AI accounts into repositories neither account owns, including
+//           independently reverified receipts when an upstream disables PRs
 //   repos   distinct repositories among those pull requests
 //
 // Usage:
@@ -37,6 +38,7 @@ export const README_PATH = path.join(REPO_ROOT, "profile", "README.md");
 const SKILLS_REPO = "JasonColapietro/suede-creator-skills";
 const AUTHORS = ["JasonColapietro", "Suede-AI"];
 const API = "https://api.github.com";
+const HISTORICAL_RECEIPTS = JSON.parse(fs.readFileSync(new URL("./historical-upstream-receipts.json", import.meta.url), "utf8"));
 
 function headers() {
   const h = {
@@ -90,13 +92,45 @@ export async function countUpstream() {
       }
       const items = data.items ?? [];
       for (const item of items) {
-        seen.set(item.html_url, item.repository_url.split("/repos/")[1]);
+        // GitHub repository names and PR URLs are case-insensitive. Normalize
+        // both search and receipt identities before counting distinct entries.
+        seen.set(item.html_url.toLowerCase(), item.repository_url.split("/repos/")[1].toLowerCase());
       }
       if (items.length < 100) break;
     }
   }
   if (seen.size === 0) throw new Error("upstream search returned nothing");
+  for (const receipt of HISTORICAL_RECEIPTS) {
+    const url = `https://github.com/${receipt.repository}/pull/${receipt.pull_request}`.toLowerCase();
+    if (seen.has(url)) continue; // A restored searchable PR already has its vote.
+    await verifyHistoricalReceipt(receipt);
+    seen.set(url, receipt.repository.toLowerCase());
+  }
   return { prs: seen.size, repos: new Set(seen.values()).size };
+}
+
+// Search stops exposing old merged PRs when an upstream disables pull requests.
+// A receipt is not an unconditional adjustment: verify the exact authored
+// squash commit and that it remains an ancestor of the current default branch
+// on every run. All other missing/search failures still fail closed.
+async function verifyHistoricalReceipt(receipt) {
+  const fail = (detail) => { throw new Error(`historical receipt ${receipt.repository}#${receipt.pull_request}: ${detail}`); };
+  if (!AUTHORS.includes(receipt.author?.login) || AUTHORS.some((author) => receipt.repository.split("/")[0].toLowerCase() === author.toLowerCase())) {
+    fail("receipt is not an upstream contribution by a verified account");
+  }
+  const root = `${API}/repos/${receipt.repository}`;
+  const repo = await getJSON(root);
+  if (repo.full_name?.toLowerCase() !== receipt.repository.toLowerCase() || repo.has_pull_requests !== false || !repo.default_branch) {
+    fail("repository identity or disabled pull-request setting does not match");
+  }
+  const commit = await getJSON(`${root}/commits/${receipt.merge_commit}`);
+  if (commit.sha !== receipt.merge_commit || commit.author?.login !== receipt.author.login || commit.author?.id !== receipt.author.id || commit.commit?.message?.split("\n")[0] !== receipt.subject) {
+    fail("exact commit, author, or PR subject does not match");
+  }
+  const comparison = await getJSON(`${root}/compare/${receipt.merge_commit}...${encodeURIComponent(repo.default_branch)}`);
+  if (!["ahead", "identical"].includes(comparison.status) || comparison.behind_by !== 0 || comparison.base_commit?.sha !== receipt.merge_commit || comparison.merge_base_commit?.sha !== receipt.merge_commit) {
+    fail("verified commit is not an ancestor of the current default branch");
+  }
 }
 
 // Each claim names what it guards, the pattern whose first capture group is the
