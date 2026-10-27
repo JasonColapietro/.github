@@ -138,25 +138,25 @@ Suede AI Agent Studio is also listed in [xpaysh/awesome-x402](https://github.com
 
 Seven current books: five on Amazon and two published independently.
 
-**[The Screenshot](https://seo.suedeai.ai/book)** — free, [source on GitHub](https://github.com/JasonColapietro/suede-geo-book)  
+<img src="https://suedeai.ai/books/the-screenshot-cover.jpg" alt="Cover of The Screenshot" width="80"><br>**[The Screenshot](https://seo.suedeai.ai/book)** — free, [source on GitHub](https://github.com/JasonColapietro/suede-geo-book)<br>
 Why AI recommends your competitors, and how to fix it. The full method behind the GEO practice, in eleven chapters.
 
-**[The Signal Chain](https://guitar.solutions)** — 3 editions: Standard, Deluxe, Workbook  
+<img src="https://suedeai.ai/books/the-signal-chain-cover.webp" alt="Cover of The Signal Chain" width="80"><br>**[The Signal Chain](https://guitar.solutions)** — 3 editions: Standard, Deluxe, Workbook<br>
 The full history of guitar amplifiers, effects, and the pursuit of electric tone, sold direct. It now incorporates the earlier [*The Guitar Without a Number*](https://strumly.suedeai.ai/book/catalog), memoir-driven instruction for the self-taught player.
 
-**[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Kindle  
+<img src="https://suedeai.ai/books/human-authenticity-layer-cover.jpg" alt="Cover of The Human Authenticity Layer" width="80"><br>**[Suede Labs: The Human Authenticity Layer](https://www.amazon.com/dp/B0GD5FX6N6)** — Available in hardcover, paperback, and Kindle<br>
 The thesis document for programmable IP infrastructure in the AI media era.
 
-**[Proof as Infrastructure](https://www.amazon.com/dp/B0GMB2VLXQ)** — Kindle  
+<img src="https://suedeai.ai/books/proof-as-infrastructure-cover.jpg" alt="Cover of Proof as Infrastructure" width="80"><br>**[Proof as Infrastructure](https://www.amazon.com/dp/B0GMB2VLXQ)** — Available in hardcover, paperback, and Kindle<br>
 How to build systems that hold up when nobody trusts anybody: proof baked in, not bolted on. The blueprint under the registry.
 
-**[Stake Your Claim](https://www.amazon.com/dp/B0GRG8LGQQ)** — Kindle  
+<img src="https://suedeai.ai/books/stake-your-claim-cover.jpg" alt="Cover of Stake Your Claim" width="80"><br>**[Stake Your Claim](https://www.amazon.com/dp/B0GRG8LGQQ)** — Available in hardcover, paperback, and Kindle<br>
 Hard truths about turning the AI era into a real asset for creators.
 
-**[The Claude Code Bible](https://www.amazon.com/dp/B0HHTMJWB4)** — Kindle  
+<img src="https://suedeai.ai/books/claude-code-bible-cover.jpg" alt="Cover of The Claude Code Bible" width="80"><br>**[The Claude Code Bible](https://www.amazon.com/dp/B0HHTMJWB4)** — Available in hardcover, paperback, and Kindle<br>
 The operator's manual for running Claude Code and AI coding agents as real infrastructure rather than a demo.
 
-**[Codex in Production](https://www.amazon.com/dp/B0HHTF3LG1)** — Kindle  
+<img src="https://suedeai.ai/books/codex-in-production-cover.jpg" alt="Cover of Codex in Production" width="80"><br>**[Codex in Production](https://www.amazon.com/dp/B0HHTF3LG1)** — Available in hardcover, paperback, and Kindle<br>
 Running OpenAI Codex in production: AGENTS.md, worktrees, skills, security, and agent work that outlives a single session.
 
 ---
