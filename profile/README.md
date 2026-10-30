@@ -1,9 +1,10 @@
 ## Jason Colapietro (Johnny Suede)
 
 <p>
-  <a href="https://themanifest.com/artificial-intelligence/consulting/deployment/companies/florida"><img src="assets/florida-ai-deployment-ranking.svg" width="380" alt="TOP 24 IN FLORIDA"></a><br>
-  <strong>AI deployment developers · October 2026</strong><br>
-  Suede AI SEO ranked <strong>#24</strong>. <a href="https://themanifest.com/artificial-intelligence/consulting/deployment/companies/florida">View ranking →</a>
+  <a href="https://themanifest.com/artificial-intelligence/consulting/deployment/companies/florida"><img src="assets/florida-ai-deployment-ranking.svg" width="380" alt="#25 in Florida for AI deployment · The Manifest · October 30, 2026"></a><br>
+  <strong>AI deployment · The Manifest · October 30, 2026</strong><br>
+  Suede AI SEO is <strong>#1 among listed Palm Beach County-based companies and #25 in Florida</strong>.<br>
+  County position derived from listed locations in The Manifest’s Florida AI Deployment directory. <a href="https://themanifest.com/artificial-intelligence/consulting/deployment/companies/florida">View ranking →</a>
 </p>
 
 **Full-stack GEO, AEO and SEO with AI architecture integration — founder of [Suede AI](https://seo.suedeai.ai)**  
