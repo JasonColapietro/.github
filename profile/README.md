@@ -13,8 +13,8 @@ West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-54%20PRs%20%2F%2046%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
-[![Open-source skills](https://img.shields.io/badge/open--source%20skills-64-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-58%20PRs%20%2F%2049%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Open-source skills](https://img.shields.io/badge/open--source%20skills-66-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Book a call](https://img.shields.io/badge/book%20a%2030--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
 
 <p align="left">
@@ -102,15 +102,15 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 
 Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v7 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** 54 merged pull requests across 46 repositories I do not maintain, 8 of them 5,000+ stars · **+3,168 / −704** lines changed upstream on the substantive work listed above.
+**Totals:** 58 merged pull requests across 49 repositories I do not maintain, 10 of them 5,000+ stars · **+3,168 / −704** lines changed upstream on the substantive work listed above.
 
-That 54 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **33 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 54.
+That 58 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **37 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 58.
 
 ---
 
 ## Skill catalogs & awesome lists
 
-[Suede Creator Skills](https://skills.suedeai.ai) — 64 open-source agent skills for Claude Code and Codex — has been reviewed and merged into fifteen independent catalogs I don't maintain. The links record the merged pull requests; where an upstream has disabled pull requests, the accepted commit is linked too.
+[Suede Creator Skills](https://skills.suedeai.ai) — 66 open-source agent skills for Claude Code and Codex — has been reviewed and merged into fifteen independent catalogs I don't maintain. The links record the merged pull requests; where an upstream has disabled pull requests, the accepted commit is linked too.
 
 | Catalog | Merged |
 |---|---|
