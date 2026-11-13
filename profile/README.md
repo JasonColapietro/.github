@@ -9,13 +9,13 @@
 
 **Full-stack GEO, AEO and SEO with AI architecture integration — founder of [Suede AI](https://seo.suedeai.ai)**  
 I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category, then wire AI into the operation behind the answer.  
-West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
+West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 316-3205](tel:+15613163205)
 
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
 [![Contributions](https://img.shields.io/badge/contributions%20since%20May-12%2C280-181717?style=for-the-badge&logo=git&logoColor=white)](https://github.com/JasonColapietro)
-[![Upstream merged](https://img.shields.io/badge/upstream%20merged-58%20PRs%20%2F%2049%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
-[![Open-source skills](https://img.shields.io/badge/open--source%20skills-66-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
+[![Upstream merged](https://img.shields.io/badge/upstream%20merged-62%20PRs%20%2F%2053%20repos-2ea44f?style=for-the-badge&logo=github&logoColor=white)](#selected-upstream-contributions)
+[![Open-source skills](https://img.shields.io/badge/open--source%20skills-67-8A2BE2?style=for-the-badge&logo=anthropic&logoColor=white)](#skill-catalogs--awesome-lists)
 [![Book a call](https://img.shields.io/badge/book%20a%2030--min%20call-open%20calendar-1a7f37?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendar.app.google/8FyvYAspZaQFFP5eA)
 
 <p align="left">
@@ -39,7 +39,7 @@ What separates this from the rest of the category is that I ship the fixes. Most
 | **Then** | A fixed-fee 30-day answer-share sprint, quoted case by case, measured before and after on a prompt set you approve |
 | **Then** | Compound: a monthly SEO and GEO retainer that builds on the sprint, reported against the same prompts |
 
-[Book 30 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 401-0518](tel:+15614010518) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
+[Book 30 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 316-3205](tel:+15613163205) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
 
 ### Eight lanes, one firm
 
@@ -103,15 +103,15 @@ Accepted into codebases I don't own. Every link goes to the merged pull request.
 
 Plus a USB/IP patch series submitted upstream to the Linux kernel ([v2–v7 on lore.kernel.org](https://lore.kernel.org/linux-usb/)).
 
-**Totals:** 58 merged pull requests across 49 repositories I do not maintain, 10 of them 5,000+ stars · **+3,168 / −704** lines changed upstream on the substantive work listed above.
+**Totals:** 62 merged pull requests across 53 repositories I do not maintain, 10 of them 5,000+ stars · **+3,168 / −704** lines changed upstream on the substantive work listed above.
 
-That 58 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **37 substantive code or documentation contributions** and **21 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 58.
+That 62 counts the verified `JasonColapietro` and `Suede-AI` accounts together, and splits into **40 substantive code or documentation contributions** and **22 accepted listings** of my own work on catalog repositories. The Linux kernel USB/IP series is under review at v7, not merged, and is not counted in the 62.
 
 ---
 
 ## Skill catalogs & awesome lists
 
-[Suede Creator Skills](https://skills.suedeai.ai) — 66 open-source agent skills for Claude Code and Codex — has been reviewed and merged into fifteen independent catalogs I don't maintain. The links record the merged pull requests; where an upstream has disabled pull requests, the accepted commit is linked too.
+[Suede Creator Skills](https://skills.suedeai.ai) — 67 open-source agent skills for Claude Code and Codex — has been reviewed and merged into fifteen independent catalogs I don't maintain. The links record the merged pull requests; where an upstream has disabled pull requests, the accepted commit is linked too.
 
 | Catalog | Merged |
 |---|---|
@@ -207,7 +207,7 @@ I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro
 ### Connect
 
 **Book a call** · [30 minutes, pick a time](https://calendar.app.google/8FyvYAspZaQFFP5eA)  
-**Phone** · [(561) 401-0518](tel:+15614010518)  
+**Phone** · [(561) 316-3205](tel:+15613163205)  
 **Email** · [info@suedeai.ai](mailto:info@suedeai.ai) · press: [press@suedeai.ai](mailto:press@suedeai.ai)  
 **Based in** · West Palm Beach, Florida
 

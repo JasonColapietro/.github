@@ -189,7 +189,7 @@ Jason edits this one himself. Copy to paste:
 **Headline** (195/220)
 
 ```
-Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 58 upstream PRs merged · Author of seven books
+Founder, Suede AI · Full-stack GEO, AEO & SEO with AI architecture integration · Managed AI agents in Suede AI Agent Studio · Google Cloud partner · 62 upstream PRs merged · Author of seven books
 ```
 
 **Cover**: `images/li-cover-founder.png` (1584×396)
