@@ -193,7 +193,7 @@ test("rewriting does not touch unrelated numbers", () => {
   // A catalog pull request that happens to be numbered 49, and the phone
   // number, must survive a rewrite of the totals.
   assert.ok(updated.includes("awesome-skills/pull/49"), "a same-valued PR link was rewritten");
-  assert.ok(updated.includes("401-0518"), "the phone number was rewritten");
+  assert.ok(updated.includes("316-3205"), "the phone number was rewritten");
   assert.ok(updated.includes("12%2C280"), "the contributions badge was rewritten");
 });
 
