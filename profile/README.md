@@ -9,7 +9,7 @@
 
 **Full-stack GEO, AEO and SEO with AI architecture integration — founder of [Suede AI](https://seo.suedeai.ai)**  
 I make companies the answer when ChatGPT, Perplexity, Gemini and Google’s AI results get asked about their category, then wire AI into the operation behind the answer.  
-West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 401-0518](tel:+15614010518)
+West Palm Beach, Florida · [Book a 30-minute call](https://calendar.app.google/8FyvYAspZaQFFP5eA) · [(561) 316-3205](tel:+15613163205)
 
 [![Free AI Citation Check](https://img.shields.io/badge/free-AI%20citation%20check-ff6f00?style=for-the-badge&logo=perplexity&logoColor=white)](https://seo.suedeai.ai/ai-citation-check)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20partner-Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://seo.suedeai.ai)
@@ -39,7 +39,7 @@ What separates this from the rest of the category is that I ship the fixes. Most
 | **Then** | A fixed-fee 30-day answer-share sprint, quoted case by case, measured before and after on a prompt set you approve |
 | **Then** | Compound: a monthly SEO and GEO retainer that builds on the sprint, reported against the same prompts |
 
-[Book 30 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 401-0518](tel:+15614010518) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
+[Book 30 minutes](https://calendar.app.google/8FyvYAspZaQFFP5eA) &middot; [(561) 316-3205](tel:+15613163205) &middot; [info@suedeai.ai](mailto:info@suedeai.ai)
 
 ### Eight lanes, one firm
 
@@ -207,7 +207,7 @@ I write it up weekly at **[jasoncolapietro.substack.com](https://jasoncolapietro
 ### Connect
 
 **Book a call** · [30 minutes, pick a time](https://calendar.app.google/8FyvYAspZaQFFP5eA)  
-**Phone** · [(561) 401-0518](tel:+15614010518)  
+**Phone** · [(561) 316-3205](tel:+15613163205)  
 **Email** · [info@suedeai.ai](mailto:info@suedeai.ai) · press: [press@suedeai.ai](mailto:press@suedeai.ai)  
 **Based in** · West Palm Beach, Florida
 
